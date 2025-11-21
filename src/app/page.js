@@ -1,10 +1,15 @@
 import Banner from "@/components/banner/Banner";
-import Image from "next/image";
+import Filter from "@/components/filter/Filter";
 
 export default function Home() {
   return (
-    <main>
-      <Banner />
+    <main className="home">
+      <aside>
+        <Filter />
+      </aside>
+      <section>
+        <Banner />
+      </section>
     </main>
   );
 }
