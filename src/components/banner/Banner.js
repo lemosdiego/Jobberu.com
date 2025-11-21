@@ -58,14 +58,14 @@ export default function Banner() {
   }
 
   return (
-    <div className="w-full relative h-[550px] overflow-hidden ">
+    <div className="w-full relative h-[350px] overflow-hidden rounded">
       {/* Mapeia as imagens, colocando-as todas absolutas e sobrepostas
           Apenas a imagem atual fica visível (opacity 100), as demais ficam invisíveis (opacity 0)
           Aplica transição suave de opacidade com Tailwind CSS */}
       {imagesBanner.map((image, index) => (
         <div
           key={image.id}
-          className={`absolute inset-0 h-[550px] transition-opacity duration-500 ease-in-out ${
+          className={`absolute inset-0 h-full transition-opacity duration-500 ease-in-out rounded ${
             index === atualIndex
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
