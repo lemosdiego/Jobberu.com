@@ -28,20 +28,32 @@ body {
 }
 body {
 }
+header {
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+}
+header span {
+  font-family: "Stack Sans Notch", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  @apply text-4xl
+        
+        max-md:text-xl;
+}
 .home-page_container {
   @apply w-full 
         flex
         flex-col
         items-center
         justify-center
+        gap-8
         max-md:p-0;
 }
 
 .content-layout {
-  @apply grid  mt-8
+  @apply grid 
         [grid-template-columns:1.5fr_4fr]
         gap-8
-       w-[1200px]
+       w-[80vw]
         
         max-md:grid-cols-1
         max-md:mt-0

@@ -58,7 +58,7 @@ export default function Banner() {
   }
 
   return (
-    <div className="w-full relative h-[450px] overflow-hidden rounded">
+    <div className="w-[80vw] relative max-md:w-full h-[450px] overflow-hidden max-sm:h-[200px] max-md:h-[300px]">
       {/* Mapeia as imagens, colocando-as todas absolutas e sobrepostas
           Apenas a imagem atual fica visível (opacity 100), as demais ficam invisíveis (opacity 0)
           Aplica transição suave de opacidade com Tailwind CSS */}
@@ -78,7 +78,7 @@ export default function Banner() {
       {/* Botão para imagem anterior, posicionado na esquerda verticalmente centralizado */}
       <button
         onClick={imagemAnterior}
-        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 text-neutral-300 cursor-pointer text-5xl hover:text-6xl"
+        className="absolute top-1/2 left-4 transform -translate-y-1/2 z-10 text-neutral-300 cursor-pointer text-5xl hover:text-6xl max-md:text-3xl"
       >
         <IoIosArrowDropleftCircle />
       </button>
@@ -86,7 +86,7 @@ export default function Banner() {
       {/* Botão para próxima imagem, posicionado na direita verticalmente centralizado */}
       <button
         onClick={proximaImagem}
-        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 text-neutral-300 cursor-pointer text-5xl hover:text-6xl"
+        className="absolute top-1/2 right-4 transform -translate-y-1/2 z-10 text-neutral-300 cursor-pointer text-5xl hover:text-6xl  max-md:text-3xl"
       >
         <IoIosArrowDroprightCircle />
       </button>
