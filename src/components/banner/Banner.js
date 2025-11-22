@@ -58,7 +58,7 @@ export default function Banner() {
   }
 
   return (
-    <div className="w-full relative h-[350px] overflow-hidden rounded">
+    <div className="w-full relative h-[450px] overflow-hidden rounded">
       {/* Mapeia as imagens, colocando-as todas absolutas e sobrepostas
           Apenas a imagem atual fica visível (opacity 100), as demais ficam invisíveis (opacity 0)
           Aplica transição suave de opacidade com Tailwind CSS */}

@@ -16,7 +16,7 @@ const categories = [
 
 export default function Filter() {
   return (
-    <div className="filter-container">
+    <aside className="filter-container border">
       <input
         type="text"
         placeholder="Buscar serviço ou prestador"
@@ -32,6 +32,6 @@ export default function Filter() {
           </button>
         ))}
       </div>
-    </div>
+    </aside>
   );
 }
