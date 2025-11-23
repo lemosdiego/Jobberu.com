@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+.section-professionals {
+  @apply w-[1200px]
+        mb-8
+        grid
+        [grid-template-columns:1fr_4fr]
+        gap-4
+        
+        max-sm:w-full
+        max-sm:[grid-template-columns:1.4fr_4fr]
+        max-sm:gap-3
+        
+        max-md:w-[80vw]
+        max-md:[grid-template-columns:1.7fr_4fr]
+
+        max-lg:w-[700px]
+        max-lg:[grid-template-columns:2fr_4fr]
+        
+        max-xl:w-[900px]
+        max-xl:[grid-template-columns:1.7fr_4fr];
+}
+
+.professionals-filter {
+  @apply grid
+        gap-2;
+}
+.professionals-filter button {
+  @apply shadow 
+        p-3 
+        rounded
+       cursor-pointer
+        
+        max-sm:p-2;
+}
+.section-profissionals_card {
+  @apply grid
+        grid-cols-3
+        gap-2
+        
+        max-sm:grid-cols-1
+        
+        max-md:grid-cols-2
+        
+        max-lg:grid-cols-2;
+}
+.professionals-card {
+  @apply shadow
+        rounded
+        p-5;
+}
