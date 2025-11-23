@@ -31,7 +31,7 @@ const imagesBanner = [
   },
 ];
 
-export default function Banner() {
+export default function Bannerr() {
   // Estado com o índice da imagem atualmente exibida; começa em 0
   const [atualIndex, setAtualIndex] = useState(0);
 

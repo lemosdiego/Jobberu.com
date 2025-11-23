@@ -2,6 +2,7 @@ import "./globals.css";
 import "../assets/fonts.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/Footer/Footer";
+import { SearchFilterProvider } from "@/context/SearchFilterContext";
 
 export const metadata = {
   title: "Create Next App",
@@ -12,9 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        {children}
-        <Footer />
+        <SearchFilterProvider>
+          <Header />
+          {children}
+          <Footer />
+        </SearchFilterProvider>
       </body>
     </html>
   );
