@@ -32,7 +32,7 @@ body {
 header {
   box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
 }
-header span {
+.logo {
   font-family: "Stack Sans Notch", sans-serif;
   font-optical-sizing: auto;
   font-weight: 700;
@@ -53,7 +53,6 @@ header span {
         
         max-lg:gap-5;
 }
-
 .content-layout {
   @apply grid 
         [grid-template-columns:1.5fr_4fr]
@@ -71,11 +70,4 @@ header span {
         
         max-xl:[grid-template-columns:1.5fr_3.5fr]
          max-xl:w-[900px];
-}
-.content-layout aside {
-  @apply max-md:p-5;
-}
-.content-layout section {
-  @apply max-md:p-5
-          max-md:pt-0;
 }

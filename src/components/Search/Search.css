@@ -3,7 +3,6 @@
 .container-search {
   @apply relative  
         w-[1200px]
-        mb-8
         
         max-sm:w-full
 
