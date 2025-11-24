@@ -3,6 +3,7 @@ import professionals from "@/data/dataProfissionais";
 import Link from "next/link";
 import "./SectionProfessionals.css";
 import { useState } from "react";
+import { useEffect } from "react";
 
 const categories = [
   "Jardinagem",
@@ -23,6 +24,13 @@ const categories = [
 export default function SectionProfessionals() {
   // Estado que guarda as categorias selecionadas
   const [selectedCategories, setSelectedCategories] = useState([]);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
 
   function handleClickCategory(category) {
     if (selectedCategories.includes(category)) {
