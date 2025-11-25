@@ -13,6 +13,7 @@ export default function LoginPage() {
   const [erro, setErro] = useState("");
   const [sucesso, setSucesso] = useState("");
 
+  // Define se é página de login profissional pelo tipo da URL
   const isProfissional = type === "profissional";
 
   async function loginUsuario(event) {
@@ -37,19 +38,30 @@ export default function LoginPage() {
         return;
       }
 
-      setErro(""); // Limpa mensagem de erro ao ter sucesso
+      // Permite login apenas do tipo correto na rota correta
+      if (isProfissional && dados.usuario?.tipo !== "PRESTADOR") {
+        setErro("Apenas profissionais podem acessar esta página de login.");
+        return;
+      }
+      if (!isProfissional && dados.usuario?.tipo !== "CLIENTE") {
+        setErro("Apenas clientes podem acessar esta página de login.");
+        return;
+      }
+
+      setErro("");
       setSucesso("Login realizado com sucesso!");
 
       localStorage.setItem("token", dados.token);
       localStorage.setItem("usuario", JSON.stringify(dados.usuario));
 
+      // Redireciona para a página correta, usando o ID
       if (dados.usuario?.tipo === "PRESTADOR") {
-        router.push("/dashboard-professional");
+        router.push(`/dashboard-professional/${dados.usuario.id}`);
       } else {
-        router.push("/");
+        router.push(`/profile-client/${dados.usuario.id}`);
       }
     } catch (erro) {
-      setSucesso(""); // Limpa sucesso em caso de erro inesperado
+      setSucesso("");
       setErro("Erro ao fazer login");
     }
   }
@@ -57,7 +69,7 @@ export default function LoginPage() {
   return (
     <main
       className={`grid [grid-template-columns:4fr_3fr] min-h-[90vh] ${
-        isProfissional ? "bg-blue-200" : " bg-white"
+        isProfissional ? "bg-blue-200" : "bg-white"
       }`}
     >
       <div className="relative">
@@ -75,7 +87,6 @@ export default function LoginPage() {
             ? "Acessar painel do profissional"
             : "Entrar na sua conta"}
         </h2>
-
         <p className="mb-4 text-gray-600 w-[500px] text-center">
           {isProfissional
             ? "Faça login para gerenciar seus serviços, gerenciar perfil e responder clientes."
@@ -93,7 +104,6 @@ export default function LoginPage() {
             value={email}
             onChange={(event) => setEmail(event.target.value)}
           />
-
           <input
             className="border p-4 w-[500px] rounded"
             placeholder="Digite sua senha"
@@ -101,7 +111,6 @@ export default function LoginPage() {
             value={senha}
             onChange={(event) => setSenha(event.target.value)}
           />
-
           <button
             type="submit"
             className="border p-4 rounded bg-black text-white"
@@ -119,7 +128,6 @@ export default function LoginPage() {
               ? "Ainda não é profissional cadastrado?"
               : "Não tem uma conta?"}
           </p>
-
           <a
             href={isProfissional ? "/register?type=profissional" : "/register"}
             className="text-blue-600 underline text-sm"

@@ -60,7 +60,7 @@ export default function SectionProfessionals() {
 
       <div className="section-profissionals_card border">
         {prestadores.map((user) => (
-          <div key={user.id}>
+          <div key={user.id} className="border">
             <h2>{user.nome}</h2>
           </div>
         ))}

@@ -91,7 +91,7 @@ export default function Profile() {
               {/* Usuário é PRESTADOR */}
               {isPrestador && !isDashboardProf && (
                 <Link
-                  href="/dashboard-professional"
+                  href={`/dashboard-professional/${usuario.id}`}
                   onClick={closeDropDown}
                   className="bg-green-500 hover:bg-green-600 p-2 text-white text-sm rounded flex items-center gap-2"
                 >
