@@ -1,9 +1,7 @@
 "use client";
-import professionals from "@/data/dataProfissionais";
 import Link from "next/link";
 import "./SectionProfessionals.css";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const categories = [
   "Jardinagem",
@@ -22,25 +20,25 @@ const categories = [
 ];
 
 export default function SectionProfessionals() {
-  // Estado que guarda as categorias selecionadas
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/users")
       .then((res) => res.json())
-      .then((data) => setUsers(data));
+      .then((data) => setUsers(data))
+      .catch((err) => console.error("Erro ao buscar usuários:", err));
   }, []);
 
   function handleClickCategory(category) {
     if (selectedCategories.includes(category)) {
-      // Se já estiver selecionada, remove
       setSelectedCategories(selectedCategories.filter((c) => c !== category));
     } else {
-      // Se não estiver, adiciona
       setSelectedCategories([...selectedCategories, category]);
     }
   }
+
+  const prestadores = users.filter((user) => user.tipo === "PRESTADOR");
 
   return (
     <section className="section-professionals">
@@ -51,7 +49,7 @@ export default function SectionProfessionals() {
             onClick={() => handleClickCategory(category)}
             className={`px-4 py-2 rounded ${
               selectedCategories.includes(category)
-                ? "bg-green-200 "
+                ? "bg-green-200"
                 : "bg-amber-100"
             }`}
           >
@@ -59,11 +57,11 @@ export default function SectionProfessionals() {
           </button>
         ))}
       </div>
-      <div className="section-profissionals_card">
-        {professionals.map((professional) => (
-          <div key={professional.id} className="professionals-card">
-            <h3>{professional.nome}</h3>
-            <Link href={`/details/${professional.id}`}>Detalhes</Link>
+
+      <div className="section-profissionals_card border">
+        {prestadores.map((user) => (
+          <div key={user.id}>
+            <h2>{user.nome}</h2>
           </div>
         ))}
       </div>
