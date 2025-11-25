@@ -38,7 +38,11 @@ header {
   font-weight: 700;
   @apply text-4xl
         
-        max-md:text-xl;
+        max-md:text-xl
+        
+        max-lg:text-2xl
+        
+        max-xl:text-3xl;
 }
 .home-page_container {
   @apply w-full 
