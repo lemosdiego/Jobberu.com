@@ -24,7 +24,7 @@ export default function SectionProfessionals() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/users")
+    fetch("http://localhost:3000/usuario")
       .then((res) => res.json())
       .then((data) => setUsers(data))
       .catch((err) => console.error("Erro ao buscar usuários:", err));
