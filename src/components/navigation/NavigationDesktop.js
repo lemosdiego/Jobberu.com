@@ -6,19 +6,19 @@ export default function NavigationDesktop() {
       <ul className="flex p-3 gap-10 max-xl:gap-8">
         <li>
           <Link
-            href="/register"
+            href="/connect#be-a-professional"
             className="underline text-blue-800 text-lg font-bold hover:text-blue-500"
           >
             Seja um Profissional
           </Link>
         </li>
         <li>
-          <Link href="/about" className="text-lg underline">
+          <Link href="/connect#how-it-works" className="text-lg underline">
             Como funciona?
           </Link>
         </li>
         <li>
-          <Link href="/contact" className="text-lg underline">
+          <Link href="/connect#responsibilities" className="text-lg underline">
             Responsabilidades
           </Link>
         </li>
