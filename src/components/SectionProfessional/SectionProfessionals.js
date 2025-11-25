@@ -2,6 +2,7 @@
 import Link from "next/link";
 import "./SectionProfessionals.css";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const categories = [
   "Jardinagem",
@@ -58,10 +59,21 @@ export default function SectionProfessionals() {
         ))}
       </div>
 
-      <div className="section-profissionals_card border">
+      <div className="section-profissionals_card">
         {prestadores.map((user) => (
-          <div key={user.id} className="border">
+          <div key={user.id} className="border p-5 rounded shadow">
+            <div className="relative w-[200px] h-[200px] mb-4">
+              <Image
+                src={user.foto_perfil_url || "/default-profile.png"}
+                alt={user.nome}
+                fill
+                objectFit="cover"
+              />
+            </div>
             <h2>{user.nome}</h2>
+            <Link href={`/details-public-professional/${user.id}`}>
+              Ver Detalhes
+            </Link>
           </div>
         ))}
       </div>
