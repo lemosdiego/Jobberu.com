@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -74,7 +75,18 @@ export default function Profile() {
         onClick={openDropDown}
         className="flex items-center gap-2 cursor-pointer"
       >
-        <FaUser className="text-xl" />
+        <div className="relative w-8 h-8 flex items-center justify-center">
+          {usuario?.foto_perfil_url ? (
+            <Image
+              src={usuario.foto_perfil_url}
+              alt={usuario.nome}
+              fill
+              className="rounded-full object-cover"
+            />
+          ) : (
+            <FaUser className="text-2xl" />
+          )}
+        </div>
         <span className="text-xl">
           {usuario
             ? isPrestador
