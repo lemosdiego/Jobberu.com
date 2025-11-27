@@ -5,6 +5,7 @@ import "./SectionProfessionals.css";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaStar, FaStarHalf, FaRegStar, FaRegBookmark } from "react-icons/fa";
+import { truncate } from "@/utils/truncate";
 
 // const categories = [
 //   "Jardinagem", "Manicure e Pedicure", "Barbeiro", "Limpeza Residencial",
@@ -25,7 +26,12 @@ export default function SectionProfessionals() {
   }, []);
 
   // Filtra apenas os usuários que são prestadores
-  const prestadores = users.filter((user) => user.tipo === "PRESTADOR");
+  const prestadores = users.filter(
+    (user) =>
+      user.tipo === "PRESTADOR" &&
+      user.servicos_oferecidos &&
+      user.servicos_oferecidos.length > 0
+  );
 
   // ... (a função handleClickCategory continua a mesma)
 
@@ -48,9 +54,9 @@ function ProfessionalCardWithService({ user }) {
   // Os serviços e a imagem já vêm dentro do objeto 'user'
   const imagemServico =
     user.servicos_oferecidos?.[0]?.imagens?.[0] || "/default-service.jpg";
-  const descricaoServico =
-    user.servicos_oferecidos?.[0]?.descricao ||
-    "Este profissional ainda não cadastrou uma descrição de serviço.";
+  const precoServico = user.servicos_oferecidos?.[0]?.preco
+    ? `A partir de R$ ${user.servicos_oferecidos[0].preco}`
+    : "Preço a combinar";
 
   return (
     <div className="relative rounded shadow bg-zinc-100 flex flex-col">
@@ -79,7 +85,8 @@ function ProfessionalCardWithService({ user }) {
         <h2 className="text-2xl font-bold">{user.nome}</h2>
         {/* Passamos o array de avaliações diretamente para o componente StarsRating */}
         <StarsRating avaliacoes={user.avaliacoes_recebidas} />
-        <p className="text-sm">{descricaoServico}</p>
+        <p className="text-sm">{truncate(user.biografia, 100)}</p>
+        <p>{precoServico}</p>
         <Link
           href={`/details-public-professional/${user.id}`}
           className="font-medium text-blue-500 underline"
