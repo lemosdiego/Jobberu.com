@@ -1,8 +1,7 @@
 import "./globals.css";
 import "../assets/fonts.css";
-import Header from "@/components/header/Header";
-import Footer from "@/components/Footer/Footer";
-import { SearchFilterProvider } from "@/context/SearchFilterContext";
+import Header from "@/components/layout/header/Header";
+import Footer from "@/components/layout/Footer/Footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -13,11 +12,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <SearchFilterProvider>
-          <Header />
-          {children}
-          <Footer />
-        </SearchFilterProvider>
+        <Header />
+        {children}
+        <Footer />
       </body>
     </html>
   );

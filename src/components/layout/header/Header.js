@@ -1,7 +1,7 @@
+import NavigationDesktop from "@/components/site/navigation/NavigationDesktop";
+import NavigationMobile from "@/components/site/navigation/NavigationMobile";
+import Profile from "@/components/site/profile/Profile";
 import Link from "next/link";
-import NavigationDesktop from "../navigation/NavigationDesktop";
-import NavigationMobile from "../navigation/NavigationMobile";
-import Profile from "../profile/Profile";
 
 export default function Header() {
   return (

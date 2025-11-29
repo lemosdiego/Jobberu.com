@@ -13,18 +13,18 @@ export default function TelaPadrao({ onSearch, mensagemInicial }) {
   };
 
   return (
-    <div className="w-[1200px] grid gap-4 [grid-template-columns:2.5fr_3fr]">
-      <div className="flex flex-col justify-center">
-        <h3 className="text-4xl ">
+    <div className="w-[1200px] mt-8">
+      <div className="flex flex-col justify-center gap-4">
+        <h3 className="text-5xl ">
           {mensagemInicial ||
             "Encontre os melhores profissionais perto de você"}
         </h3>
-        <p className="text-xl mt-2">
+        <p className="text-2xl mt-2">
           Digite o nome de uma cidade para começar.
         </p>
         <form
           onSubmit={handleSubmit}
-          className="grid [grid-template-columns:4fr_2fr] gap-2 mt-3"
+          className="grid [grid-template-columns:5fr_2fr] gap-2 mt-3"
         >
           <input
             type="text"
@@ -38,7 +38,7 @@ export default function TelaPadrao({ onSearch, mensagemInicial }) {
           </button>
         </form>
       </div>
-      <div className="bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378209/clientes_xj6sze.jpg')] h-[400px] bg-contain bg-no-repeat bg-center bg-fixed shadow-2xl rounded"></div>
+      {/* <div className="bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378209/clientes_xj6sze.jpg')] h-[400px] bg-contain bg-no-repeat bg-center bg-fixed shadow-2xl rounded"></div> */}
     </div>
   );
 }

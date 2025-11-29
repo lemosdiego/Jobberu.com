@@ -1,143 +1,73 @@
+// /app/login/page.jsx
 "use client";
-import Image from "next/image";
-import { useSearchParams, useRouter } from "next/navigation";
+
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function LoginPage() {
-  const params = useSearchParams();
-  const router = useRouter();
-  const type = params.get("type");
-
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
-  const [erro, setErro] = useState("");
-  const [sucesso, setSucesso] = useState("");
+  const [error, setError] = useState(null);
+  const { login } = useAuth();
+  const router = useRouter();
 
-  // Define se é página de login profissional pelo tipo da URL
-  const isProfissional = type === "profissional";
-
-  async function loginUsuario(event) {
-    event.preventDefault();
-    setErro("");
-    setSucesso("");
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError(null);
     try {
-      const response = await fetch(`http://localhost:3000/usuario/login`, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ email, senha }),
-      });
-
-      const dados = await response.json();
-
-      if (!response.ok) {
-        setSucesso(""); // Limpa sucesso em caso de erro
-        setErro(dados.error || dados.mensagem || "Erro ao fazer Login");
-        return;
-      }
-
-      // Permite login apenas do tipo correto na rota correta
-      if (isProfissional && dados.usuario?.tipo !== "PRESTADOR") {
-        setErro("Apenas profissionais podem acessar esta página de login.");
-        return;
-      }
-      if (!isProfissional && dados.usuario?.tipo !== "CLIENTE") {
-        setErro("Apenas clientes podem acessar esta página de login.");
-        return;
-      }
-
-      setErro("");
-      setSucesso("Login realizado com sucesso!");
-
-      localStorage.setItem("token", dados.token);
-      localStorage.setItem("usuario", JSON.stringify(dados.usuario));
-
-      // Redireciona para a página correta, usando o ID
-      if (dados.usuario?.tipo === "PRESTADOR") {
-        router.push(`/dashboard-professional/${dados.usuario.id}`);
-      } else {
-        router.push(`/profile-client/${dados.usuario.id}`);
-      }
-    } catch (erro) {
-      setSucesso("");
-      setErro("Erro ao fazer login");
+      await login(email, senha);
+      // Se o login for bem-sucedido, o AuthContext redirecionará
+      // ou podemos forçar um redirecionamento para a home.
+      router.push("/");
+    } catch (err) {
+      setError("Credenciais inválidas. Por favor, tente novamente.");
     }
-  }
+  };
 
   return (
-    <main
-      className={`grid [grid-template-columns:4fr_3fr] min-h-[90vh] ${
-        isProfissional ? "bg-blue-200" : "bg-white"
-      }`}
-    >
-      <div className="relative">
-        <Image
-          src={isProfissional ? "/profissionais.jpg" : "/clientes.jpg"}
-          alt="Icon"
-          fill
-          objectFit="cover"
-        />
-      </div>
-
-      <div className="p-20 flex flex-col items-center justify-center">
-        <h2 className="text-3xl font-semibold mb-1">
-          {isProfissional
-            ? "Acessar painel do profissional"
-            : "Entrar na sua conta"}
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+      <div className="p-8 bg-white rounded shadow-md w-full max-w-md">
+        <h2 className="text-2xl font-bold mb-6 text-center">
+          Entrar na Plataforma
         </h2>
-        <p className="mb-4 text-gray-600 w-[500px] text-center">
-          {isProfissional
-            ? "Faça login para gerenciar seus serviços, gerenciar perfil e responder clientes."
-            : "Acesse sua conta para contratar serviços, favoritar profissionais e avaliar suas experiências."}
-        </p>
-
-        <form onSubmit={loginUsuario} className="grid gap-2">
-          <input
-            className="border p-4 w-[500px] rounded"
-            placeholder={
-              isProfissional
-                ? "Digite seu e-mail profissional"
-                : "Digite seu e-mail"
-            }
-            value={email}
-            onChange={(event) => setEmail(event.target.value)}
-          />
-          <input
-            className="border p-4 w-[500px] rounded"
-            placeholder="Digite sua senha"
-            type="password"
-            value={senha}
-            onChange={(event) => setSenha(event.target.value)}
-          />
+        <form onSubmit={handleSubmit}>
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
+          <div className="mb-4">
+            <label className="block text-gray-700">Email</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full px-3 py-2 border rounded"
+              required
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700">Senha</label>
+            <input
+              type="password"
+              value={senha}
+              onChange={(e) => setSenha(e.target.value)}
+              className="w-full px-3 py-2 border rounded"
+              required
+            />
+          </div>
           <button
             type="submit"
-            className="border p-4 rounded bg-black text-white"
+            className="w-full bg-blue-600 text-white py-2 rounded"
           >
-            {isProfissional ? "Acessar Painel" : "Entrar"}
+            Entrar
           </button>
         </form>
-
-        {erro && <p className="text-red-600 mt-2 text-sm">{erro}</p>}
-        {sucesso && <p className="text-green-600 mt-2 text-sm">{sucesso}</p>}
-
-        <div className="mt-4 text-center">
-          <p className="text-sm">
-            {isProfissional
-              ? "Ainda não é profissional cadastrado?"
-              : "Não tem uma conta?"}
-          </p>
-          <a
-            href={isProfissional ? "/register?type=profissional" : "/register"}
-            className="text-blue-600 underline text-sm"
-          >
-            {isProfissional
-              ? "Criar conta profissional"
-              : "Criar conta gratuita"}
-          </a>
-        </div>
+        <p className="mt-6 text-center">
+          Não tem uma conta?{" "}
+          <Link href="/cadastro" className="text-blue-600 hover:underline">
+            Cadastre-se aqui
+          </Link>
+        </p>
       </div>
-    </main>
+    </div>
   );
 }
