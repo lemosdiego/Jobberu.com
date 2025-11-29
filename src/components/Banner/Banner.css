@@ -2,7 +2,7 @@
 
 .section-banner {
   @apply w-full 
-        bg-[url('/banner.png')]
+        bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378183/banner_w3jrr9.png')]
         bg-cover
         bg-center
         bg-no-repeat

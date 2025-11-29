@@ -13,8 +13,8 @@ export default function TelaPadrao({ onSearch, mensagemInicial }) {
   };
 
   return (
-    <div className="w-[500px]">
-      <div className="">
+    <div className="w-[1200px] grid gap-4 [grid-template-columns:2.5fr_3fr]">
+      <div className="flex flex-col justify-center">
         <h3 className="text-4xl ">
           {mensagemInicial ||
             "Encontre os melhores profissionais perto de você"}
@@ -38,6 +38,7 @@ export default function TelaPadrao({ onSearch, mensagemInicial }) {
           </button>
         </form>
       </div>
+      <div className="bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378209/clientes_xj6sze.jpg')] h-[400px] bg-contain bg-no-repeat bg-center bg-fixed shadow-2xl rounded"></div>
     </div>
   );
 }
