@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { FaStar, FaStarHalf, FaRegStar, FaRegBookmark } from "react-icons/fa";
 import { truncate } from "@/utils/truncate";
+import { MdOutlineVerifiedUser } from "react-icons/md";
 
 // const categories = [
 //   "Jardinagem", "Manicure e Pedicure", "Barbeiro", "Limpeza Residencial",
