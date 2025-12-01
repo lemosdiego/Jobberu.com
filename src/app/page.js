@@ -5,9 +5,5 @@ import Banner from "@/components/site/Banner/Banner";
 // Adicione esta diretiva no topo!
 
 export default function Home() {
-  return (
-    <main className="home-page_container">
-      <Banner />
-    </main>
-  );
+  return <main className="home-page_container"></main>;
 }
