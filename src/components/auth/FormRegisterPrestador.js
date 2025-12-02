@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import api from "@/services/api";
 import "./auth.css";
 
-export default function FormRegisterClient() {
+export default function FormRegisterPrestador() {
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -17,6 +17,11 @@ export default function FormRegisterClient() {
     cidade: "",
     estado: "",
     numero: "",
+    // Campos específicos do Prestador
+    titulo_profissional: "",
+    biografia: "",
+    anos_experiencia: "",
+    links_redes_sociais: "",
   });
   const [fotoPerfil, setFotoPerfil] = useState(null);
   const [error, setError] = useState("");
@@ -36,10 +41,10 @@ export default function FormRegisterClient() {
   };
 
   const handleCepBlur = async (e) => {
-    const cep = e.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
+    const cep = e.target.value.replace(/\D/g, "");
 
     if (cep.length !== 8) {
-      return; // CEP inválido
+      return;
     }
 
     try {
@@ -65,16 +70,14 @@ export default function FormRegisterClient() {
     setError("");
     setSuccess("");
 
-    // 1. Criar o objeto FormData (nossa "caixa de encomenda")
     const data = new FormData();
 
-    // 2. Adicionar todos os campos de texto ao FormData
     for (const key in formData) {
       data.append(key, formData[key]);
     }
-    data.append("is_prestador", false);
+    // A principal diferença: enviamos 'true' para a API
+    data.append("is_prestador", true);
 
-    // 3. Adicionar o arquivo de imagem, se ele foi selecionado
     if (fotoPerfil) {
       data.append("foto_perfil", fotoPerfil);
     }
@@ -98,10 +101,11 @@ export default function FormRegisterClient() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Cadastro de Cliente</h2>
+      <h2>Cadastro de Prestador de Serviço</h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {success && <p style={{ color: "green" }}>{success}</p>}
 
+      {/* Campos comuns */}
       <div>
         <label htmlFor="nome">Nome Completo</label>
         <input
@@ -147,6 +151,53 @@ export default function FormRegisterClient() {
         />
       </div>
       <div>
+        <label htmlFor="foto_perfil">Foto de Perfil (Opcional)</label>
+        <input
+          type="file"
+          id="foto_perfil"
+          name="foto_perfil"
+          onChange={handleFileChange}
+        />
+      </div>
+
+      {/* Campos específicos do Prestador */}
+      <div>
+        <label htmlFor="titulo_profissional">
+          Título Profissional (Ex: Eletricista, Jardineiro)
+        </label>
+        <input
+          type="text"
+          id="titulo_profissional"
+          name="titulo_profissional"
+          value={formData.titulo_profissional}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="biografia">
+          Biografia (Fale um pouco sobre você e seu trabalho)
+        </label>
+        <textarea
+          id="biografia"
+          name="biografia"
+          value={formData.biografia}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="anos_experiencia">Anos de Experiência</label>
+        <input
+          type="number"
+          id="anos_experiencia"
+          name="anos_experiencia"
+          value={formData.anos_experiencia}
+          onChange={handleChange}
+        />
+      </div>
+
+      {/* Campos de endereço */}
+      <div>
         <label htmlFor="cep">CEP</label>
         <input
           type="text"
@@ -154,17 +205,8 @@ export default function FormRegisterClient() {
           name="cep"
           value={formData.cep}
           onChange={handleChange}
-          onBlur={handleCepBlur} // Adicionamos o evento onBlur aqui
+          onBlur={handleCepBlur}
           required
-        />
-      </div>
-      <div>
-        <label htmlFor="foto_perfil">Foto de Perfil (Opcional)</label>
-        <input
-          type="file"
-          id="foto_perfil"
-          name="foto_perfil"
-          onChange={handleFileChange}
         />
       </div>
       <div>
@@ -222,7 +264,8 @@ export default function FormRegisterClient() {
           required
         />
       </div>
-      <button type="submit">Cadastrar</button>
+
+      <button type="submit">Cadastrar como Prestador</button>
     </form>
   );
 }
