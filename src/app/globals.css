@@ -2,3 +2,11 @@
 * {
   font-family: "Inter", sans-serif;
 }
+
+.page-register,
+.page-login {
+  @apply border-2 
+      min-h-screen
+      grid
+      [grid-template-columns:3fr_2fr];
+}

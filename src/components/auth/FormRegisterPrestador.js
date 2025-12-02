@@ -24,16 +24,22 @@ export default function FormRegisterPrestador() {
     links_redes_sociais: "",
   });
   const [fotoPerfil, setFotoPerfil] = useState(null);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const router = useRouter();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
+
+    // Se o campo for o de telefone, remove qualquer caractere não numérico
+    if (name === "telefone") {
+      const numericValue = value.replace(/\D/g, "");
+      setFormData((prevState) => ({ ...prevState, [name]: numericValue }));
+    } else {
+      // Para todos os outros campos, o comportamento é o normal
+      setFormData((prevState) => ({ ...prevState, [name]: value }));
+    }
   };
 
   const handleFileChange = (e) => {
@@ -69,6 +75,24 @@ export default function FormRegisterPrestador() {
     e.preventDefault();
     setError("");
     setSuccess("");
+    setLoading(true);
+
+    // --- VALIDAÇÃO NO FRONTEND ---
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Por favor, insira um e-mail válido.");
+      setLoading(false);
+      return;
+    }
+
+    const phoneRegex = /^\d{10,11}$/; // Regex simples para 10 ou 11 dígitos
+    if (!phoneRegex.test(formData.telefone.replace(/\D/g, ""))) {
+      setError(
+        "Por favor, insira um telefone válido com DDD (apenas números)."
+      );
+      setLoading(false);
+      return;
+    }
 
     const data = new FormData();
 
@@ -96,6 +120,8 @@ export default function FormRegisterPrestador() {
       setError(
         err.response?.data?.error || "Ocorreu um erro. Tente novamente."
       );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -147,6 +173,7 @@ export default function FormRegisterPrestador() {
           name="telefone"
           value={formData.telefone}
           onChange={handleChange}
+          placeholder="(99) 99999-9999"
           required
         />
       </div>
@@ -265,7 +292,9 @@ export default function FormRegisterPrestador() {
         />
       </div>
 
-      <button type="submit">Cadastrar como Prestador</button>
+      <button type="submit" disabled={loading}>
+        {loading ? "Cadastrando..." : "Cadastrar como Prestador"}
+      </button>
     </form>
   );
 }
