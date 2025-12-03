@@ -1,7 +1,17 @@
 "use client";
 
+import Banner from "@/components/sections/Banner/Banner";
+import Benefits from "@/components/sections/Benefits/Benefits";
+import SectionProfessional from "@/components/sections/SectionProfessional/SectionProfessional";
+
 // Adicione esta diretiva no topo!
 
 export default function Home() {
-  return <main className="home-page_container">aaaa</main>;
+  return (
+    <main className="flex flex-col items-center justify-center gap-8 w-full">
+      <Banner />
+      <SectionProfessional />
+      <Benefits />
+    </main>
+  );
 }
