@@ -8,6 +8,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isLoadingAuth, setIsLoadingAuth] = useState(true); // Novo estado
 
   useEffect(() => {
     // Ao carregar a aplicação, verifica se existe um token nos cookies
@@ -18,6 +19,8 @@ export function AuthProvider({ children }) {
       setUser(JSON.parse(userData));
       setIsAuthenticated(true);
     }
+    // Independentemente de encontrar ou não, a verificação inicial terminou.
+    setIsLoadingAuth(false);
   }, []);
 
   const login = (userData, token) => {
@@ -29,6 +32,13 @@ export function AuthProvider({ children }) {
     Cookies.set("jobberu_user", JSON.stringify(userData), { expires: 1 / 24 });
   };
 
+  const updateUser = (newUserData) => {
+    setUser(newUserData);
+    Cookies.set("jobberu_user", JSON.stringify(newUserData), {
+      expires: 1 / 24,
+    });
+  };
+
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
@@ -38,7 +48,16 @@ export function AuthProvider({ children }) {
   };
 
   return (
-    <AuthContext.Provider value={{ user, isAuthenticated, login, logout }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        isAuthenticated,
+        isLoadingAuth, // Expondo o novo estado
+        login,
+        logout,
+        updateUser,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

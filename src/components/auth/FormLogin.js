@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/services/api";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
@@ -15,6 +15,8 @@ export default function FormLogin() {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { login } = useAuth();
+  const searchParams = useSearchParams();
+  const redirectUrl = searchParams.get("redirect");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,8 +38,8 @@ export default function FormLogin() {
       // Usa a função do nosso AuthContext para gerenciar o estado
       login(usuario, token);
 
-      // Redireciona para o dashboard
-      router.push("/dashboard");
+      // Redireciona para a URL de destino ou para o dashboard como padrão
+      router.push(redirectUrl || "/dashboard");
     } catch (err) {
       console.error("Erro no login:", err);
       setError(

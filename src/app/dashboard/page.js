@@ -1,19 +1,26 @@
 "use client";
 
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-export default function DashboardPage() {
-  const { user } = useAuth();
+export default function ServicosPage() {
+  const { user, isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    // Proteção de rota: se o usuário não for prestador, redireciona para o dashboard
+    if (isAuthenticated && user && !user.is_prestador) {
+      router.push("/dashboard");
+    }
+  }, [user, isAuthenticated, router]);
 
   return (
-    <div>
-      <h1 className="text-3xl font-bold mb-4">Painel Principal</h1>
-      <p>Bem-vindo ao seu painel, {user?.nome}!</p>
-      <div className="mt-8 p-6 bg-white rounded-lg shadow">
-        <h2 className="text-xl font-semibold mb-4">Resumo</h2>
-        {/* Aqui podemos adicionar widgets e resumos no futuro */}
-        <p>Em breve, você verá um resumo de suas atividades aqui.</p>
-      </div>
-    </div>
+    <main className="p-8">
+      <h1 className="text-3xl font-bold mb-4">Gerenciar Serviços</h1>
+      <p>Esta área é exclusiva para prestadores de serviço.</p>
+      <p>Aqui você poderá criar, editar e excluir seus serviços.</p>
+      {/* O CRUD de serviços virá aqui no futuro */}
+    </main>
   );
 }
