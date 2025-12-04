@@ -2,7 +2,14 @@
 * {
   font-family: "Inter", sans-serif;
 }
-
+.logo {
+  font-family: "Stack Sans Notch", sans-serif;
+  @apply text-4xl
+  
+        max-md:text-2xl
+        
+        max-lg:text-3xl;
+}
 .page-register,
 .page-login {
   @apply border-2 

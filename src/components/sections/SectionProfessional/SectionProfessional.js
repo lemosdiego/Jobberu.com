@@ -1,10 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation";
-import Image from "next/image";
-import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
-import { useAuth } from "@/context/AuthContext";
+import ProfessionalCard from "./ProfessionalCard";
 import api from "@/services/api";
 
 const categories = [
@@ -25,134 +22,6 @@ const categories = [
   "Frete",
 ];
 
-// --- INÍCIO DOS COMPONENTES DO CARD ---
-
-// Componente para renderizar as estrelas de avaliação
-const StarRating = ({ soma, total }) => {
-  if (total === 0) {
-    return (
-      <div className="flex items-center text-sm text-gray-500">
-        {[...Array(5)].map((_, i) => (
-          <FaRegStar key={i} />
-        ))}
-        <span className="ml-2">0 avaliações</span>
-      </div>
-    );
-  }
-
-  const media = soma / total;
-  const estrelas = [];
-  for (let i = 1; i <= 5; i++) {
-    if (i <= media) {
-      estrelas.push(<FaStar key={i} className="text-yellow-400" />);
-    } else if (i === Math.ceil(media) && !Number.isInteger(media)) {
-      estrelas.push(<FaStarHalfAlt key={i} className="text-yellow-400" />);
-    } else {
-      estrelas.push(<FaRegStar key={i} className="text-yellow-400" />);
-    }
-  }
-
-  return (
-    <div className="flex items-center text-sm text-gray-500">
-      {estrelas}
-      <span className="ml-2">
-        {total} {total === 1 ? "avaliação" : "avaliações"}
-      </span>
-    </div>
-  );
-};
-
-const ProfessionalCard = ({ profissional }) => {
-  const router = useRouter();
-  const { isAuthenticated, isLoadingAuth } = useAuth();
-
-  const {
-    nome,
-    foto_perfil_url,
-    titulo_profissional,
-    biografia,
-    cidade,
-    estado,
-    total_avaliacoes,
-    soma_das_notas,
-    primeiro_servico,
-  } = profissional;
-
-  const fotoPerfil = foto_perfil_url || "/default-avatar.png"; // Imagem padrão para o perfil
-  const imagemServico =
-    primeiro_servico?.imagem_url || "/default-service-image.jpg"; // Imagem padrão para o serviço
-
-  const precoFormatado =
-    primeiro_servico?.preco != null
-      ? `A partir de R$ ${primeiro_servico.preco.toFixed(2).replace(".", ",")}`
-      : "Preço a combinar";
-
-  const handleViewProfile = () => {
-    // Não faz nada enquanto a autenticação ainda está carregando
-    if (isLoadingAuth) {
-      return;
-    }
-
-    const profileUrl = `/perfil/${profissional.id}`;
-
-    if (isAuthenticated) {
-      router.push(profileUrl);
-    } else {
-      // Redireciona para o login, guardando a página de destino
-      router.push(`/login?redirect=${profileUrl}`);
-    }
-  };
-
-  return (
-    <div className="border border-gray-100 rounded-lg overflow-hidden shadow-lg flex flex-col">
-      <div className="relative h-48 w-full">
-        <Image
-          src={imagemServico}
-          alt={`Serviço de ${primeiro_servico?.categoria || "profissional"}`}
-          layout="fill"
-          objectFit="cover"
-        />
-      </div>
-      <div className="p-5 flex-grow flex flex-col">
-        <div className="flex items-center mb-1">
-          <div className="relative h-12 w-12 rounded-full overflow-hidden mr-3">
-            <Image
-              src={fotoPerfil}
-              alt={`Foto de ${nome}`}
-              layout="fill"
-              objectFit="cover"
-            />
-          </div>
-          <div>
-            <h3 className="font-bold text-lg">{nome}</h3>
-            <p className="text-sm text-gray-600">{titulo_profissional}</p>
-          </div>
-        </div>
-        <div className="mb-1">
-          <StarRating soma={soma_das_notas} total={total_avaliacoes} />
-        </div>
-        <p className="text-sm text-gray-500 mb-1">
-          {cidade} - {estado}
-        </p>
-        <p className="text-gray-700 text-sm mb-2 flex-grow">{biografia}</p>
-        <div className="mt-auto pt-3 border-t">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-800 font-semibold">{precoFormatado}</p>
-            <button
-              onClick={handleViewProfile}
-              disabled={isLoadingAuth}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
-            >
-              Ver detalhes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-// --- FIM DOS COMPONENTES DO CARD ---
-
 export default function BuscarPrestadoresPorCidade() {
   const [cidade, setCidade] = useState("");
   const [cidadeBuscada, setCidadeBuscada] = useState(""); // Novo estado para guardar a cidade da busca
@@ -165,6 +34,7 @@ export default function BuscarPrestadoresPorCidade() {
   const searchRef = useRef(null);
 
   const [jaBuscou, setJaBuscou] = useState(false);
+  const [isClient, setIsClient] = useState(false);
 
   // busca sempre levando em conta cidade + categoriaSelecionada
   const buscarPrestadores = async (cidadeParam, categoriaParam) => {
@@ -224,25 +94,32 @@ export default function BuscarPrestadoresPorCidade() {
   }, []);
 
   // Efeito para carregar o estado do sessionStorage ao montar o componente
+  // e definir que estamos no lado do cliente
   useEffect(() => {
-    try {
-      const savedState = sessionStorage.getItem("professionalSearchState");
-      if (savedState) {
-        const {
-          cidadeBuscada: savedCidade,
-          categoriaSelecionada: savedCategoria,
-          prestadores: savedPrestadores,
-          jaBuscou: savedJaBuscou,
-        } = JSON.parse(savedState);
+    // Este código só roda no cliente
+    setIsClient(true);
 
-        setCidadeBuscada(savedCidade || "");
-        setCategoriaSelecionada(savedCategoria || "");
-        setPrestadores(savedPrestadores || []);
-        setJaBuscou(savedJaBuscou || false);
+    // Apenas tentamos carregar o estado se estivermos no cliente
+    if (typeof window !== "undefined") {
+      try {
+        const savedState = localStorage.getItem("professionalSearchState");
+        if (savedState) {
+          const {
+            cidadeBuscada: savedCidade,
+            categoriaSelecionada: savedCategoria,
+            prestadores: savedPrestadores,
+            jaBuscou: savedJaBuscou,
+          } = JSON.parse(savedState);
+
+          setCidadeBuscada(savedCidade || "");
+          setCategoriaSelecionada(savedCategoria || "");
+          setPrestadores(savedPrestadores || []);
+          setJaBuscou(savedJaBuscou || false);
+        }
+      } catch (error) {
+        console.error("Falha ao carregar estado do localStorage:", error);
+        localStorage.removeItem("professionalSearchState");
       }
-    } catch (error) {
-      console.error("Falha ao carregar estado do sessionStorage:", error);
-      sessionStorage.removeItem("professionalSearchState");
     }
   }, []); // Array vazio garante que rode apenas uma vez
 
@@ -254,10 +131,13 @@ export default function BuscarPrestadoresPorCidade() {
       prestadores,
       jaBuscou,
     };
-    sessionStorage.setItem(
-      "professionalSearchState",
-      JSON.stringify(stateToSave)
-    );
+    // Apenas salvamos o estado se estivermos no cliente
+    if (isClient) {
+      localStorage.setItem(
+        "professionalSearchState",
+        JSON.stringify(stateToSave)
+      );
+    }
   }, [cidadeBuscada, categoriaSelecionada, prestadores, jaBuscou]);
 
   const mensagemNenhumResultado = () => {
@@ -338,10 +218,10 @@ export default function BuscarPrestadoresPorCidade() {
       {erro && <p>{erro}</p>}
 
       {/* Mensagens de nenhum resultado */}
-      {mensagemNenhumResultado()}
+      {isClient && mensagemNenhumResultado()}
 
       {/* Lista de profissionais */}
-      {prestadores.length > 0 && (
+      {isClient && prestadores.length > 0 && (
         <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {prestadores.map((profissional) => (
             <ProfessionalCard
@@ -352,7 +232,7 @@ export default function BuscarPrestadoresPorCidade() {
         </div>
       )}
       {/* Tela inicial padrão */}
-      {!jaBuscou && (
+      {isClient && !jaBuscou && (
         <div className="mt-4 h-[400px] mb-4 border">
           <h1 className="text-2xl font-semibold">
             Busque os melhores profissionais da sua região
