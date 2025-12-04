@@ -83,7 +83,7 @@ export default function Profile() {
       </button>
 
       {dropDown && (
-        <div className="absolute right-0 p-5 grid gap-2 w-[250px] bg-white shadow mt-2 rounded">
+        <div className="absolute right-0 p-7 grid gap-2 w-[250px] bg-slate-50 text-black shadow mt-2 rounded">
           {isAuthenticated ? (
             <>
               {user?.is_prestador ? (

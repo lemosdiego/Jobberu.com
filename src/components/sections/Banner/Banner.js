@@ -1,6 +1,5 @@
 import Image from "next/image";
 import "./Banner.css";
-import Link from "next/link";
 
 export default function Banner() {
   return (

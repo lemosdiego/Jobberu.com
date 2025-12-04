@@ -7,7 +7,7 @@ export default function NavigationDesktop() {
         <li>
           <Link
             href="/connect#be-a-professional"
-            className="underline text-blue-800 text-lg font-bold hover:text-blue-500"
+            className="underline font-bold"
           >
             Seja um Profissional
           </Link>

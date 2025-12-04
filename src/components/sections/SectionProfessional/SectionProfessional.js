@@ -151,18 +151,33 @@ export default function BuscarPrestadoresPorCidade() {
 
     if (cidadeBuscada && !categoriaSelecionada) {
       return (
-        <p>
-          Desculpe, não achamos profissionais na sua cidade {cidadeBuscada}.
-        </p>
+        <div className="mt-4">
+          <p className=" text-xl rounded-md">
+            Desculpe, não encontramos profissionais disponíveis na cidade{" "}
+            {cidadeBuscada}.
+          </p>
+          <p className="text-lg mt-2 text-gray-600">
+            Que tal tentar novamente buscando por cidades vizinhas ou regiões
+            próximas? Assim, você aumenta as chances de encontrar o profissional
+            ideal para o seu serviço.
+          </p>
+        </div>
       );
     }
 
     if (cidadeBuscada && categoriaSelecionada) {
       return (
-        <p>
-          Desculpe, não achamos profissionais de {categoriaSelecionada} na sua{" "}
-          cidade {cidadeBuscada}.
-        </p>
+        <div className="mt-4">
+          <p>
+            Desculpe, não achamos profissionais de {categoriaSelecionada} na sua{" "}
+            cidade {cidadeBuscada}.
+          </p>
+          <p className="text-lg mt-2 text-gray-600">
+            Que tal tentar novamente buscando por cidades vizinhas ou regiões
+            próximas? Assim, você aumenta as chances de encontrar o profissional
+            ideal para o seu serviço.
+          </p>
+        </div>
       );
     }
 
@@ -170,7 +185,7 @@ export default function BuscarPrestadoresPorCidade() {
   };
 
   return (
-    <section className="w-[1200px]">
+    <section className="w-[1200px] max-sm:w-[95vw] max-md:w-[90vw] max-lg:w-[700px]">
       {/* Dropdown somente seleção de categoria, sem digitação */}
       <div className="search-wrapper relative " ref={searchRef}>
         <button
@@ -238,11 +253,11 @@ export default function BuscarPrestadoresPorCidade() {
       )}
       {/* Tela inicial padrão */}
       {isClient && !jaBuscou && (
-        <div className="mt-4 grid grid-cols-3 gap-4">
+        <div className="mt-4 grid grid-cols-3 gap-4 max-sm:grid-cols-1">
           {instruction.map((item, index) => (
             <div
               key={index}
-              className={`border p-5 flex flex-col justify-center gap-2 rounded border-gray-200 bg-gradient-to-r ${item.bg}`}
+              className={` p-5 flex flex-col justify-center gap-2 rounded border border-slate-200 bg-gradient-to-r ${item.bg}`}
             >
               <item.icon
                 className={`text-5xl text-primary ${item.iconColor}`}

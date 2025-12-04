@@ -42,10 +42,10 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="w-full flex flex-col items-center justify-center  p-14">
+    <section className="w-full flex flex-col items-center justify-center  p-14 pt-4">
       <h2 className="text-4xl ">Beneficios da Jobberu</h2>
 
-      <div className="w-[1200px] grid grid-cols-3 gap-8 mt-20">
+      <div className="w-[1200px] max-lg:w-full grid grid-cols-3 gap-8 mt-20">
         {benefits.map((benefit, index) => (
           <div
             key={index}

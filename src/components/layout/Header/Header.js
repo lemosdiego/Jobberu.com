@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Header() {
   return (
-    <header className="w-full bg-blue-50 sticky top-0  z-50 flex items-center justify-center p-9 max-lg:p-5">
+    <header className="w-full bg-blue-500 text-white shadow-lg sticky top-0  z-50 flex items-center justify-center p-9 max-lg:p-5">
       <div className="w-[1200px] flex items-center justify-between">
         <Link href={"/"} className="logo">
           Jobberu.com

@@ -25,13 +25,13 @@ export default function Categories() {
   ].slice(currentIndex, currentIndex + VISIBLE_CARDS);
 
   return (
-    <section className="p-20 pt-14 w-full flex flex-col items-center bg-gray-100">
+    <section className="p-20 pt-14 w-full flex flex-col items-center bg-slate-50 ">
       <h2 className="text-4xl mb-10">Nossas Categorias</h2>
       <div className="max-w-[1200px] grid grid-cols-1 gap-4 md:grid-cols-4">
         {visible.map((item, index) => (
           <div
             key={`${item.title}-${index}`}
-            className="flex flex-col items-center rounded-lg shadow bg-white shadow-sm transition-transform duration-300"
+            className="flex flex-col items-center rounded-lg shadow bg-white transition-transform duration-300 border border-slate-200"
           >
             <div className="relative h-[200px] w-full ">
               {/* se tiver imagem na categoria, mostra; senão, fallback */}
