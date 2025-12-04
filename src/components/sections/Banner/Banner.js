@@ -12,9 +12,6 @@ export default function Banner() {
             região.
           </h1>
           <p>Mais perto, mais fácil, para facilitar o seu dia a dia.</p>
-          <Link href={"/"} className="section-banner_register">
-            Cadastre-se como um profissional Jobberu{" "}
-          </Link>
         </div>
       </div>
     </section>

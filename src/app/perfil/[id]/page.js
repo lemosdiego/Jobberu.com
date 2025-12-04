@@ -1,23 +1,23 @@
 import ProfilePublicPrestador from "@/components/sections/ProfilePublicProfessional/ProfilePublicPrestador";
+import api from "@/services/api";
 
 // Adiciona a declaração para renderização dinâmica
 export const dynamic = "force-dynamic";
 
 async function getProfessionalData(id) {
   try {
-    // Usando fetch com cache desabilitado para sempre buscar os dados mais recentes
-    const response = await fetch(`http://localhost:3000/usuario/${id}`, {
-      cache: "no-store",
-    });
-
-    if (!response.ok) {
-      // Se a resposta não for 2xx, consideramos como não encontrado
-      return null;
-    }
-
-    return response.json();
+    // Usando o serviço 'api' (Axios) para buscar os dados
+    const response = await api.get(`/usuario/${id}`);
+    // O Axios já retorna os dados em formato JSON no `response.data`
+    return response.data;
   } catch (error) {
-    console.error("Falha ao buscar dados do profissional:", error);
+    // O Axios lança um erro para status codes fora do range 2xx (ex: 404, 500)
+    // Podemos verificar se o erro é de um 404 para ser mais específico.
+    if (error.response && error.response.status === 404) {
+      console.log(`Profissional com id ${id} não encontrado.`);
+    } else {
+      console.error("Falha ao buscar dados do profissional:", error);
+    }
     return null;
   }
 }
@@ -48,7 +48,7 @@ export default async function ProfilePage({ params }) {
   }
 
   return (
-    <main>
+    <main className="flex flex-col items-center justify-center">
       <ProfilePublicPrestador profissional={profissional} />
     </main>
   );

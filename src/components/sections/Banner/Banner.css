@@ -5,6 +5,7 @@
         bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378183/banner_w3jrr9.png')]
         bg-cover
         bg-center
+        bg-fixed
         bg-no-repeat
         text-white text-shadow-xs;
 }

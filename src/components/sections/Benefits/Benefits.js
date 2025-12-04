@@ -42,7 +42,7 @@ const benefits = [
 
 export default function Benefits() {
   return (
-    <section className="w-full bg-gray-50 flex flex-col items-center justify-center  p-14">
+    <section className="w-full flex flex-col items-center justify-center  p-14">
       <h2 className="text-4xl ">Beneficios da Jobberu</h2>
 
       <div className="w-[1200px] grid grid-cols-3 gap-8 mt-20">

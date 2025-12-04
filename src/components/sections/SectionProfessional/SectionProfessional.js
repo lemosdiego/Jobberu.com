@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import ProfessionalCard from "./ProfessionalCard";
 import api from "@/services/api";
+import instruction from "@/app/data/instruction";
 
 const categories = [
   // Adicionando a opção para limpar o filtro
@@ -20,6 +21,10 @@ const categories = [
   "Aulas Particulares",
   "Motorista",
   "Frete",
+  "Obras",
+  "Cabeleireira",
+  "Dedetização",
+  "Chaveiro",
 ];
 
 export default function BuscarPrestadoresPorCidade() {
@@ -169,8 +174,8 @@ export default function BuscarPrestadoresPorCidade() {
       {/* Dropdown somente seleção de categoria, sem digitação */}
       <div className="search-wrapper relative " ref={searchRef}>
         <button
-          type="button border"
-          className="search flex items-center justify-between border w-full p-3"
+          type="button "
+          className="search flex items-center justify-between shadow border border-gray-200 rounded w-full p-3"
           onClick={() => setDropdownOpen((prev) => !prev)}
         >
           <span className={!categoriaSelecionada ? "text-gray-500" : ""}>
@@ -179,7 +184,7 @@ export default function BuscarPrestadoresPorCidade() {
         </button>
 
         {dropdownOpen && (
-          <ul className="search-dropdown border absolute bg-white w-full z-20 grid shadow mt-1">
+          <ul className="search-dropdown absolute bg-white w-full z-20 grid shadow border border-gray-200 mt-1 h-[400px] overflow-y-auto">
             {categories.map((cat) => (
               <li
                 key={cat}
@@ -204,12 +209,12 @@ export default function BuscarPrestadoresPorCidade() {
           placeholder="Digite a cidade"
           value={cidade}
           onChange={(e) => setCidade(e.target.value)}
-          className="p-3 border w-full"
+          className="p-3 border border-gray-200 rounded shadow outline-none w-full"
         />
         <button
           onClick={handleBuscarCidade}
           disabled={loading}
-          className="border"
+          className="rounded bg-blue-300 hover:bg-blue-500 cursor-pointer"
         >
           {loading ? "Buscando..." : "Buscar"}
         </button>
@@ -233,13 +238,19 @@ export default function BuscarPrestadoresPorCidade() {
       )}
       {/* Tela inicial padrão */}
       {isClient && !jaBuscou && (
-        <div className="mt-4 h-[400px] mb-4 border">
-          <h1 className="text-2xl font-semibold">
-            Busque os melhores profissionais da sua região
-          </h1>
-          <p className="text-gray-600">
-            Digite a cidade e, se quiser, escolha uma categoria para filtrar.
-          </p>
+        <div className="mt-4 grid grid-cols-3 gap-4">
+          {instruction.map((item, index) => (
+            <div
+              key={index}
+              className={`border p-5 flex flex-col justify-center gap-2 rounded border-gray-200 bg-gradient-to-r ${item.bg}`}
+            >
+              <item.icon
+                className={`text-5xl text-primary ${item.iconColor}`}
+              />
+              <h3 className="text-xl font-medium">{item.title}</h3>
+              <p>{item.text}</p>
+            </div>
+          ))}
         </div>
       )}
     </section>
