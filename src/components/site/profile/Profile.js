@@ -99,7 +99,7 @@ export default function Profile() {
               ) : (
                 // Se for CLIENTE, mostra apenas Configurações
                 <Link
-                  href="/configuracoes" // Rota para configurações do cliente
+                  href="/dashboard" // Rota para configurações do cliente
                   onClick={closeDropDown}
                   className="bg-blue-500 hover:bg-blue-600 p-2 text-white text-sm rounded flex items-center gap-2"
                 >
