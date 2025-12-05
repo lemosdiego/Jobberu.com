@@ -35,7 +35,7 @@ export default function Categories() {
           >
             <div className="relative h-[200px] w-full ">
               {/* se tiver imagem na categoria, mostra; senão, fallback */}
-              {/* {item.image ? (
+              {item.image ? (
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -43,7 +43,7 @@ export default function Categories() {
                   fill
                   objectFit="cover"
                 />
-              ) : null} */}
+              ) : null}
             </div>
             <div className="p-2">
               {" "}
