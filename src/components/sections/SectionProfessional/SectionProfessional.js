@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import ProfessionalCard from "./ProfessionalCard";
 import api from "@/services/api";
 import instruction from "@/app/data/instruction";
+import "./SectionProfessional.css";
 
 const categories = [
   // Adicionando a opção para limpar o filtro
@@ -151,12 +152,12 @@ export default function BuscarPrestadoresPorCidade() {
 
     if (cidadeBuscada && !categoriaSelecionada) {
       return (
-        <div className="mt-4">
-          <p className=" text-xl rounded-md">
+        <div className="section-professional-message">
+          <h3 className=" section-professional-message-title">
             Desculpe, não encontramos profissionais disponíveis na cidade{" "}
             {cidadeBuscada}.
-          </p>
-          <p className="text-lg mt-2 text-gray-600">
+          </h3>
+          <p className=" section-professional-message-text">
             Que tal tentar novamente buscando por cidades vizinhas ou regiões
             próximas? Assim, você aumenta as chances de encontrar o profissional
             ideal para o seu serviço.
@@ -167,12 +168,12 @@ export default function BuscarPrestadoresPorCidade() {
 
     if (cidadeBuscada && categoriaSelecionada) {
       return (
-        <div className="mt-4">
-          <p>
+        <div className="section-professional-message">
+          <h3 className=" section-professional-message-title">
             Desculpe, não achamos profissionais de {categoriaSelecionada} na sua{" "}
             cidade {cidadeBuscada}.
-          </p>
-          <p className="text-lg mt-2 text-gray-600">
+          </h3>
+          <p className=" section-professional-message-text">
             Que tal tentar novamente buscando por cidades vizinhas ou regiões
             próximas? Assim, você aumenta as chances de encontrar o profissional
             ideal para o seu serviço.
@@ -185,12 +186,12 @@ export default function BuscarPrestadoresPorCidade() {
   };
 
   return (
-    <section className="w-[1200px] max-sm:w-[95vw] max-md:w-[90vw] max-lg:w-[700px] max-xl:w-[1000px]">
+    <section className="section-professional">
       {/* Dropdown somente seleção de categoria, sem digitação */}
-      <div className="search-wrapper relative " ref={searchRef}>
+      <div className="section-professional_search-wrapper" ref={searchRef}>
         <button
           type="button "
-          className="search flex items-center justify-between shadow border border-gray-200 rounded w-full p-3"
+          className="section-professional_search-button"
           onClick={() => setDropdownOpen((prev) => !prev)}
         >
           <span className={!categoriaSelecionada ? "text-gray-500" : ""}>
@@ -199,18 +200,20 @@ export default function BuscarPrestadoresPorCidade() {
         </button>
 
         {dropdownOpen && (
-          <ul className="search-dropdown absolute bg-white w-full z-20 grid shadow border border-gray-200 mt-1 h-[400px] overflow-y-auto">
+          <ul className="section-professional_search-dropdown">
             {categories.map((cat) => (
               <li
                 key={cat}
-                className="search-item p-1 text-sm hover:bg-gray-100"
+                className="section-professional_search-item"
                 // Usamos onMouseDown para garantir que o evento dispare antes do onBlur do input
                 onMouseDown={(e) => {
                   e.preventDefault(); // Previne que o input perca o foco antes do clique
                   handleSelectCategoria(cat);
                 }}
               >
-                <button className="m-1 ml-2 cursor-pointer">{cat}</button>
+                <button className=" section-professional_search-button-item">
+                  {cat}
+                </button>
               </li>
             ))}
           </ul>
@@ -218,18 +221,18 @@ export default function BuscarPrestadoresPorCidade() {
       </div>
 
       {/* Cidade */}
-      <div className="mt-4 grid  [grid-template-columns:4fr_1fr] gap-2">
+      <div className=" section-professional_search-cidade">
         <input
           type="text"
           placeholder="Digite a cidade"
           value={cidade}
           onChange={(e) => setCidade(e.target.value)}
-          className="p-3 border border-gray-200 rounded shadow outline-none w-full"
+          className=" section-professional_search-input"
         />
         <button
           onClick={handleBuscarCidade}
           disabled={loading}
-          className="rounded bg-blue-300 hover:bg-blue-500 cursor-pointer"
+          className=" section-professional_search-button-cidade"
         >
           {loading ? "Buscando..." : "Buscar"}
         </button>
@@ -242,7 +245,7 @@ export default function BuscarPrestadoresPorCidade() {
 
       {/* Lista de profissionais */}
       {isClient && prestadores.length > 0 && (
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="section-professional_container-card">
           {prestadores.map((profissional) => (
             <ProfessionalCard
               key={profissional.id}
@@ -253,17 +256,19 @@ export default function BuscarPrestadoresPorCidade() {
       )}
       {/* Tela inicial padrão */}
       {isClient && !jaBuscou && (
-        <div className="mt-4 grid grid-cols-3 gap-4 max-sm:grid-cols-1">
+        <div className="section-professional_default">
           {instruction.map((item, index) => (
             <div
               key={index}
-              className={` p-5 flex flex-col justify-center gap-2 rounded border border-slate-200 bg-gradient-to-r ${item.bg}`}
+              className={`  section-professional_default-item ${item.bg}`}
             >
               <item.icon
-                className={`text-5xl text-primary ${item.iconColor}`}
+                className={`section-professional_default-icon ${item.iconColor}`}
               />
-              <h3 className="text-xl font-medium">{item.title}</h3>
-              <p>{item.text}</p>
+              <h3 className=" section-professional_default-title">
+                {item.title}
+              </h3>
+              <p className="section-professional_default-text">{item.text}</p>
             </div>
           ))}
         </div>

@@ -2,11 +2,22 @@
 * {
   font-family: "Inter", sans-serif;
 }
+.home-container {
+  @apply w-full 
+      flex 
+      flex-col 
+      items-center 
+      justify-center 
+    
+      max-md:gap-0
+
+      max-lg:gap-0;
+}
 .logo {
   font-family: "Stack Sans Notch", sans-serif;
   @apply text-4xl
   
-        max-md:text-2xl
+        max-md:text-xl
         
         max-lg:text-3xl;
 }

@@ -9,10 +9,11 @@ import SectionProfessional from "@/components/sections/SectionProfessional/Secti
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center gap-8 max-md:gap-4 max-lg:gap-5 w-full">
+    <main className="home-container">
       <Banner />
       <SectionProfessional />
       <Categories />
+      <Benefits />
     </main>
   );
 }

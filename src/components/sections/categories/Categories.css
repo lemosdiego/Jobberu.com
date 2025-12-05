@@ -1,49 +1,37 @@
 @import "tailwindcss";
 
 .section-categories {
-  @apply w-full 
+  @apply w-full
         flex 
         flex-col 
         items-center 
         bg-slate-100 
         relative
         p-14 
-        pt-14 
         
-        max-sm:p-5 
-        max-sm:pt-5
+        max-sm:p-7 
         
-        max-md:p-7
-        max-md:pt-7
+        max-md:p-8
         
-        max-lg:p-9
-        max-lg:pt-9
-        
-        max-xl:p-11
-        max-xl:pt-11;
+        max-lg:p-10
+        max-lg:pt-9;
 }
 .section-categories__title {
   @apply mb-10 
         text-4xl
 
-        max-sm:mb-4
+        max-sm:mb-7
 
         max-md:text-3xl 
-        max-md:mb-7
-        
-        max-lg:mb-9
-        
-        max-xl:mb-11;
+        max-md:mb-7;
 }
 .section-categories__conteiner {
   @apply w-[1200px]
-        relative
-
-        max-md:w-full
+        relative 
         
-        max-lg:w-[85vw]
+        max-lg:w-full
         
-        max-xl:w-[950px];
+        max-xl:w-[900px];
 }
 .section-categories__button-left {
   @apply absolute 
@@ -55,7 +43,8 @@
         p-2 shadow-md 
         hover:bg-gray-200 
         z-10
-        cursor-pointer;
+        cursor-pointer
+        max-md:hidden;
 }
 .section-categories__cards {
   -ms-overflow-style: none; /* IE e Edge */
@@ -81,7 +70,9 @@
 
         w-80
 
-        max-lg:w-72;
+        max-md:w-72
+
+        max-lg:w-64;
 }
 .section-categories__card-image {
   @apply relative 
@@ -120,5 +111,6 @@
         p-2 shadow-md 
         hover:bg-gray-200 
         z-10
-        cursor-pointer;
+        cursor-pointer
+        max-md:hidden;
 }

@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+.section-benefits {
+  @apply w-full
+        flex 
+        flex-col 
+        items-center 
+        p-14
+        
+        max-sm:p-7 
+        
+        max-md:p-8
+        
+        max-lg:p-10
+        max-lg:pt-9;
+}
+.section-benefits_container-title {
+  @apply w-[1200px] 
+        flex 
+        items-center
+        gap-4
+        mb-4
+        
+        max-lg:w-full
+        
+        max-xl:w-[900px];
+}
+.section-benefits_title {
+  @apply text-4xl 
+        flex-shrink-0
+        
+        max-sm:text-3xl;
+}
+.section-benefits_title-line {
+  @apply border-b-2 
+        border-slate-300  
+        flex-1;
+}
+.section-benefits_container-cards {
+  @apply grid 
+        grid-cols-3
+        w-[1200px]
+        gap-4
+        
+        max-sm:grid-cols-1
+
+        max-md:grid-cols-2
+        
+        max-lg:w-full
+        max-lg:gap-3 
+        
+        max-xl:w-[900px];
+}
+.section-benefits_card {
+  @apply flex
+        flex-col 
+        p-4 
+        items-center 
+        justify-center 
+        gap-3
+        rounded
+        shadow
+        bg-slate-100
+        
+        max-sm:gap-1
+        
+        max-lg:gap-2;
+}
+.benefits-icons {
+  @apply text-6xl
+  
+        max-md:text-5xl;
+}

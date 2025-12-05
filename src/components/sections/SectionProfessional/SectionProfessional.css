@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+.section-professional {
+  @apply w-[1200px]
+        mb-8
+        mt-8
+
+        max-sm:p-7
+        
+        max-md:w-full
+        max-md:p-8 
+        
+        max-lg:w-full
+        max-lg:p-10
+        max-lg:m-0
+        
+        max-xl:w-[900px];
+}
+.section-professional-message {
+  @apply mt-4;
+}
+.section-professional-message-title {
+  @apply text-2xl
+        font-medium;
+}
+.section-professional-message-text {
+  @apply mt-1 
+        text-lg 
+        text-gray-600;
+}
+.section-professional_search-wrapper {
+  @apply relative;
+}
+.section-professional_search-button {
+  @apply border 
+        flex 
+        items-center 
+        justify-between 
+        shadow 
+        border-gray-200 
+        rounded 
+        w-full 
+        p-3;
+}
+.section-professional_search-dropdown {
+  @apply absolute 
+        bg-white 
+        w-full 
+        z-20 
+        grid 
+        shadow 
+        border-gray-200 
+        mt-1  
+        overflow-y-auto
+        h-[400px]
+        
+        max-sm:h-72;
+}
+.section-professional_search-item {
+  @apply p-1 
+        text-sm 
+        hover:bg-gray-100;
+}
+.section-professional_search-button-item {
+  @apply m-1 
+        ml-2 
+        cursor-pointer;
+}
+.section-professional_search-cidade {
+  @apply mt-4 
+        grid
+        gap-2  
+        [grid-template-columns:4fr_1fr]
+        
+        max-md:[grid-template-columns:4fr_2fr];
+}
+.section-professional_search-input {
+  @apply p-3 
+        border 
+        border-gray-200 
+        rounded 
+        shadow 
+        outline-none 
+        w-full;
+}
+.section-professional_search-button-cidade {
+  @apply rounded
+        text-white 
+        bg-blue-500 
+        hover:bg-blue-300 
+        cursor-pointer;
+}
+.section-professional_container-card {
+  @apply mt-4 
+        grid 
+        grid-cols-1
+        gap-6 
+        
+        md:grid-cols-2 
+        
+        lg:grid-cols-3;
+}
+.section-professional_default {
+  @apply mt-4 
+        grid 
+        grid-cols-3 
+        gap-4
+
+        max-sm:grid-cols-1
+        max-sm:gap-3
+        
+        max-md:grid-cols-2;
+}
+.section-professional_default-item {
+  @apply p-5 
+        flex 
+        flex-col 
+        justify-center 
+        gap-2 
+        rounded 
+        border 
+        border-slate-200 
+        bg-gradient-to-r;
+}
+.section-professional_default-icon {
+  @apply text-5xl
+        
+        max-lg:text-4xl;
+}
+.section-professional_default-title {
+  @apply text-xl 
+        font-medium;
+}
+.section-professional_default-text {
+}

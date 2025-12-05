@@ -73,7 +73,7 @@ export default function Categories() {
           className="section-categories__button-left "
           aria-label="Categoria anterior"
         >
-          <MdChevronLeft size={30} />
+          <MdChevronLeft size={40} />
         </button>
         <div ref={containerRef} className="section-categories__cards">
           {categories.map((item, index) => (
@@ -108,7 +108,7 @@ export default function Categories() {
           className="section-categories__button-right"
           aria-label="Próxima categoria"
         >
-          <MdChevronRight size={30} />
+          <MdChevronRight size={40} />
         </button>
       </div>
     </section>
