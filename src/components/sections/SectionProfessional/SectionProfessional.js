@@ -185,7 +185,7 @@ export default function BuscarPrestadoresPorCidade() {
   };
 
   return (
-    <section className="w-[1200px] max-sm:w-[95vw] max-md:w-[90vw] max-lg:w-[700px]">
+    <section className="w-[1200px] max-sm:w-[95vw] max-md:w-[90vw] max-lg:w-[700px] max-xl:w-[1000px]">
       {/* Dropdown somente seleção de categoria, sem digitação */}
       <div className="search-wrapper relative " ref={searchRef}>
         <button

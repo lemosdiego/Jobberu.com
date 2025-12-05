@@ -5,22 +5,22 @@ const instruction = [
   {
     icon: MdSearch,
     title: "Simplifique sua vida!",
-    text: "Chega de perder tempo pesquisando profissionais ou pedindo indicações que não dão certo. No Jobberu, você encontra em poucos cliques quem pode resolver seu problema com qualidade e confiança.",
-    bg: "from-slate-50 to-white-50", // Azul claro suave
+    text: "Encontre profissionais de forma rápida, sem perder tempo com buscas longas ou indicações incertas.",
+    bg: "from-slate-50 to-white-50",
     iconColor: "text-blue-500",
   },
   {
     icon: FaHandshake,
     title: "Negocie direto!",
-    text: "No Jobberu, você pesquisa pelos melhores profissionais da sua cidade ou região, de forma simples e rápida. E o melhor: negocia direto com o prestador, sem intermediários.",
-    bg: "from-slate-50 to-white-50", // Verde menta leve
+    text: "Pesquise profissionais da sua região e fale diretamente com quem vai te atender, sem intermediários.",
+    bg: "from-slate-50 to-white-50",
     iconColor: "text-emerald-500",
   },
   {
     icon: FaMapMarked,
     title: "Encontre na sua região",
-    text: "Digite o nome da sua cidade e veja uma lista de profissionais disponíveis. Se quiser, filtre por categoria e encontre exatamente o serviço que precisa de forma fácil e prática.",
-    bg: "from-slate-50 to-white-50", // Roxo-rosa delicado
+    text: "Informe sua cidade, filtre por categoria e encontre exatamente o serviço que precisa.",
+    bg: "from-slate-50 to-white-50",
     iconColor: "text-purple-500",
   },
 ];

@@ -13,7 +13,6 @@ export default function Home() {
       <Banner />
       <SectionProfessional />
       <Categories />
-      <Benefits />
     </main>
   );
 }
