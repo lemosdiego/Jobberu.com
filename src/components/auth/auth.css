@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+.form-login {
+  @apply flex 
+        flex-col 
+        gap-2
+
+        w-[500px]
+        
+        max-sm:w-full
+
+        max-md:gap-1
+        
+        max-md:w-[450px]
+        
+        max-lg:w-full
+        max-lg:gap-1
+        
+        max-xl:w-[400px];
+}
+.form-login_title {
+  @apply text-4xl 
+        font-bold
+        mb-4
+        
+        max-lg:text-3xl
+        max-lg:mb-2;
+}
+.form-login_error {
+  @apply text-red-500 
+        text-center;
+}
+.form-login_label {
+  @apply block 
+        text-sm 
+        font-medium 
+        text-gray-700;
+}
+.form-login_input {
+  @apply mt-1 
+        p-2.5 
+        border 
+        border-slate-300 
+        outline-none 
+        rounded shadow
+  
+        max-sm:p-2;
+}
+.form-login_button {
+  @apply mt-2 
+        p-2.5 
+        mb-1 
+        bg-blue-500 
+        hover:bg-blue-400 
+        cursor-pointer 
+        rounded 
+        shadow
+        
+        max-sm:p-2;
+}
+.form-login_register {
+  @apply flex 
+        flex-col 
+        items-start 
+        gap-0.5;
+}
+.form-login_register_text {
+  @apply text-lg;
+}
+.form-login_register_link {
+  @apply font-medium 
+        text-xl 
+        text-blue-500 
+        hover:text-blue-400;
+}

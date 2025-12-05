@@ -32,7 +32,7 @@ export default function NavigationMobile() {
 
       {/* Menu com animação */}
       <ul
-        className={`fixed top-0 right-0 w-full bg-white flex flex-col p-10 gap-4 transform transition-all duration-500 ease-out
+        className={`fixed top-0 right-0 w-full bg-blue-300 flex flex-col p-10 gap-4 transform transition-all duration-500 ease-out
           ${
             isOpen
               ? "translate-y-0 opacity-100"

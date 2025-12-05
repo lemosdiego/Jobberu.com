@@ -88,17 +88,17 @@
 .section-categories__card-content {
   @apply p-4 
         flex-grow 
-        w-full;
+        w-full
+        flex
+        flex-col
+        items-start;
 }
 .section-categories__card-title {
-  @apply text-center 
-        font-semibold 
-        text-lg;
+  @apply font-semibold 
+        text-xl;
 }
 .section-categories__card-description {
   @apply mt-1 
-        text-center 
-        text-sm 
         text-gray-500;
 }
 .section-categories__button-right {

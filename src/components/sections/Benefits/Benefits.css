@@ -19,11 +19,16 @@
         flex 
         items-center
         gap-4
-        mb-4
+        mb-8
+        border-b-2
+        border-slate-400
+        pb-2
         
         max-lg:w-full
+        max-lg:mb-4
         
-        max-xl:w-[900px];
+        max-xl:w-[900px]
+        max-xl:mb-7;
 }
 .section-benefits_title {
   @apply text-4xl 
@@ -31,11 +36,7 @@
         
         max-sm:text-3xl;
 }
-.section-benefits_title-line {
-  @apply border-b-2 
-        border-slate-300  
-        flex-1;
-}
+
 .section-benefits_container-cards {
   @apply grid 
         grid-cols-3

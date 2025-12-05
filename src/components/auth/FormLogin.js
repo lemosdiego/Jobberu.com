@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/services/api";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
+import "./auth.css";
 
 export default function FormLogin() {
   const [formData, setFormData] = useState({
@@ -51,14 +52,11 @@ export default function FormLogin() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-      <h2 className="text-4xl font-bold uppercase mb-4">Acessar sua conta</h2>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+    <form onSubmit={handleSubmit} className="form-login">
+      <h2 className="form-login_title">Acessar sua conta</h2>
+      {error && <p className="form-login_error">{error}</p>}
       <div className="flex flex-col">
-        <label
-          htmlFor="email"
-          className="block text-sm font-medium text-gray-700"
-        >
+        <label htmlFor="email" className="form-login_label">
           Email
         </label>
         <input
@@ -68,7 +66,7 @@ export default function FormLogin() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-login_input"
         />
       </div>
 
@@ -81,32 +79,22 @@ export default function FormLogin() {
           value={formData.senha}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-login_input"
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="mt-4 p-3 mb-3 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
-      >
+      <button type="submit" disabled={loading} className="form-login_button">
         {loading ? "Entrando..." : "Entrar"}
       </button>
-      <div className="flex flex-col items-start gap-0.5">
-        <p className="text-center text-lg">
+      <div className="form-login_register">
+        <p className="form-login_register_text">
           Não tem uma conta? Cadastre-se como
         </p>
-        <Link
-          href="/cadastro/cliente"
-          className="font-medium text-xl text-blue-500 hover:text-blue-400"
-        >
+        <Link href="/cadastro/cliente" className="form-login_register_link">
           Cliente
         </Link>
         <p>Ou</p>
-        <Link
-          href="/cadastro/prestador"
-          className="font-medium text-xl text-blue-500 hover:text-blue-400"
-        >
+        <Link href="/cadastro/prestador" className="form-login_register_link">
           Prestador
         </Link>
       </div>

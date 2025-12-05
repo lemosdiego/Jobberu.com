@@ -66,7 +66,7 @@ export default function Categories() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      <h2 className="section-categories__title ">Nossas Categorias</h2>
+      <h2 className="section-categories__title ">Categorias</h2>
       <div className="section-categories__conteiner ">
         <button
           onClick={() => scroll("left")}

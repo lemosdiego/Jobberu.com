@@ -45,7 +45,6 @@ export default function Benefits() {
     <section className="section-benefits">
       <div className=" section-benefits_container-title">
         <h2 className=" section-benefits_title">Beneficios Jobberu</h2>
-        <span className=" section-benefits_title-line" />
       </div>
       <div className=" section-benefits_container-cards">
         {benefits.map((benefit, index) => (

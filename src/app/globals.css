@@ -23,7 +23,43 @@
 }
 .page-register,
 .page-login {
-  @apply min-h-screen
-      grid
-      [grid-template-columns:3fr_2.5fr];
+  @apply grid
+      [grid-template-columns:3fr_2.5fr]
+      
+      max-md:grid-cols-1
+      
+      max-lg:grid-cols-2
+      
+      max-xl:[grid-template-columns:3fr_2.8fr];
+}
+.page-login_bg-image {
+  @apply bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764865632/login_i2eohx.jpg')] 
+        bg-contain 
+        bg-center 
+        bg-no-repeat
+        
+        min-h-screen
+
+        max-sm:min-h-[30vh]
+        
+        max-md:min-h-[50vh]
+        
+        max-lg:min-h-[70vh]
+        
+        max-xl:min-h-[80vh];
+}
+.page-login_container-form {
+  @apply flex
+        items-center
+        justify-center
+
+        p-20
+
+        max-sm:p-7
+        
+        max-md:p-8
+        
+        max-lg:p-10
+        
+        max-xl:p-14;
 }
