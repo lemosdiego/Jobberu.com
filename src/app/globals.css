@@ -14,5 +14,5 @@
 .page-login {
   @apply min-h-screen
       grid
-      [grid-template-columns:3fr_2fr];
+      [grid-template-columns:3fr_2.5fr];
 }

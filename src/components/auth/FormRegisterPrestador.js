@@ -5,6 +5,26 @@ import { useRouter } from "next/navigation";
 import api from "@/services/api";
 import "./auth.css";
 
+const profissoes = [
+  "Jardineiro(a)",
+  "Manicure e Pedicure",
+  "Barbeiro(a)",
+  "Profissional de Limpeza",
+  "Eletricista",
+  "Encanador(a)",
+  "Pintor(a)",
+  "Montador(a) de Móveis",
+  "Personal Trainer",
+  "Piscineiro(a)",
+  "Professor(a) Particular",
+  "Motorista",
+  "Profissional de Fretes",
+  "Pedreiro(a)",
+  "Cabeleireiro(a)",
+  "Dedetizador(a)",
+  "Chaveiro(a)",
+];
+
 export default function FormRegisterPrestador() {
   const [formData, setFormData] = useState({
     nome: "",
@@ -126,13 +146,15 @@ export default function FormRegisterPrestador() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Cadastro de Prestador de Serviço</h2>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+      <h2 className="text-4xl uppercase mb-4">
+        Cadastro de Prestador de Serviço
+      </h2>
       {error && <p style={{ color: "red" }}>{error}</p>}
       {success && <p style={{ color: "green" }}>{success}</p>}
 
       {/* Campos comuns */}
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="nome">Nome Completo</label>
         <input
           type="text"
@@ -141,9 +163,10 @@ export default function FormRegisterPrestador() {
           value={formData.nome}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -152,9 +175,10 @@ export default function FormRegisterPrestador() {
           value={formData.email}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="senha">Senha</label>
         <input
           type="password"
@@ -163,9 +187,10 @@ export default function FormRegisterPrestador() {
           value={formData.senha}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="telefone">Telefone</label>
         <input
           type="tel"
@@ -175,33 +200,42 @@ export default function FormRegisterPrestador() {
           onChange={handleChange}
           placeholder="(99) 99999-9999"
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="foto_perfil">Foto de Perfil (Opcional)</label>
         <input
           type="file"
           id="foto_perfil"
           name="foto_perfil"
           onChange={handleFileChange}
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
 
       {/* Campos específicos do Prestador */}
-      <div>
-        <label htmlFor="titulo_profissional">
-          Título Profissional (Ex: Eletricista, Jardineiro)
-        </label>
-        <input
-          type="text"
+      <div className="flex flex-col gap-0.5">
+        <label htmlFor="titulo_profissional">Título Profissional</label>
+        <select
           id="titulo_profissional"
           name="titulo_profissional"
           value={formData.titulo_profissional}
           onChange={handleChange}
           required
-        />
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+        >
+          <option value="" disabled>
+            Selecione sua profissão
+          </option>
+          {profissoes.map((profissao) => (
+            <option key={profissao} value={profissao}>
+              {profissao}
+            </option>
+          ))}
+        </select>
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="biografia">
           Biografia (Fale um pouco sobre você e seu trabalho)
         </label>
@@ -210,9 +244,10 @@ export default function FormRegisterPrestador() {
           name="biografia"
           value={formData.biografia}
           onChange={handleChange}
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow resize-none h-40"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="anos_experiencia">Anos de Experiência</label>
         <input
           type="number"
@@ -220,11 +255,12 @@ export default function FormRegisterPrestador() {
           name="anos_experiencia"
           value={formData.anos_experiencia}
           onChange={handleChange}
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
 
       {/* Campos de endereço */}
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="cep">CEP</label>
         <input
           type="text"
@@ -234,9 +270,10 @@ export default function FormRegisterPrestador() {
           onChange={handleChange}
           onBlur={handleCepBlur}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="logradouro">Logradouro</label>
         <input
           type="text"
@@ -245,9 +282,10 @@ export default function FormRegisterPrestador() {
           value={formData.logradouro}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="bairro">Bairro</label>
         <input
           type="text"
@@ -256,9 +294,10 @@ export default function FormRegisterPrestador() {
           value={formData.bairro}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="cidade">Cidade</label>
         <input
           type="text"
@@ -267,9 +306,10 @@ export default function FormRegisterPrestador() {
           value={formData.cidade}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="estado">Estado</label>
         <input
           type="text"
@@ -278,9 +318,10 @@ export default function FormRegisterPrestador() {
           value={formData.estado}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
-      <div>
+      <div className="flex flex-col gap-0.5">
         <label htmlFor="numero">Número</label>
         <input
           type="text"
@@ -289,10 +330,15 @@ export default function FormRegisterPrestador() {
           value={formData.numero}
           onChange={handleChange}
           required
+          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
         />
       </div>
 
-      <button type="submit" disabled={loading}>
+      <button
+        type="submit"
+        disabled={loading}
+        className="w-full mt-4 p-3 mb-4 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
+      >
         {loading ? "Cadastrando..." : "Cadastrar como Prestador"}
       </button>
     </form>

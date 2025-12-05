@@ -51,8 +51,8 @@ export default function FormLogin() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="grid gap-1 w-[500px]">
-      <h2 className="text-4xl font-bold mb-4">Acessar sua conta</h2>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
+      <h2 className="text-4xl font-bold uppercase mb-4">Acessar sua conta</h2>
       {error && <p className="text-red-500 text-center">{error}</p>}
       <div className="flex flex-col">
         <label
@@ -88,19 +88,28 @@ export default function FormLogin() {
       <button
         type="submit"
         disabled={loading}
-        className="mt-4 p-3 mb-4 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
+        className="mt-4 p-3 mb-3 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
       >
         {loading ? "Entrando..." : "Entrar"}
       </button>
-      <p className="text-center text-lg">
-        Não tem uma conta?{" "}
+      <div className="flex flex-col items-start gap-0.5">
+        <p className="text-center text-lg">
+          Não tem uma conta? Cadastre-se como
+        </p>
         <Link
           href="/cadastro/cliente"
           className="font-medium text-xl text-blue-500 hover:text-blue-400"
         >
-          Cadastre-se
+          Cliente
         </Link>
-      </p>
+        <p>Ou</p>
+        <Link
+          href="/cadastro/prestador"
+          className="font-medium text-xl text-blue-500 hover:text-blue-400"
+        >
+          Prestador
+        </Link>
+      </div>
     </form>
   );
 }
