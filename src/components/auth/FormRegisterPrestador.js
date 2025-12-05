@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/services/api";
-import "./auth.css";
+import "./Auth.css";
 
 const profissoes = [
   "Jardineiro(a)",
@@ -146,16 +146,16 @@ export default function FormRegisterPrestador() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-      <h2 className="text-4xl uppercase mb-4">
-        Cadastro de Prestador de Serviço
-      </h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
+    <form onSubmit={handleSubmit} className="form-register">
+      <h2 className="form-register_title">Cadastro de Prestador de Serviço</h2>
+      {error && <p className="form-register_error">{error}</p>}
+      {success && <p className="form-register_sucess">{success}</p>}
 
       {/* Campos comuns */}
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="nome">Nome Completo</label>
+      <div className=" form-register_container_inputs">
+        <label htmlFor="nome" className="form-register_label">
+          Nome Completo
+        </label>
         <input
           type="text"
           id="nome"
@@ -163,11 +163,13 @@ export default function FormRegisterPrestador() {
           value={formData.nome}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="email">Email</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="email" className="form-register_label">
+          Email
+        </label>
         <input
           type="email"
           id="email"
@@ -175,11 +177,13 @@ export default function FormRegisterPrestador() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="senha">Senha</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="senha" className="form-register_label">
+          Senha
+        </label>
         <input
           type="password"
           id="senha"
@@ -187,11 +191,13 @@ export default function FormRegisterPrestador() {
           value={formData.senha}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="telefone">Telefone</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="telefone" className="form-register_label">
+          Telefone
+        </label>
         <input
           type="tel"
           id="telefone"
@@ -200,30 +206,34 @@ export default function FormRegisterPrestador() {
           onChange={handleChange}
           placeholder="(99) 99999-9999"
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="foto_perfil">Foto de Perfil (Opcional)</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="foto_perfil" className="form-register_label">
+          Foto de Perfil (Opcional)
+        </label>
         <input
           type="file"
           id="foto_perfil"
           name="foto_perfil"
           onChange={handleFileChange}
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
 
       {/* Campos específicos do Prestador */}
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="titulo_profissional">Título Profissional</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="titulo_profissional" className="form-register_label">
+          Título Profissional
+        </label>
         <select
           id="titulo_profissional"
           name="titulo_profissional"
           value={formData.titulo_profissional}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         >
           <option value="" disabled>
             Selecione sua profissão
@@ -235,8 +245,8 @@ export default function FormRegisterPrestador() {
           ))}
         </select>
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="biografia">
+      <div className="form-register_container_inputs">
+        <label htmlFor="biografia" className="form-register_label">
           Biografia (Fale um pouco sobre você e seu trabalho)
         </label>
         <textarea
@@ -244,24 +254,28 @@ export default function FormRegisterPrestador() {
           name="biografia"
           value={formData.biografia}
           onChange={handleChange}
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow resize-none h-40"
+          className="form-register_textarea"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="anos_experiencia">Anos de Experiência</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="anos_experiencia" className="form-register_label">
+          Anos de Experiência
+        </label>
         <input
           type="number"
           id="anos_experiencia"
           name="anos_experiencia"
           value={formData.anos_experiencia}
           onChange={handleChange}
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
 
       {/* Campos de endereço */}
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="cep">CEP</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="cep" className="form-register_label">
+          CEP
+        </label>
         <input
           type="text"
           id="cep"
@@ -270,11 +284,13 @@ export default function FormRegisterPrestador() {
           onChange={handleChange}
           onBlur={handleCepBlur}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="logradouro">Logradouro</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="logradouro" className="form-register_label">
+          Logradouro
+        </label>
         <input
           type="text"
           id="logradouro"
@@ -282,11 +298,13 @@ export default function FormRegisterPrestador() {
           value={formData.logradouro}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="bairro">Bairro</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="bairro" className="form-register_label">
+          Bairro
+        </label>
         <input
           type="text"
           id="bairro"
@@ -294,11 +312,13 @@ export default function FormRegisterPrestador() {
           value={formData.bairro}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="cidade">Cidade</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="cidade" className="form-register_label">
+          Cidade
+        </label>
         <input
           type="text"
           id="cidade"
@@ -306,11 +326,13 @@ export default function FormRegisterPrestador() {
           value={formData.cidade}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="estado">Estado</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="estado" className="form-register_label">
+          Estado
+        </label>
         <input
           type="text"
           id="estado"
@@ -318,11 +340,13 @@ export default function FormRegisterPrestador() {
           value={formData.estado}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="numero">Número</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="numero" className="form-register_label">
+          Número
+        </label>
         <input
           type="text"
           id="numero"
@@ -330,15 +354,11 @@ export default function FormRegisterPrestador() {
           value={formData.numero}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
 
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full mt-4 p-3 mb-4 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
-      >
+      <button type="submit" disabled={loading} className="form-register_button">
         {loading ? "Cadastrando..." : "Cadastrar como Prestador"}
       </button>
     </form>

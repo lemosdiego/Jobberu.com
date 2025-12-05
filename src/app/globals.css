@@ -33,8 +33,14 @@
       max-xl:[grid-template-columns:3fr_2.8fr];
 }
 .page-login_bg-image {
-  @apply bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764865632/login_i2eohx.jpg')] 
-        bg-contain 
+  @apply bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764865632/login_i2eohx.jpg')];
+}
+.page-register_bg-image {
+  @apply bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764865625/cadastro_qeaoh1.jpg')];
+}
+.page-register_default,
+.page-login_default {
+  @apply bg-contain 
         bg-center 
         bg-no-repeat
         
@@ -48,7 +54,8 @@
         
         max-xl:min-h-[80vh];
 }
-.page-login_container-form {
+.page-login_container-form,
+.page-register_container-form {
   @apply flex
         items-center
         justify-center

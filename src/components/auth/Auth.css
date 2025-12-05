@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+.form-login,
+.form-register {
+  @apply flex 
+        flex-col 
+        gap-2
+
+        w-[500px]
+        
+        max-sm:w-full
+
+        max-md:gap-1
+        
+        max-md:w-[450px]
+        
+        max-lg:w-full
+        max-lg:gap-1
+        
+        max-xl:w-[400px];
+}
+.form-register {
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 transparent;
+  scrollbar-gutter: stable;
+  @apply max-h-screen 
+      overflow-y-auto 
+      pr-4;
+}
+/* Chrome, Edge, Safari */
+.form-register::-webkit-scrollbar {
+  width: 6px;
+}
+.form-register::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 4px; /* AFASTA A BARRA DO CONTEÚDO */
+}
+.form-register::-webkit-scrollbar-thumb {
+  background-color: #3b82f6;
+  border-radius: 999px;
+}
+.form-register::-webkit-scrollbar-thumb:hover {
+  background-color: #60a5fa;
+}
+.form-login_title,
+.form-register_title {
+  @apply text-4xl 
+        font-bold
+        mb-4
+        
+        max-lg:text-3xl
+        max-lg:mb-2;
+}
+.form-login_error,
+.form-register_error {
+  @apply text-red-500 
+        text-center;
+}
+.form-register_sucess {
+  @apply text-green-500;
+}
+.form-register_container_inputs {
+  @apply flex 
+      flex-col 
+      gap-0.5;
+}
+.form-login_label,
+.form-register_label {
+  @apply block 
+        text-sm 
+        font-medium 
+        text-gray-700;
+}
+.form-login_input,
+.form-register_input {
+  @apply mt-1 
+        p-2.5 
+        border 
+        border-slate-300 
+        outline-none 
+        rounded shadow
+  
+        max-sm:p-2;
+}
+.form-register_textarea {
+  @apply mt-1 
+        p-3 border 
+        border-slate-300 
+        outline-none 
+        rounded 
+        shadow 
+        resize-none 
+        h-32;
+}
+.form-login_button,
+.form-register_button {
+  @apply mt-2 
+        p-2.5 
+        mb-1
+        text-white 
+        bg-blue-500 
+        hover:bg-blue-400 
+        cursor-pointer 
+        rounded 
+        shadow
+        
+        max-sm:p-2;
+}
+.form-login_register {
+  @apply flex 
+        flex-col 
+        items-start 
+        gap-0.5;
+}
+.form-login_register_text {
+  @apply text-lg;
+}
+.form-login_register_link {
+  @apply font-medium 
+        text-xl 
+        text-blue-500 
+        hover:text-blue-400;
+}

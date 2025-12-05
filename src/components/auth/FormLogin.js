@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import api from "@/services/api";
 import { useAuth } from "@/context/AuthContext";
 import Link from "next/link";
-import "./auth.css";
+import "./Auth.css";
 
 export default function FormLogin() {
   const [formData, setFormData] = useState({

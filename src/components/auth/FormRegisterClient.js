@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import api from "@/services/api";
-import "./auth.css";
+import "./Auth.css";
 
 export default function FormRegisterClient() {
   const [formData, setFormData] = useState({
@@ -123,13 +123,15 @@ export default function FormRegisterClient() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-2">
-      <h2 className="text-4xl uppercase mb-4">Cadastro de Cliente</h2>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      {success && <p style={{ color: "green" }}>{success}</p>}
+    <form onSubmit={handleSubmit} className="form-register">
+      <h2 className="form-register_title">Cadastro de Cliente</h2>
+      {error && <p className="form-register_error">{error}</p>}
+      {success && <p className="form-register_sucess">{success}</p>}
 
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="nome">Nome Completo</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="nome" className="form-register_label">
+          Nome Completo
+        </label>
         <input
           type="text"
           id="nome"
@@ -137,11 +139,13 @@ export default function FormRegisterClient() {
           value={formData.nome}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="email">Email</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="email" className="form-register_label">
+          Email
+        </label>
         <input
           type="email"
           id="email"
@@ -149,11 +153,13 @@ export default function FormRegisterClient() {
           value={formData.email}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="senha">Senha</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="senha" className="form-register_label">
+          Senha
+        </label>
         <input
           type="password"
           id="senha"
@@ -161,11 +167,13 @@ export default function FormRegisterClient() {
           value={formData.senha}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="telefone">Telefone</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="telefone" className="form-register_label">
+          Telefone
+        </label>
         <input
           type="tel"
           id="telefone"
@@ -174,11 +182,13 @@ export default function FormRegisterClient() {
           onChange={handleChange}
           placeholder="(99) 99999-9999"
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="cep">CEP</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="cep" className="form-register_label">
+          CEP
+        </label>
         <input
           type="text"
           id="cep"
@@ -187,21 +197,25 @@ export default function FormRegisterClient() {
           onChange={handleChange}
           onBlur={handleCepBlur} // Adicionamos o evento onBlur aqui
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="foto_perfil">Foto de Perfil (Opcional)</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="foto_perfil" className="form-register_label">
+          Foto de Perfil (Opcional)
+        </label>
         <input
           type="file"
           id="foto_perfil"
           name="foto_perfil"
           onChange={handleFileChange}
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="logradouro">Logradouro</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="logradouro" className="form-register_label">
+          Logradouro
+        </label>
         <input
           type="text"
           id="logradouro"
@@ -209,11 +223,13 @@ export default function FormRegisterClient() {
           value={formData.logradouro}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="bairro">Bairro</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="bairro" className="form-register_label">
+          Bairro
+        </label>
         <input
           type="text"
           id="bairro"
@@ -221,11 +237,13 @@ export default function FormRegisterClient() {
           value={formData.bairro}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="cidade">Cidade</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="cidade" className="form-register_label">
+          Cidade
+        </label>
         <input
           type="text"
           id="cidade"
@@ -233,11 +251,13 @@ export default function FormRegisterClient() {
           value={formData.cidade}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="estado">Estado</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="estado" className="form-register_label">
+          Estado
+        </label>
         <input
           type="text"
           id="estado"
@@ -245,11 +265,13 @@ export default function FormRegisterClient() {
           value={formData.estado}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <div className="flex flex-col gap-0.5">
-        <label htmlFor="numero">Número</label>
+      <div className="form-register_container_inputs">
+        <label htmlFor="numero" className="form-register_label">
+          Número
+        </label>
         <input
           type="text"
           id="numero"
@@ -257,14 +279,10 @@ export default function FormRegisterClient() {
           value={formData.numero}
           onChange={handleChange}
           required
-          className="mt-1 p-3 border border-slate-300 outline-none rounded shadow"
+          className="form-register_input"
         />
       </div>
-      <button
-        type="submit"
-        disabled={loading}
-        className="w-full mt-4 p-3 mb-4 bg-blue-500 hover:bg-blue-400 cursor-pointer rounded shadow"
-      >
+      <button type="submit" disabled={loading} className="form-register_button">
         {loading ? "Cadastrando..." : "Cadastrar"}
       </button>
     </form>
