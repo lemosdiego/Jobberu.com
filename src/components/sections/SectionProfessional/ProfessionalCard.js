@@ -85,7 +85,9 @@ const ProfessionalCard = ({ profissional }) => {
         <p className="text-sm text-gray-500 mb-1">
           {cidade} - {estado}
         </p>
-        <p className="text-gray-700 text-sm mb-2 flex-grow">{biografia}</p>
+        <p className="text-gray-700 text-sm mb-2 flex-grow line-clamp-2">
+          {biografia}
+        </p>
         <div className="mt-auto pt-3 border-t">
           <div className="flex justify-between items-center">
             <p className="text-gray-800 font-semibold">{precoFormatado}</p>

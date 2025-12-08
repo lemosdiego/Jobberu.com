@@ -113,13 +113,13 @@ export default function BuscarPrestadoresPorCidade() {
           const {
             cidadeBuscada: savedCidade,
             categoriaSelecionada: savedCategoria,
-            prestadores: savedPrestadores,
+            prestadores: savedPrestadores = [],
             jaBuscou: savedJaBuscou,
           } = JSON.parse(savedState);
 
           setCidadeBuscada(savedCidade || "");
           setCategoriaSelecionada(savedCategoria || "");
-          setPrestadores(savedPrestadores || []);
+          setPrestadores(savedPrestadores);
           setJaBuscou(savedJaBuscou || false);
         }
       } catch (error) {

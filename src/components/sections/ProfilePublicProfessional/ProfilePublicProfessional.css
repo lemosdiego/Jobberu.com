@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+/* CABEÇALHO DO PERFIL */
+.page-profile_container {
+  @apply w-[1200px] 
+        mt-8  
+        mb-8 
+        shadow-2xs
+        p-20 
+        bg-gray-100
+
+        max-sm:p-7
+        
+        max-md:p-8
+        
+        max-lg:m-0
+        max-lg:w-full
+        max-lg:p-10
+        
+        max-xl:w-[900px]
+        max-xl:p-14;
+}
+.page-profile_header {
+  @apply grid
+        [grid-template-columns:1fr_4fr]
+        mb-14
+        gap-8
+        
+        max-sm:grid-cols-1
+        max-sm:gap-4
+
+        max-md:mb-4
+        
+        max-lg:mb-5;
+}
+.page-profile_header-image-wrapper {
+  @apply flex 
+        flex-col
+        items-center
+                
+        max-md:items-start;
+}
+.page-profile_header-image {
+  @apply relative 
+        w-48 
+        h-48
+        mb-1
+        
+        max-md:w-44
+        max-md:h-44;
+}
+.page-profile_header-content {
+  @apply flex
+        flex-col
+        justify-center;
+}
+.page-profile_header_content-title {
+  @apply uppercase 
+        font-bold 
+        text-3xl;
+}
+.page-profile_header_content-subtitle {
+  @apply italic 
+        font-medium 
+        text-2xl
+        mb-1;
+}
+.page-profile_header_content-subtitle-info {
+  @apply flex 
+        flex-col
+        gap-1
+        
+        mb-1;
+}
+.page-profile_header_content-subtitle-info-item {
+  @apply flex
+        gap-1
+        items-center;
+}
+.page-profile_header_content-subtitle-info-item p {
+  @apply italic 
+        text-xl
+        underline;
+}
+.page-profile_header_content-star {
+  @apply mb-1;
+}
+.page-profile_header_content-whatsapp {
+}
+.page-profile_header_content-whatsapp-button {
+  @apply inline-flex 
+        items-center 
+        justify-center 
+        bg-green-500 
+        hover:bg-green-600 
+        text-white 
+        font-bold 
+        p-2
+        rounded 
+        transition-colors 
+        duration-300
+        ease-in-out
+        
+        max-sm:w-3/4;
+}
+.page-profile_header_content-whatsapp-icon {
+  @apply mr-2;
+}
+/* BIOGRFIA */
+.page-profile_bio {
+  @apply flex 
+        flex-col
+        mb-8
+        
+        max-md:mb-4
+        
+        max-lg:mb-5
+        
+        max-xl:mb-8;
+}
+.page-profile_bio-title {
+  @apply text-4xl 
+        font-semibold
+        mb-2;
+}
+.page-profile_bio-text {
+  @apply text-gray-700 
+        whitespace-pre-wrap
+        text-xl;
+}
+/* SERVIÇOS OFERECIDOS */
+.page-profile_services {
+  @apply mb-8
+        
+        max-md:mb-4
+        
+        max-lg:mb-5;
+}
+.page-profile_services-title {
+  @apply text-4xl 
+        font-semibold
+        mb-4;
+}
+.page-profile_services-container {
+  @apply grid 
+        grid-cols-2
+        gap-4
+        
+        max-xl:grid-cols-1;
+}
+.page-profile_services-item {
+  @apply rounded-lg;
+}
+.page-profile_services-item-image {
+  @apply relative 
+        h-72 
+        w-full 
+        rounded-md 
+        overflow-hidden 
+        mb-2
+        
+        max-sm:h-72
+
+        max-md:h-80
+        
+        max-lg:h-96;
+}
+.page-profile_services-item-title {
+  @apply text-3xl 
+        italic
+        font-medium;
+}
+.page-profile_services-item-category {
+  @apply text-2xl 
+        capitalize
+        italic
+        underline 
+        mb-2;
+}
+.page-profile_services-item-description {
+  @apply text-lg 
+        mb-2
+        italic;
+}
+.page-profile_services-item-price {
+  @apply font-semibold 
+        text-xl
+        uppercase;
+}
+/* AVALIAÇÕES */
+.page-profile_reviews {
+}
+.page-profile_reviews-title {
+  @apply text-4xl 
+        font-semibold
+        mb-4
+        
+        max-md:mb-2
+        
+        max-lg:mb-3;
+}
+.page-profile_reviews-container {
+  @apply bg-white
+        shadow-2xl
+        p-4
+        rounded;
+}
+.page-profile_reviews-item {
+}
+.page-profile_reviews-item-header {
+  @apply flex
+        mb-4
+        gap-4;
+}
+.page-profile_review-item-header-image {
+  @apply relative
+        h-20
+        w-20
+        rounded-full;
+}
+.page-profile_review-header-content {
+  @apply flex
+        flex-col
+        justify-center;
+}
+.page-profile_review-header-content-name {
+  @apply text-xl
+        uppercase
+        font-bold;
+}
+.page-profile_reviews-item-text {
+  @apply text-xl;
+}
+.page-profile_reviews-item-date {
+  @apply italic 
+        font-medium
+        text-gray-700;
+}
