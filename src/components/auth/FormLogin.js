@@ -39,8 +39,14 @@ export default function FormLogin() {
       // Usa a função do nosso AuthContext para gerenciar o estado
       login(usuario, token);
 
-      // Redireciona para a URL de destino ou para o dashboard como padrão
-      router.push(redirectUrl || "/dashboard");
+      // Se houver uma URL de redirecionamento, usa ela.
+      if (redirectUrl) {
+        router.push(redirectUrl);
+      } else {
+        // Caso contrário, redireciona com base no tipo de usuário.
+        const destination = usuario.is_prestador ? "/dashboard" : "/";
+        router.push(destination);
+      }
     } catch (err) {
       console.error("Erro no login:", err);
       setError(

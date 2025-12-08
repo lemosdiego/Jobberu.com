@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+/* ESTILOS DA PAGINA DE PERFIL DO CLIENTE */
+.page-client-profile_container {
+  @apply w-[1200px] 
+        border-4 
+        border-green-500
+        mt-8
+        mb-8
+        
+        max-sm:p-7
+        
+        max-md:p-8
+        
+        max-lg:w-full
+        max-lg:m-0
+        max-lg:p-10
+        
+        max-xl:w-[900px];
+}
+.page-client-profile_header {
+  @apply border-2 
+        relative 
+        flex;
+}
+.page-client-profile_avatar {
+  @apply relative  
+        border-4;
+}
+.page-client-profile_avatar-container {
+  @apply relative 
+        h-24 
+        w-24 
+        rounded-full 
+        overflow-hidden 
+        bg-gray-200 
+        border-4;
+}
+.page-client-profile_avatar-label {
+  @apply absolute 
+        bottom-0 
+        right-0 
+        bg-blue-600 
+        text-white 
+        rounded-full 
+        p-1 
+        cursor-pointer 
+        hover:bg-blue-700 
+        border-2;
+}
+.page-client-profile_container-title {
+  @apply border
+        flex
+        items-center;
+}
+.page-client-profile_title {
+  @apply text-4xl 
+        font-bold;
+}
+.page-client-profile_error {
+  @apply text-red-500 
+        text-sm 
+        mt-1;
+}
+.page-client-profile-container_success {
+  @apply bg-green-100 
+        border-l-4 
+        border-green-500 
+        text-green-700 
+        p-4 
+        m-4;
+}
+.page-client-profile_form {
+  @apply border-2;
+}
+.page-client-profile_link-prestador {
+  @apply text-center 
+        border-4;
+}
+.page-client-profile_link-prestador-button {
+  @apply text-blue-600 
+        hover:underline;
+}
+.page-client-profile-buttons {
+  @apply flex 
+        items-end
+        justify-end    
+        border-4;
+}
+.page-client-profile-buttons-cancel {
+  @apply px-4 
+        py-2 
+        bg-gray-300 
+        text-gray-800 
+        rounded-md 
+        hover:bg-gray-400;
+}
+.page-client-profile-buttons-save {
+  @apply px-4 
+        py-2 
+        bg-blue-600 
+        text-white 
+        rounded-md 
+        hover:bg-blue-700;
+}
+.page-client-profile-buttons-edit {
+  @apply px-4 border-2 border-orange-400
+        py-2 
+        bg-blue-600 
+        text-white 
+        rounded-md 
+        hover:bg-blue-700;
+}
+/* ESTILOS DO FORMULARIO DE EDIÇÃO DO CLIENT */
+.profile-client-container {
+  @apply border-2 
+        border-blue-500;
+}
+.profile-client-container_grid {
+  @apply grid 
+        grid-cols-1 
+        md:grid-cols-2 
+        gap-2 
+        border-2 
+        border-red-500;
+}
+.profile-client_grid-inputs {
+  @apply border;
+}
+.profile-client_grid-label {
+  @apply block 
+        text-sm 
+        font-medium 
+        text-gray-700;
+}
+.profile-client_inputs {
+  @apply mt-1 
+        block 
+        w-full 
+        rounded-md 
+        border-gray-300 
+        shadow-sm 
+        focus:border-indigo-500 focus:ring-indigo-500 
+        sm:text-sm 
+        disabled:bg-gray-100 
+        p-3;
+}
+.profile-client-container_grid-image {
+  @apply border-2
+        border-yellow-500;
+}

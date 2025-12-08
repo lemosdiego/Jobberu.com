@@ -6,7 +6,8 @@ html {
   scroll-behavior: smooth;
 }
 .home-container,
-.page-profile {
+.page-profile,
+.page-client-profile {
   @apply w-full 
       flex 
       flex-col 
