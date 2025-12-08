@@ -3,7 +3,6 @@
 /* ESTILOS DA PAGINA DE PERFIL DO CLIENTE */
 .page-client-profile_container {
   @apply w-[1200px] 
-        border-4 
         border-green-500
         mt-8
         mb-8
@@ -19,13 +18,13 @@
         max-xl:w-[900px];
 }
 .page-client-profile_header {
-  @apply border-2 
-        relative 
-        flex;
+  @apply relative 
+        flex
+        mb-4
+        gap-3;
 }
 .page-client-profile_avatar {
-  @apply relative  
-        border-4;
+  @apply relative;
 }
 .page-client-profile_avatar-container {
   @apply relative 
@@ -34,7 +33,9 @@
         rounded-full 
         overflow-hidden 
         bg-gray-200 
-        border-4;
+        
+        max-md:h-20
+        max-md:w-20;
 }
 .page-client-profile_avatar-label {
   @apply absolute 
@@ -49,17 +50,18 @@
         border-2;
 }
 .page-client-profile_container-title {
-  @apply border
-        flex
+  @apply flex
         items-center;
 }
 .page-client-profile_title {
   @apply text-4xl 
-        font-bold;
+        font-bold
+        
+        max-md:text-2xl;
 }
 .page-client-profile_error {
   @apply text-red-500 
-        text-sm 
+        text-lg
         mt-1;
 }
 .page-client-profile-container_success {
@@ -71,67 +73,71 @@
         m-4;
 }
 .page-client-profile_form {
-  @apply border-2;
 }
 .page-client-profile_link-prestador {
   @apply text-center 
-        border-4;
+        p-2;
 }
 .page-client-profile_link-prestador-button {
-  @apply text-blue-600 
-        hover:underline;
+  @apply cursor-pointer
+        text-lg
+        font-medium
+        text-blue-500
+        hover:underline
+        hover:text-blue-400
+        hover:font-bold;
 }
 .page-client-profile-buttons {
-  @apply flex 
+  @apply flex
+        gap-2
         items-end
         justify-end    
-        border-4;
+        p-2;
 }
 .page-client-profile-buttons-cancel {
-  @apply px-4 
-        py-2 
-        bg-gray-300 
+  @apply p-3
+        bg-gray-400
+        rounded 
         text-gray-800 
-        rounded-md 
-        hover:bg-gray-400;
+        hover:bg-gray-400
+        cursor-pointer;
 }
 .page-client-profile-buttons-save {
-  @apply px-4 
-        py-2 
+  @apply p-3
         bg-blue-600 
         text-white 
-        rounded-md 
-        hover:bg-blue-700;
+        rounded 
+        hover:bg-blue-700
+        cursor-pointer;
 }
 .page-client-profile-buttons-edit {
-  @apply px-4 border-2 border-orange-400
-        py-2 
+  @apply p-3
         bg-blue-600 
         text-white 
         rounded-md 
-        hover:bg-blue-700;
+        hover:bg-blue-700
+        cursor-pointer;
 }
 /* ESTILOS DO FORMULARIO DE EDIÇÃO DO CLIENT */
 .profile-client-container {
-  @apply border-2 
-        border-blue-500;
 }
 .profile-client-container_grid {
   @apply grid 
-        grid-cols-1 
-        md:grid-cols-2 
-        gap-2 
-        border-2 
-        border-red-500;
+        grid-cols-2
+        gap-4
+        mb-4
+        
+        max-sm:grid-cols-1;
 }
 .profile-client_grid-inputs {
-  @apply border;
 }
 .profile-client_grid-label {
   @apply block 
-        text-sm 
+        text-lg
+        uppercase 
         font-medium 
-        text-gray-700;
+        text-gray-700
+        mb-2;
 }
 .profile-client_inputs {
   @apply mt-1 
@@ -143,9 +149,7 @@
         focus:border-indigo-500 focus:ring-indigo-500 
         sm:text-sm 
         disabled:bg-gray-100 
-        p-3;
-}
-.profile-client-container_grid-image {
-  @apply border-2
-        border-yellow-500;
+        p-4
+        
+        max-md:p-3;
 }

@@ -166,7 +166,7 @@ export default function ClienteProfilePage() {
   const isOwner = loggedInUser?.id === profileData.id;
 
   return (
-    <main className="page-client-profile border-4">
+    <main className="page-client-profile ">
       <div className="page-client-profile_container">
         <header className="page-client-profile_header">
           <div className="relative page-client-profile_avatar">
