@@ -42,24 +42,45 @@ export default function NavigationMobile() {
           }
         `}
       >
-        {/* Mostra o link apenas se o usuário não for um prestador */}
-        {(!isAuthenticated || (isAuthenticated && !user?.is_prestador)) && (
+        {/* Condição para "Seja um Profissional" (apenas para não logados) */}
+        {!isAuthenticated && (
           <li>
             <Link
               href="/be-a-professional"
-              className="underline text-blue-800 text-xl font-bold hover:text-blue-500"
+              onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
+              className="underline  text-xl font-bold "
             >
               Seja um Profissional
             </Link>
           </li>
         )}
+        {/* Condição para "Atualize seu perfil para profissional" (apenas para clientes logados) */}
+        {isAuthenticated && !user?.is_prestador && (
+          <li>
+            <Link
+              href={`/cliente/${user.id}`}
+              onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
+              className="underline text-blue-800 text-xl font-bold hover:text-blue-500"
+            >
+              Atualize seu perfil para profissional
+            </Link>
+          </li>
+        )}
         <li>
-          <Link href="/about" className="text-xl underline">
+          <Link
+            href="/connect#how-it-works"
+            onClick={() => setIsOpen(false)}
+            className="text-xl underline"
+          >
             Como funciona?
           </Link>
         </li>
         <li>
-          <Link href="/contact" className="text-xl underline">
+          <Link
+            href="/connect#responsibilities"
+            onClick={() => setIsOpen(false)}
+            className="text-xl underline"
+          >
             Responsabilidades
           </Link>
         </li>

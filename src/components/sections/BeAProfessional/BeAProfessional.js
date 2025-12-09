@@ -1,6 +1,7 @@
 // src/components/section/BeAProfessional/BeAProfessional.js
 "use client";
 
+// import { useAuth } from "@/context/AuthContext"; // Importa o AuthContext
 import Link from "next/link";
 import {
   FaUserPlus,
@@ -116,6 +117,14 @@ export default function BeAProfessional() {
     // Card 6 (index 5) não tem seta
     return null;
   };
+
+  // const { user, isAuthenticated, isLoadingAuth } = useAuth();
+
+  // // Define o link do CTA baseado no status do usuário
+  // let ctaLink = "/register?type=profissional"; // Link padrão para não logados ou novos profissionais
+  // if (!isLoadingAuth && isAuthenticated && !user?.is_prestador) {
+  //   ctaLink = `/cliente/${user.id}?edit=true`; // Redireciona para o perfil do cliente em modo de edição
+  // }
 
   return (
     <section className="w-full min-h-screen py-12 md:py-16 lg:py-20 px-4 bg-gradient-to-b  via-primary/5 ">
