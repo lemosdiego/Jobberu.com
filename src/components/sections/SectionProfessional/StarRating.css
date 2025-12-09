@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+.star-rating_empty {
+  @apply flex 
+        items-center 
+        text-sm 
+        text-gray-500;
+}
+.star-rating_empty-icon,
+.star-rating_full-icon,
+.star-rating_half-icon,
+.star-rating_empty-icon {
+  @apply text-yellow-400;
+}
+.star-rating_empty-total {
+  @apply ml-2;
+}
+.star-rating_full {
+  @apply flex 
+        items-center  
+        text-gray-500;
+}
+.star-rating_full-total {
+  @apply ml-1;
+}
