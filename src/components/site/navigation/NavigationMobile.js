@@ -2,10 +2,12 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { IoIosMenu, IoMdClose } from "react-icons/io";
+import { useAuth } from "@/context/AuthContext";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
+  const { user, isAuthenticated } = useAuth();
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -40,14 +42,17 @@ export default function NavigationMobile() {
           }
         `}
       >
-        <li>
-          <Link
-            href="/register"
-            className="underline text-blue-800 text-xl font-bold hover:text-blue-500"
-          >
-            Seja um Profissional
-          </Link>
-        </li>
+        {/* Mostra o link apenas se o usuário não for um prestador */}
+        {(!isAuthenticated || (isAuthenticated && !user?.is_prestador)) && (
+          <li>
+            <Link
+              href="/be-a-professional"
+              className="underline text-blue-800 text-xl font-bold hover:text-blue-500"
+            >
+              Seja um Profissional
+            </Link>
+          </li>
+        )}
         <li>
           <Link href="/about" className="text-xl underline">
             Como funciona?
