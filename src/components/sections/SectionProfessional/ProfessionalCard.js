@@ -2,6 +2,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import StarRating from "./StarRating";
+import "./ProfessionalCard.css";
 
 const slugify = (text) => {
   return text
@@ -55,8 +56,8 @@ const ProfessionalCard = ({ profissional }) => {
   };
 
   return (
-    <div className="border border-gray-100 rounded-lg overflow-hidden shadow-lg flex flex-col">
-      <div className="relative h-48 w-full">
+    <div className="professional-card">
+      <div className="professional-card_image-container">
         <Image
           src={imagemServico}
           alt={`Serviço de ${primeiro_servico?.categoria || "profissional"}`}
@@ -64,9 +65,9 @@ const ProfessionalCard = ({ profissional }) => {
           objectFit="cover"
         />
       </div>
-      <div className="p-5 flex-grow flex flex-col">
-        <div className="flex items-center mb-1">
-          <div className="relative h-12 w-12 rounded-full overflow-hidden mr-3">
+      <div className="professional-card_content">
+        <div className="professional-card_content-header">
+          <div className="professional-card_content-header-image">
             <Image
               src={fotoPerfil}
               alt={`Foto de ${nome}`}
@@ -75,31 +76,29 @@ const ProfessionalCard = ({ profissional }) => {
             />
           </div>
           <div>
-            <h3 className="font-bold text-lg">{nome}</h3>
-            <p className="text-sm text-gray-600">{titulo_profissional}</p>
+            <h3 className="professional-card_content-header-name">{nome}</h3>
+            <p className="professional-card_content-header-title">
+              {titulo_profissional}
+            </p>
           </div>
         </div>
-        <div className="mb-1">
+        <div className="professional-card_content-rating">
           <StarRating soma={soma_das_notas} total={total_avaliacoes} />
         </div>
-        <p className="text-sm text-gray-500 mb-1">
+        <p className=" professional-card_content-location">
           {cidade} - {estado}
         </p>
-        <p className="text-gray-700 text-sm mb-2 flex-grow line-clamp-2">
-          {biografia}
+        <p className="professional-card_content-bio">{biografia}</p>
+        <p className="professional-card_content-footer-price-text">
+          {precoFormatado}
         </p>
-        <div className="mt-auto pt-3 border-t">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-800 font-semibold">{precoFormatado}</p>
-            <button
-              onClick={handleViewProfile}
-              disabled={isLoadingAuth}
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 disabled:bg-gray-400"
-            >
-              Ver detalhes
-            </button>
-          </div>
-        </div>
+        <button
+          onClick={handleViewProfile}
+          disabled={isLoadingAuth}
+          className="professional-card_content-footer-button"
+        >
+          Ver detalhes
+        </button>
       </div>
     </div>
   );

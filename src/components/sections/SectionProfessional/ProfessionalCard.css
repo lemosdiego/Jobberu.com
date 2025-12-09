@@ -1,1 +1,72 @@
 @import "tailwindcss";
+
+.professional-card {
+  @apply rounded-lg 
+        overflow-hidden 
+        shadow-lg 
+        flex 
+        flex-col;
+}
+.professional-card_image-container {
+  @apply relative 
+        h-52 
+        w-full;
+}
+.professional-card_content {
+  @apply p-5 
+        flex-grow 
+        flex 
+        flex-col
+        gap-1
+        
+        bg-gray-100;
+}
+.professional-card_content-header {
+  @apply flex 
+        items-center;
+}
+.professional-card_content-header-image {
+  @apply relative 
+        h-14 
+        w-14 
+        rounded-full 
+        overflow-hidden 
+        mr-3;
+}
+.professional-card_content-header-name {
+  @apply font-bold 
+        text-2xl;
+}
+.professional-card_content-header-title {
+  @apply text-lg
+        italic
+        text-gray-600;
+}
+.professional-card_content-rating {
+}
+.professional-card_content-location {
+  @apply text-gray-500;
+}
+.professional-card_content-bio {
+  @apply text-lg 
+        text-gray-700 
+        flex-grow 
+        line-clamp-2;
+}
+.professional-card_content-footer-price-text {
+  @apply text-gray-800 
+        font-semibold
+        uppercase
+        underline;
+}
+.professional-card_content-footer-button {
+  @apply bg-blue-500 
+        text-white 
+        px-4 
+        py-2 
+        rounded 
+        hover:bg-blue-600 
+        disabled:bg-gray-400
+        cursor-pointer
+        mt-1;
+}
