@@ -139,7 +139,7 @@ export default function Profile() {
                 <span>Seja um Cliente</span>
               </Link>
               <Link
-                href="/register?type=profissional"
+                href="/cadastro/prestador"
                 onClick={closeDropDown}
                 className="bg-purple-500 hover:bg-purple-600 p-2 text-white text-sm rounded flex items-center gap-2"
               >

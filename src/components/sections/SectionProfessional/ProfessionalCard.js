@@ -35,7 +35,9 @@ const ProfessionalCard = ({ profissional }) => {
 
   const precoFormatado =
     primeiro_servico?.preco != null
-      ? `A partir de R$ ${primeiro_servico.preco.toFixed(2).replace(".", ",")}`
+      ? `A partir de R$ ${parseFloat(primeiro_servico.preco)
+          .toFixed(2)
+          .replace(".", ",")}`
       : "Preço a combinar";
 
   const handleViewProfile = () => {
