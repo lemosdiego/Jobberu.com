@@ -5,8 +5,9 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/services/api";
 import { FaPlusCircle } from "react-icons/fa";
-import ServiceForm from "./ServiceForm";
-import ServiceList from "./ServiceList";
+import ServiceForm from "@/components/dashboard/servicos/ServiceForm";
+import ServiceList from "@/components/dashboard/servicos/ServiceList";
+import "./ServicesPage.css";
 
 export default function ServicosPage() {
   const { user, isLoadingAuth } = useAuth();
@@ -177,15 +178,15 @@ export default function ServicosPage() {
   }
 
   return (
-    <main className="p-8">
-      <h1 className="text-3xl font-bold mb-4">Gerenciar Serviços</h1>
-      <header className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
-          Meus Serviços
-        </h1>
+    <main className="page-dashboard-services">
+      <div className="page-dashboard-services_container-title">
+        <h1 className="page-dashboard-services_title">Gerenciar Serviços</h1>
+      </div>
+      <header className="page-dashboard-services_header">
+        <h2 className="page-dashboard-services_subtitle">Meus Serviços</h2>
         <button
           onClick={handleShowCreateForm}
-          className="bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2"
+          className="page-dashboard-services_header-button"
         >
           <FaPlusCircle size={20} />
           Adicionar Serviço

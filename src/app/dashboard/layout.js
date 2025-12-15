@@ -4,21 +4,23 @@ import { useAuth } from "@/context/AuthContext";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Link from "next/link";
+import "./dashboard.css";
 
 export default function DashboardLayout({ children }) {
-  const { user, isAuthenticated, logout } = useAuth();
+  const { user, isAuthenticated, isLoadingAuth, logout } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
   useEffect(() => {
-    // Centralizando a proteção de rota: se não estiver autenticado, vai para o login.
-    if (!isAuthenticated) {
+    // Se a verificação de autenticação terminou e o usuário não está autenticado, redireciona.
+    if (!isLoadingAuth && !isAuthenticated) {
       router.push("/login");
     }
-  }, [isAuthenticated, router]);
+  }, [isAuthenticated, isLoadingAuth, router]);
 
   const handleLogout = () => {
     logout();
+    // A rota já é protegida pelo useEffect, mas um push explícito garante a navegação imediata.
     router.push("/login");
   };
 
@@ -26,7 +28,7 @@ export default function DashboardLayout({ children }) {
   if (!user) {
     return (
       <div className="flex items-center justify-center h-screen bg-gray-100">
-        <p className="text-lg">Carregando painel...</p>
+        <p className="text-lg">Carregando...</p>
       </div>
     );
   }
@@ -39,11 +41,11 @@ export default function DashboardLayout({ children }) {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="layout-dashboard_container">
       {/* Barra Lateral (Sidebar) */}
-      <aside className="w-64 bg-white p-6 border-r">
-        <h2 className="text-2xl font-bold mb-8 text-blue-700">JobberU</h2>
-        <nav className="space-y-2">
+      <aside className="layout-dashboard_sidebar">
+        <h2 className="layout-dashboard_sidebar-title">JobberU</h2>
+        <nav className="layout-dashboard_sidebar-nav">
           <Link href="/dashboard" className={getLinkClassName("/dashboard")}>
             Início
           </Link>
@@ -67,22 +69,24 @@ export default function DashboardLayout({ children }) {
       </aside>
 
       {/* Conteúdo Principal */}
-      <div className="flex-1 flex flex-col">
+      <div className="layout-dashboard_content">
         {/* Cabeçalho Superior */}
-        <header className="flex justify-end items-center p-4 bg-white border-b">
-          <span className="mr-4">
+        <header className="layout-dashboard_header">
+          <span className="layout-dashboard_header-user">
             Olá, <strong>{user.nome}</strong>
           </span>
           <button
             onClick={handleLogout}
-            className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
+            className=" layout-dashboard_header-logout"
           >
             Sair
           </button>
         </header>
 
         {/* O conteúdo da página atual será renderizado aqui */}
-        <main className="flex-1 p-8">{children}</main>
+        <main className="flex-1 p-8 layout-dashboard_content-main">
+          {children}
+        </main>
       </div>
     </div>
   );

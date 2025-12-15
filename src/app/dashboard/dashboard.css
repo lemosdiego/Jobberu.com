@@ -1,0 +1,50 @@
+@import "tailwindcss";
+
+/* ESTILOS DO LAYOUT */
+.layout-dashboard_container {
+  @apply flex 
+        min-h-screen;
+}
+.layout-dashboard_sidebar {
+  @apply w-80
+        bg-white 
+        p-6;
+}
+.layout-dashboard_sidebar-title {
+  @apply text-3xl
+        uppercase
+        font-bold 
+        mb-4 
+        text-blue-700;
+}
+.layout-dashboard_sidebar-nav {
+  @apply text-lg;
+}
+.layout-dashboard_content {
+  @apply flex-1 
+        flex 
+        flex-col;
+}
+.layout-dashboard_header {
+  @apply flex 
+        justify-end 
+        items-center 
+        p-4 
+        bg-white;
+}
+.layout-dashboard_header-user {
+  @apply mr-2
+        text-lg;
+}
+.layout-dashboard_header-logout {
+  @apply mr-5 
+        bg-red-600 
+        text-white 
+        rounded 
+        hover:bg-red-700
+        cursor-pointer;
+}
+.layout-dashboard_content-main {
+  @apply bg-gray-100
+        shadow;
+}

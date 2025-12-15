@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { FaWrench, FaBriefcase, FaUser, FaLightbulb } from "react-icons/fa";
+import "./dashboard.css";
 
 // Helper para criar um slug a partir do nome do usuário
 const slugify = (text) => {

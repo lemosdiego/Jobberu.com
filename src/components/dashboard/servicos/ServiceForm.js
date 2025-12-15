@@ -15,6 +15,8 @@ export default function ServiceForm({ service, onSave, onCancel }) {
   const [error, setError] = useState(null);
   // Estado para exibir as imagens atuais
   const [currentImages, setCurrentImages] = useState([]);
+  // Estado para pré-visualização de novas imagens
+  const [newImagePreviews, setNewImagePreviews] = useState([]);
 
   useEffect(() => {
     if (service) {
@@ -29,6 +31,11 @@ export default function ServiceForm({ service, onSave, onCancel }) {
       // Armazena as imagens atuais para exibição
       setCurrentImages(service.imagens || []);
     }
+
+    // Cleanup para revogar as URLs de objeto e evitar memory leaks
+    return () => {
+      newImagePreviews.forEach((url) => URL.revokeObjectURL(url));
+    };
   }, [service]);
 
   const handleInputChange = (e) => {
@@ -38,6 +45,17 @@ export default function ServiceForm({ service, onSave, onCancel }) {
 
   const handleFileChange = (e) => {
     setFormData((prev) => ({ ...prev, imagens: e.target.files }));
+    const files = e.target.files;
+    setFormData((prev) => ({ ...prev, imagens: files }));
+
+    // Limpa previews antigos
+    newImagePreviews.forEach((url) => URL.revokeObjectURL(url));
+
+    // Cria novas URLs de pré-visualização
+    const previewUrls = Array.from(files).map((file) =>
+      URL.createObjectURL(file)
+    );
+    setNewImagePreviews(previewUrls);
   };
 
   // Função para marcar uma imagem para remoção
@@ -202,6 +220,27 @@ export default function ServiceForm({ service, onSave, onCancel }) {
                   </button>
                 </div>
               ))}
+            </div>
+          )}
+
+          {/* Pré-visualização das NOVAS imagens selecionadas */}
+          {newImagePreviews.length > 0 && (
+            <div className="mt-4 border-t pt-4">
+              <p className="block text-sm font-medium text-gray-700 mb-2">
+                Novas imagens a serem adicionadas:
+              </p>
+              <div className="grid grid-cols-3 gap-4">
+                {newImagePreviews.map((previewUrl, index) => (
+                  <Image
+                    key={index}
+                    src={previewUrl}
+                    alt={`Preview da nova imagem ${index + 1}`}
+                    width={150}
+                    height={150}
+                    className="object-cover rounded-md"
+                  />
+                ))}
+              </div>
             </div>
           )}
 

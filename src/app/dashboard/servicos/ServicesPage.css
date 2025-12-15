@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+/* ESTILOS DA PÁGINA DE CRUD DE SERVIÇOS */
+.page-dashboard-services {
+}
+.page-dashboard-services_container-title {
+  @apply bg-white 
+        flex
+        items-center
+        text-center
+        mb-4
+        p-4
+        rounded
+        shadow;
+}
+.page-dashboard-services_title {
+  @apply text-4xl 
+        font-bold;
+}
+.page-dashboard-services_header {
+  @apply bg-white 
+        flex 
+        justify-between 
+        items-center 
+        mb-6
+        p-4
+        rounded
+        shadow;
+}
+.page-dashboard-services_subtitle {
+  @apply text-3xl 
+        font-bold 
+        text-gray-800;
+}
+.page-dashboard-services_header-button {
+  @apply bg-blue-600 
+        text-white 
+        font-semibold 
+        p-2
+        rounded-lg 
+        hover:bg-blue-700 
+        transition-colors 
+        flex 
+        items-center 
+        gap-2
+        cursor-pointer;
+}

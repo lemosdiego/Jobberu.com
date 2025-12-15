@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+/* SERVIÇOS VAZIO  */
+.service-list-empty {
+  @apply flex
+        flex-col
+        items-center
+        justify-center
+        gap-4
+        shadow-2xl
+        min-h-[500px];
+}
+.service-list-empty_title {
+  @apply text-3xl 
+        font-semibold 
+        text-gray-700;
+}
+.service-list-empty_subtitle {
+  @apply text-xl;
+}
+/* SERVIÇOS  */
+.service-list-container {
+  @apply grid;
+}
+.service-list_card {
+  @apply rounded
+        grid
+        [grid-template-columns:1fr_3fr];
+}
+.service-list_card-image {
+  @apply relative 
+        h-auto;
+}
+.service-list_card-actions {
+  @apply bg-white
+        shadow
+        p-5;
+}
+.service-list_card-content-title {
+  @apply text-3xl
+        font-bold
+        mb-2;
+}
+.service-list_card-content-subtitle {
+  @apply text-xl
+        mb-2;
+}
+.service-list_card-content-description {
+  @apply text-lg
+        font-light
+        mb-2;
+}
+.service-list_card-content-price {
+  @apply text-lg 
+        font-semibold 
+        text-green-600
+        mb-2;
+}
+.service-list_card-buttons {
+  @apply flex
+        gap-2;
+}
+.service-list_card-button-edit {
+  @apply text-blue-600 
+        hover:text-blue-800 
+        transition-colors 
+        rounded-full 
+        hover:bg-blue-100
+        cursor-pointer;
+}
+.service-list_card-button-delete {
+  @apply text-red-600 
+        hover:text-red-800 
+        transition-colors 
+        rounded-full 
+        hover:bg-red-100
+        cursor-pointer;
+}
