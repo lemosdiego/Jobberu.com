@@ -22,9 +22,9 @@ export default function ServiceList({ services, onEdit, onDelete }) {
           key={service.id}
           className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 flex flex-col"
         >
-          <div className="relative h-48 w-full">
+          <div className="relative h-48 w-full border-10">
             <Image
-              src={service.imagens?.[0]?.url || "/placeholder-image.png"}
+              src={service.imagens?.[0] || "/placeholder-image.png"}
               alt={`Imagem do serviço ${service.titulo}`}
               layout="fill"
               objectFit="cover"

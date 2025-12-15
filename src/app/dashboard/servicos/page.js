@@ -72,108 +72,42 @@ export default function ServicosPage() {
     setView("list");
   };
 
-  // const handleSaveService = async (formData) => {
-  //   const data = new FormData();
-  //   Object.keys(formData).forEach((key) => {
-  //     if (key === "imagens") {
-  //       // SÓ ADICIONA AO FORMDATA SE HOUVER ARQUIVOS SELECIONADOS
-  //       if (formData.imagens && formData.imagens.length > 0) {
-  //         // Anexa múltiplos arquivos se for o caso
-  //         Array.from(formData.imagens).forEach((file) => {
-  //           // O nome do campo deve ser "imagens_servico" para bater com o backend
-  //           data.append("imagens", file);
-  //         });
-  //       }
-  //     } else if (formData[key] !== null && formData[key] !== undefined) {
-  //       data.append(key, formData[key]);
-  //     }
-  //   });
-
-  //   try {
-  //     if (currentService) {
-  //       // Atualização (PATCH)
-  //       await api.patch(`/servico/atualizar/${currentService.id}`, data, {
-  //         headers: { "Content-Type": "multipart/form-data" },
-  //       });
-  //     } else {
-  //       // Criação (POST)
-  //       await api.post("/servico/create", data, {
-  //         headers: { "Content-Type": "multipart/form-data" },
-  //       });
-  //     }
-
-  //     await fetchServices(); // Re-busca os serviços para atualizar a lista
-  //     handleBackToList(); // Volta para a lista após salvar
-  //     return { success: true };
-  //   } catch (err) {
-  //     console.error("Erro ao salvar serviço:", err);
-  //     const errorMessage =
-  //       err.response?.data?.message ||
-  //       "Ocorreu um erro. Verifique os dados e tente novamente.";
-  //     return { success: false, error: errorMessage };
-  //   }
-  // };
   const handleSaveService = async (formData) => {
     try {
-      // Verifica se há arquivos de imagem selecionados
-      const hasNewImages = formData.imagens && formData.imagens.length > 0;
+      const data = new FormData();
+
+      // Adiciona os campos de texto ao FormData, garantindo que não sejam nulos ou indefinidos
+      Object.keys(formData).forEach((key) => {
+        if (
+          key !== "imagens" &&
+          formData[key] != null &&
+          formData[key] !== ""
+        ) {
+          data.append(key, formData[key]);
+        }
+      });
+
+      // Adiciona os arquivos de imagem, se existirem
+      if (formData.imagens && formData.imagens.length > 0) {
+        Array.from(formData.imagens).forEach((file) => {
+          data.append("imagens", file);
+        });
+      }
+
+      // Adiciona a lista de imagens a serem removidas, se houver
+      if (formData.imagens_a_remover && formData.imagens_a_remover.length > 0) {
+        formData.imagens_a_remover.forEach((url) => {
+          data.append("imagens_a_remover", url);
+        });
+      }
 
       if (currentService) {
-        // ATUALIZAÇÃO (PATCH)
-        if (hasNewImages) {
-          // Se houver novas imagens, usa FormData
-          const data = new FormData();
-          Object.keys(formData).forEach((key) => {
-            if (key === "imagens") {
-              Array.from(formData.imagens).forEach((file) => {
-                data.append("imagens", file);
-              });
-            } else if (
-              formData[key] !== null &&
-              formData[key] !== undefined &&
-              formData[key] !== ""
-            ) {
-              data.append(key, formData[key]);
-            }
-          });
-
-          await api.patch(`/servico/atualizar/${currentService.id}`, data, {
-            headers: { "Content-Type": "multipart/form-data" },
-          });
-        } else {
-          // Se NÃO houver novas imagens, envia JSON simples
-          const jsonData = {
-            titulo: formData.titulo,
-            descricao: formData.descricao,
-            categoria: formData.categoria,
-          };
-
-          // Só adiciona preço se tiver valor
-          if (formData.preco) {
-            jsonData.preco = parseFloat(formData.preco);
-          }
-
-          await api.patch(`/servico/atualizar/${currentService.id}`, jsonData, {
-            headers: { "Content-Type": "application/json" },
-          });
-        }
-      } else {
-        // CRIAÇÃO (POST) - mantém FormData
-        const data = new FormData();
-        Object.keys(formData).forEach((key) => {
-          if (key === "imagens" && formData.imagens?.length > 0) {
-            Array.from(formData.imagens).forEach((file) => {
-              data.append("imagens", file);
-            });
-          } else if (
-            formData[key] !== null &&
-            formData[key] !== undefined &&
-            formData[key] !== ""
-          ) {
-            data.append(key, formData[key]);
-          }
+        // Atualização (PATCH) - Sempre usando FormData
+        await api.patch(`/servico/atualizar/${currentService.id}`, data, {
+          headers: { "Content-Type": "multipart/form-data" },
         });
-
+      } else {
+        // Criação (POST) - Sempre usando FormData
         await api.post("/servico/create", data, {
           headers: { "Content-Type": "multipart/form-data" },
         });

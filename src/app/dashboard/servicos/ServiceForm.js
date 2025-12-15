@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { IoArrowBack } from "react-icons/io5";
+import Image from "next/image";
 
 export default function ServiceForm({ service, onSave, onCancel }) {
   const [formData, setFormData] = useState({
@@ -8,9 +9,12 @@ export default function ServiceForm({ service, onSave, onCancel }) {
     categoria: "",
     preco: "",
     imagens: [],
+    imagens_a_remover: [], // Novo campo para rastrear exclusões
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState(null);
+  // Estado para exibir as imagens atuais
+  const [currentImages, setCurrentImages] = useState([]);
 
   useEffect(() => {
     if (service) {
@@ -20,7 +24,10 @@ export default function ServiceForm({ service, onSave, onCancel }) {
         categoria: service.categoria || "",
         preco: service.preco || "",
         imagens: [], // O usuário pode adicionar novas imagens
+        imagens_a_remover: [],
       });
+      // Armazena as imagens atuais para exibição
+      setCurrentImages(service.imagens || []);
     }
   }, [service]);
 
@@ -31,6 +38,17 @@ export default function ServiceForm({ service, onSave, onCancel }) {
 
   const handleFileChange = (e) => {
     setFormData((prev) => ({ ...prev, imagens: e.target.files }));
+  };
+
+  // Função para marcar uma imagem para remoção
+  const handleMarkImageForRemoval = (imageUrl) => {
+    // Adiciona a URL à lista de remoção
+    setFormData((prev) => ({
+      ...prev,
+      imagens_a_remover: [...prev.imagens_a_remover, imageUrl],
+    }));
+    // Remove da lista de exibição visualmente
+    setCurrentImages((prev) => prev.filter((img) => img !== imageUrl));
   };
 
   const handleSubmit = async (e) => {
@@ -148,6 +166,45 @@ export default function ServiceForm({ service, onSave, onCancel }) {
           >
             Imagens (Opcional)
           </label>
+
+          {/* Exibição das imagens atuais (apenas no modo de edição) */}
+          {service && currentImages.length > 0 && (
+            <div className="mt-2 grid grid-cols-3 gap-4">
+              {currentImages.map((imageUrl, index) => (
+                <div key={index} className="relative group">
+                  <Image
+                    src={imageUrl}
+                    alt={`Imagem atual ${index + 1}`}
+                    width={150}
+                    height={150}
+                    className="object-cover rounded-md"
+                  />
+                  <button
+                    type="button"
+                    onClick={() => handleMarkImageForRemoval(imageUrl)}
+                    className="absolute top-1 right-1 bg-red-600 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                    aria-label="Remover imagem"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M6 18L18 6M6 6l12 12"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
+
           <input
             type="file"
             name="imagens"
@@ -159,7 +216,7 @@ export default function ServiceForm({ service, onSave, onCancel }) {
           />
           <p className="text-xs text-gray-500 mt-1">
             {service
-              ? "Adicionar novas imagens substituirá as antigas."
+              ? "Você pode adicionar novas imagens ou remover as existentes."
               : "Você pode selecionar múltiplos arquivos."}
           </p>
         </div>
