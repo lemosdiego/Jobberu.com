@@ -37,7 +37,8 @@
         text-lg;
 }
 .layout-dashboard_header-logout {
-  @apply mr-5 
+  @apply mr-5
+        p-2
         bg-red-600 
         text-white 
         rounded 
@@ -48,3 +49,4 @@
   @apply bg-gray-100
         shadow;
 }
+/* ESTILOS DA PÁGINA DE DASHBOARD */
