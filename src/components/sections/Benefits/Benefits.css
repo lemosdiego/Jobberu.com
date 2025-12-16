@@ -36,7 +36,6 @@
         
         max-sm:text-3xl;
 }
-
 .section-benefits_container-cards {
   @apply grid 
         grid-cols-3
@@ -67,8 +66,10 @@
         
         max-lg:gap-2;
 }
+.section-benefits_card-text {
+  @apply font-light;
+}
 .benefits-icons {
   @apply text-6xl
-  
         max-md:text-5xl;
 }

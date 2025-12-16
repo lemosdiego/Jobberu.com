@@ -9,26 +9,11 @@
 .section-beAProfessional_container {
   @apply w-[1200px]
         mt-8
-        mb-8;
-}
-.section-beAProfessional_banner {
-  background: linear-gradient(
-    146deg,
-    hsla(210, 97%, 76%, 1) 30%,
-    hsla(0, 0%, 100%, 1) 50%
-  );
-
-  @apply p-32
         mb-8
-       shadow-sm
+        bg-gray-100
+        p-5
+        shadow-2xl
         rounded;
-}
-.section-beAProfessional_banner-title {
-  @apply text-6xl
-        mb-4;
-}
-.section-beAProfessional_banner-subtitle {
-  @apply text-2xl;
 }
 .section-beAProfessional_cards-container {
   @apply grid
@@ -72,10 +57,12 @@
 } */
 .section-beAProfessional_cards-title {
   @apply text-3xl
+        font-medium
         mb-3;
 }
 .section-beAProfessional_cards-description {
-  @apply text-lg;
+  @apply text-lg
+        font-light;
 }
 .section-beAProfessional_cta-container {
   @apply flex
@@ -85,19 +72,22 @@
         gap-4;
 }
 .section-beAProfessional_cta-title {
-  @apply text-4xl;
+  @apply text-4xl
+        font-light;
 }
 .section-beAProfessional_cta-text {
   @apply text-2xl
         w-1/2
-        text-center;
+        text-center
+        font-extralight;
 }
 .section-beAProfessional_cta-link {
   @apply p-3
         w-[400px]
         bg-blue-400
         rounded
-        text-center;
+        text-center
+        text-white;
 }
 .section-beAProfessional_info {
   @apply flex

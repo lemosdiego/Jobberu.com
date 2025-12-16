@@ -56,17 +56,6 @@ export default function BeAProfessional() {
   return (
     <section className="section-beAprofessional">
       <div className="section-beAProfessional_container">
-        {/* Banner Header */}
-        <div className="section-beAProfessional_banner">
-          <h1 className="section-beAProfessional_banner-title">
-            Torne-se um profissional Joberru
-          </h1>
-          <p className="section-beAProfessional_banner-subtitle">
-            Não tenha dor de cabeça para ir atrás de clientes,
-            <span className="">o cliente vai até você</span>
-          </p>
-        </div>
-
         {/* Grid de Cards com Trilha */}
         <div className="section-beAProfessional_cards-container">
           {steps.map((item, index) => (
