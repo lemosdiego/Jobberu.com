@@ -26,7 +26,7 @@ export default function NavigationDesktop() {
           </li>
         )}
         <li>
-          <Link href="/connect#how-it-works" className="text-lg underline">
+          <Link href="/como-funciona" className="text-lg underline">
             Como funciona?
           </Link>
         </li>

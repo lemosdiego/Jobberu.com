@@ -4,55 +4,9 @@
 import Link from "next/link";
 import "./BeAProfessional.css";
 import { BiSolidCheckboxChecked } from "react-icons/bi";
-
-import {
-  PiNumberSquareOneLight,
-  PiNumberSquareTwoLight,
-  PiNumberSquareThreeLight,
-  PiNumberSquareFourLight,
-  PiNumberSquareFiveLight,
-  PiNumberSquareSixLight,
-} from "react-icons/pi";
+import steps from "@/data/steps";
 
 export default function BeAProfessional() {
-  const steps = [
-    {
-      icon: <PiNumberSquareOneLight size={55} className="mb-2" />,
-      title: "Cadastre-se como Profissional Jobberu",
-      description:
-        "Crie sua conta, adicione uma boa foto de perfil, uma biografia atraente e defina seu título profissional, como 'Jardineiro'. Isso é essencial para começar sua jornada e impactar a vida de muitos clientes.",
-    },
-    {
-      icon: <PiNumberSquareTwoLight size={55} className="mb-2" />,
-      title: "Crie seu Serviço",
-      description:
-        "Selecione fotos de trabalhos realizados, prepare uma descrição detalhada e defina a categoria do seu serviço. Você pode estipular um valor mínimo e, em breve, verá os resultados da sua dedicação.",
-    },
-    {
-      icon: <PiNumberSquareThreeLight size={55} className="mb-2" />,
-      title: "Conexão Direta com o Cliente",
-      description:
-        "Na Jobberu, todo o contato é privativo. O cliente entra em contato diretamente pelo WhatsApp, negociando valores, local e prazo do serviço. A plataforma garante a privacidade e a autonomia de ambas as partes.",
-    },
-    {
-      icon: <PiNumberSquareFourLight size={55} className="mb-2" />,
-      title: "Feche Negócio com Confiança",
-      description:
-        "O fechamento do serviço é uma decisão mútua. Uma boa biografia, descrições claras e imagens de qualidade atraem mais clientes e aumentam suas chances de sucesso.",
-    },
-    {
-      icon: <PiNumberSquareFiveLight size={55} className="mb-2" />,
-      title: "Construa sua Reputação",
-      description:
-        "Com nosso sistema de avaliações, o cliente pode reconhecer a qualidade do seu trabalho. Cada avaliação positiva fortalece sua reputação e destaca seu perfil.",
-    },
-    {
-      icon: <PiNumberSquareSixLight size={55} className="mb-4" />,
-      title: "Cresça com Jobberu",
-      description:
-        "Jobberu foi criada para conectar pessoas. Nosso objetivo é facilitar o encontro entre profissionais locais e clientes que precisam de serviços, promovendo crescimento para ambos os lados.",
-    },
-  ];
   return (
     <section className="section-beAprofessional">
       <div className="section-beAProfessional_container">

@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+.section-howDoesItWork {
+  @apply flex
+        flex-col
+        items-center
+        justify-center;
+}
+.section-howDoesItWork_container {
+  @apply mt-8
+        mb-8
+        w-[1200px];
+}
+.section-howDoesItWork_professionals,
+.section-howDoesItWork_clients {
+  @apply mb-8;
+}
+.section-howDoesItWork_container-title {
+  @apply border-b
+        border-gray-400
+        p-3
+        pl-0
+        mb-8;
+}
+.section-howDoesItWork_title {
+  @apply uppercase
+        font-bold
+        text-3xl;
+}
+.section-howDoesItWork_professionals-cards,
+.section-howDoesItWork_clients-cards {
+  @apply grid
+        grid-cols-3
+        gap-4;
+}
+.section-howDoesItWork_card {
+  @apply p-8
+        border
+        border-gray-300
+        flex
+        flex-col;
+}
+.section-howDoesItWork_card-title {
+  @apply text-2xl
+        mb-2;
+}
+.section-howDoesItWork_card-description {
+  @apply italic
+        font-light;
+}
+.section-howDoesItWork_button-professional {
+  @apply w-[400px] 
+        bg-purple-500
+        p-2
+        text-center
+        rounded
+        shadow-2xl
+        mb-2;
+}
+.section-howDoesItWork_button-client {
+  @apply w-[400px]
+        bg-orange-400
+        p-2
+        text-center
+        rounded
+        shadow-2xl;
+}
+.section-howDoesItWork_footer-text {
+  @apply mb-4
+        text-lg;
+}
