@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import categories from "@/app/data/categories";
 import Image from "next/image";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import "./Categories.css";
+import categories from "@/data/categories";
 
 const INTERVAL_MS = 5000; // 5s
 

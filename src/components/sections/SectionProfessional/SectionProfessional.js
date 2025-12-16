@@ -3,8 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import ProfessionalCard from "./ProfessionalCard";
 import api from "@/services/api";
-import instruction from "@/app/data/instruction";
 import "./SectionProfessional.css";
+import instruction from "@/data/instruction";
 
 const categories = [
   // Adicionando a opção para limpar o filtro
