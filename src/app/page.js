@@ -10,7 +10,11 @@ import SectionProfessional from "@/components/sections/SectionProfessional/Secti
 export default function Home() {
   return (
     <main className="home-container">
-      <Banner />
+      <Banner
+        title="Jobberu: a ponte entre você e os melhores profissionais da sua
+            região."
+        description=" Mais perto, mais fácil, para facilitar o seu dia a dia."
+      />
       <SectionProfessional />
       <Categories />
       <Benefits />
