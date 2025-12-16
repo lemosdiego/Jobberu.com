@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import "./ProfileCllient.css";
+import "./ProfileClient.css";
 
 export default function ProfileForm({
   formData,

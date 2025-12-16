@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+.page-dashboard-config {
+}
+.page-dashboard-config_container {
+}
+.page-dashboard-config_header {
+  @apply flex
+        mb-3;
+}
+.page-dashboard-config_header-image {
+  @apply relative 
+        w-32 
+        h-32;
+}
+.page-dashboard-config_header-info {
+  @apply p-5;
+}
+.page-dashboard-config_header-title {
+  @apply text-4xl
+        mb-2
+        font-bold;
+}
+.page-dashboard-config_header-subtitle {
+  @apply text-xl 
+        text-gray-500
+        italic;
+}
+.page-dashboard-config_success {
+  @apply bg-green-100 
+        border-l-4 
+        border-green-500 
+        text-green-700 
+        p-4 
+        mb-6;
+}
+.page-dashboard-config_footer {
+  @apply flex 
+        items-end
+        justify-end;
+}
+.page-dashboard-config_footer-button {
+  @apply bg-blue-600 
+        text-white 
+        font-semibold  
+        rounded
+        p-2
+        hover:bg-blue-700 
+        transition-colors
+        cursor-pointer;
+}
+.page-dashboard-config_footer-button-cancel {
+  @apply bg-gray-200 
+        text-gray-800 
+        font-semibold
+        p-2 
+        rounded 
+        hover:bg-gray-300 
+        transition-colors
+        cursor-pointer;
+}

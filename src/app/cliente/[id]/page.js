@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/services/api";
-import ProfileForm from "@/components/dashboard/ProfileForm";
 import "../../../components/dashboard/ProfileCllient.css";
 import Image from "next/image";
+import ProfileForm from "@/components/dashboard/cliente/ProfileForm";
 
 export default function ClienteProfilePage() {
   const { user: loggedInUser, updateUser: updateAuthContext } = useAuth();

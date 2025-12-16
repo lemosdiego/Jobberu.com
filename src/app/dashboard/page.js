@@ -48,10 +48,10 @@ export default function DashboardPage() {
   const profileUrl = `/perfil/${slugify(user.nome)}-${user.id}`;
 
   return (
-    <main className="p-4 md:p-8 bg-gray-50 min-h-full">
-      <div className="max-w-5xl mx-auto">
-        <header className="mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+    <main className="page-dashboard">
+      <div className="page-dashboard_container">
+        <header className="page-dashboard_header">
+          <h1 className=" page-dashboard_header-title">
             Olá, {user.nome.split(" ")[0]}!
           </h1>
           <p className="text-lg text-gray-600 mt-1">
@@ -60,53 +60,53 @@ export default function DashboardPage() {
         </header>
 
         {/* Seção de Ações Rápidas */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+        <section className="page-dashboard_actions">
           <Link href="/dashboard/servicos" className="dashboard-card">
-            <FaBriefcase className="text-3xl text-blue-500 mb-3" />
-            <h2 className="text-xl font-semibold">Meus Serviços</h2>
-            <p className="text-gray-500">
+            <FaBriefcase className="text-blue-500  page-dashboard_actions-icon" />
+            <h2 className=" page-dashboard_actions-title">Meus Serviços</h2>
+            <p className=" page-dashboard_actions-description">
               Crie, edite e gerencie os serviços que você oferece.
             </p>
           </Link>
 
           <Link href="/dashboard/configuracoes" className="dashboard-card">
-            <FaWrench className="text-3xl text-green-500 mb-3" />
-            <h2 className="text-xl font-semibold">Configurações</h2>
-            <p className="text-gray-500">
+            <FaWrench className="text-green-500 page-dashboard_actions-icon" />
+            <h2 className="page-dashboard_actions-title">Configurações</h2>
+            <p className="page-dashboard_actions-description">
               Atualize suas informações de perfil, foto e contato.
             </p>
           </Link>
 
           <Link href={profileUrl} className="dashboard-card">
-            <FaUser className="text-3xl text-purple-500 mb-3" />
-            <h2 className="text-xl font-semibold">Ver Perfil Público</h2>
-            <p className="text-gray-500">
+            <FaUser className="page-dashboard_actions-icon text-purple-500 " />
+            <h2 className="page-dashboard_actions-title">Ver Perfil Público</h2>
+            <p className="page-dashboard_actions-description">
               Veja como os clientes visualizam seu perfil na plataforma.
             </p>
           </Link>
         </section>
 
         {/* Seção de Dicas */}
-        <section>
-          <h3 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
+        <section className="page-dashboard_info">
+          <h3 className="page-dashboard_info-title">
             <FaLightbulb className="text-yellow-400" />
             Dicas para o Sucesso
           </h3>
-          <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 space-y-4">
-            <p className="text-gray-700">
+          <div className="page-dashboard_info-container-description">
+            <p className="page-dashboard_info-description">
               <strong>Fotos de Qualidade:</strong> Adicione imagens nítidas e
               profissionais aos seus serviços. Isso aumenta a confiança do
               cliente e a chance de contratação.
             </p>
-            <p className="text-gray-700">
+            <p className="page-dashboard_info-description">
               <strong>Perfil Completo:</strong> Um perfil com biografia
               detalhada e título profissional claro atrai mais olhares. Vá em{" "}
               <Link
                 href="/dashboard/configuracoes"
-                className="text-blue-600 hover:underline font-medium"
+                className="page-dashboard_info-link"
               >
                 Configurações
-              </Link>{" "}
+              </Link>
               para atualizar.
             </p>
           </div>

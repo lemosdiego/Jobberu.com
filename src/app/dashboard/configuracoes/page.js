@@ -3,9 +3,10 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import api from "@/services/api";
-import PrestadorForm from "@/components/dashboard/PrestadorForm";
 import Image from "next/image";
 import { FaPen } from "react-icons/fa";
+import PrestadorForm from "@/components/dashboard/prestador/PrestadorForm";
+import "./ConfigPage.css";
 
 export default function ConfiguracoesPage() {
   const {
@@ -125,10 +126,10 @@ export default function ConfiguracoesPage() {
   if (error) return <p className="p-8 text-center text-red-500">{error}</p>;
 
   return (
-    <main className="p-4 md:p-8">
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-6 md:p-8">
-        <header className="flex flex-col sm:flex-row items-center gap-6 mb-8">
-          <div className="relative w-32 h-32">
+    <main className="page-dashboard-config">
+      <div className="page-dashboard-config_container">
+        <header className="page-dashboard-config_header">
+          <div className=" page-dashboard-config_header-image">
             <Image
               src={
                 selectedFile
@@ -157,21 +158,18 @@ export default function ConfiguracoesPage() {
               </label>
             )}
           </div>
-          <div className="text-center sm:text-left">
-            <h1 className="text-2xl md:text-3xl font-bold text-gray-800">
+          <div className="page-dashboard-config_header-info">
+            <h1 className="page-dashboard-config_header-title">
               {formData.nome}
             </h1>
-            <p className="text-gray-600">
+            <p className="page-dashboard-config_header-subtitle">
               {formData.titulo_profissional || "Prestador de Serviços"}
             </p>
           </div>
         </header>
 
         {successMessage && (
-          <div
-            className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6"
-            role="alert"
-          >
+          <div className=" page-dashboard-config_success" role="alert">
             <p>{successMessage}</p>
           </div>
         )}
@@ -184,19 +182,19 @@ export default function ConfiguracoesPage() {
             isEditing={isEditing}
           />
 
-          <div className="mt-8 pt-6 border-t border-gray-200 flex justify-end gap-4">
+          <div className="page-dashboard-config_footer">
             {isEditing ? (
               <>
                 <button
                   type="button"
                   onClick={handleCancelEdit}
-                  className="bg-gray-200 text-gray-800 font-semibold py-2 px-6 rounded-lg hover:bg-gray-300 transition-colors"
+                  className="page-dashboard-config_footer-button-cancel"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
-                  className="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="page-dashboard-config_footer-button"
                 >
                   Salvar Alterações
                 </button>
@@ -205,7 +203,7 @@ export default function ConfiguracoesPage() {
               <button
                 type="button"
                 onClick={() => setIsEditing(true)}
-                className="bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors"
+                className=" page-dashboard-config_footer-button"
               >
                 Editar Informações
               </button>

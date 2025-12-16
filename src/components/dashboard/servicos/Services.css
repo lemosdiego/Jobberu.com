@@ -8,7 +8,7 @@
         justify-center
         gap-4
         shadow-2xl
-        min-h-[500px];
+        min-h-[300px];
 }
 .service-list-empty_title {
   @apply text-3xl 

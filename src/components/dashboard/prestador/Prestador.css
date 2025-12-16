@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.prestador-form_container {
+  @apply grid
+        gap-3;
+}
+.prestador-form_box-grid-1 {
+  @apply grid 
+        grid-cols-2
+        gap-5;
+}
+.prestador-form_box-grid-2 {
+  @apply grid
+        grid-cols-3
+        gap-5;
+}
+.prestador-form_box-grid-3 {
+  @apply mb-3;
+}
+.prestador-form_label {
+  @apply text-lg 
+        block  
+        font-medium 
+        text-gray-700
+        mb-1;
+}
+.prestador-form_input {
+  @apply p-3
+        shadow
+        bg-white
+        w-full
+        rounded
+        outline-none;
+}
+.prestador-form_textarea {
+  @apply p-3
+        h-52
+        bg-white
+        w-full
+        rounded
+        outline-none
+        resize-none
+        text-lg;
+}
