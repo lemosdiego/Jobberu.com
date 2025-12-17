@@ -48,8 +48,12 @@
   @apply italic
         font-light;
 }
+.section-howDoesItWork_actions {
+  @apply flex
+        flex-col;
+}
 .section-howDoesItWork_button-professional {
-  @apply w-[400px] 
+  @apply w-[300px] 
         bg-purple-500
         p-2
         text-center
@@ -58,7 +62,7 @@
         mb-2;
 }
 .section-howDoesItWork_button-client {
-  @apply w-[400px]
+  @apply w-[300px]
         bg-orange-400
         p-2
         text-center
@@ -66,6 +70,6 @@
         shadow-2xl;
 }
 .section-howDoesItWork_footer-text {
-  @apply mb-4
+  @apply mb-8
         text-lg;
 }

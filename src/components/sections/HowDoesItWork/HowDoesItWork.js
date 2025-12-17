@@ -50,28 +50,25 @@ export default function HowDoesItWork() {
           <div className="section-howDoesItWork_container-title">
             <h2 className="section-howDoesItWork_title">Faça seu cadastro</h2>
           </div>
-          <div className="section-howDoesItWork_card">
-            <p className="section-howDoesItWork_footer-text">
-              Seja profissional ou cliente e descubra como a Jobberu torna tudo
-              mais simples. Profissionais ganham visibilidade, constroem
-              reputação e conquistam novos clientes. Clientes encontram serviços
-              confiáveis, negociam direto e resolvem tudo com rapidez. Na
-              Jobberu, só tem vantagem para quem quer trabalhar ou contratar com
-              facilidade.
-            </p>
-            <Link
-              href={"/cadastro/prestador"}
-              className="section-howDoesItWork_button-professional"
-            >
-              Seja um profissional{" "}
-            </Link>
-            <Link
-              href={"/cadastro/cliente"}
-              className="section-howDoesItWork_button-client"
-            >
-              Seja um cliente
-            </Link>
-          </div>
+          <p className="section-howDoesItWork_footer-text">
+            Seja profissional ou cliente e descubra como a Jobberu torna tudo
+            mais simples. Profissionais ganham visibilidade, constroem reputação
+            e conquistam novos clientes. Clientes encontram serviços confiáveis,
+            negociam direto e resolvem tudo com rapidez. Na Jobberu, só tem
+            vantagem para quem quer trabalhar ou contratar com facilidade.
+          </p>
+          <Link
+            href={"/cadastro/prestador"}
+            className="section-howDoesItWork_button-professional"
+          >
+            Seja um profissional{" "}
+          </Link>
+          <Link
+            href={"/cadastro/cliente"}
+            className="section-howDoesItWork_button-client"
+          >
+            Seja um cliente
+          </Link>
         </div>
       </div>
     </section>

@@ -68,7 +68,7 @@ export default function NavigationMobile() {
         )}
         <li>
           <Link
-            href="/connect#how-it-works"
+            href="/como-funciona"
             onClick={() => setIsOpen(false)}
             className="text-xl underline"
           >
@@ -77,7 +77,7 @@ export default function NavigationMobile() {
         </li>
         <li>
           <Link
-            href="/connect#responsibilities"
+            href="/responsibilities"
             onClick={() => setIsOpen(false)}
             className="text-xl underline"
           >

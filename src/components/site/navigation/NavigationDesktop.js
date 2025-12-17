@@ -31,7 +31,7 @@ export default function NavigationDesktop() {
           </Link>
         </li>
         <li>
-          <Link href="/connect#responsibilities" className="text-lg underline">
+          <Link href="responsibilities" className="text-lg underline">
             Responsabilidades
           </Link>
         </li>
