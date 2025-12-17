@@ -59,7 +59,9 @@ export default function FormLogin() {
 
   return (
     <form onSubmit={handleSubmit} className="form-login">
-      <h2 className="form-login_title">Acessar sua conta</h2>
+      <div className="form-register_container-title">
+        <h2 className="form-login_title">Acessar sua conta</h2>
+      </div>
       {error && <p className="form-login_error">{error}</p>}
       <div className="flex flex-col">
         <label htmlFor="email" className="form-login_label">

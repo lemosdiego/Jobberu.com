@@ -23,7 +23,7 @@ export const responsibilities = [
       <>
         Todos os perfis passam por uma análise da plataforma. Caso seja
         identificado qualquer conteúdo que viole os{" "}
-        <Link href="/termos-de-uso" className="link-termos">
+        <Link href="/terms-of-use" className="link-termos">
           Termos de Uso
         </Link>
         , a conta poderá ser suspensa ou banida sem aviso prévio.

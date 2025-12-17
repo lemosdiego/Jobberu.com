@@ -5,52 +5,19 @@
   @apply flex 
         flex-col 
         gap-2
-
-        w-[500px]
-        
-        max-sm:w-full
-
-        max-md:gap-1
-        
-        max-md:w-[450px]
-        
-        max-lg:w-full
-        max-lg:gap-1
-        
-        max-xl:w-[400px];
+        w-full;
 }
-.form-register {
-  /* Firefox */
-  scrollbar-width: thin;
-  scrollbar-color: #3b82f6 transparent;
-  scrollbar-gutter: stable;
-  @apply max-h-screen 
-      overflow-y-auto 
-      pr-4;
-}
-/* Chrome, Edge, Safari */
-.form-register::-webkit-scrollbar {
-  width: 6px;
-}
-.form-register::-webkit-scrollbar-track {
-  background: transparent;
-  margin: 4px; /* AFASTA A BARRA DO CONTEÚDO */
-}
-.form-register::-webkit-scrollbar-thumb {
-  background-color: #3b82f6;
-  border-radius: 999px;
-}
-.form-register::-webkit-scrollbar-thumb:hover {
-  background-color: #60a5fa;
+.form-register_container-title {
+  @apply mb-4 
+        border-b
+        border-gray-400
+        p-4
+        pl-0;
 }
 .form-login_title,
 .form-register_title {
   @apply text-4xl 
-        font-bold
-        mb-4
-        
-        max-lg:text-3xl
-        max-lg:mb-2;
+        font-bold;
 }
 .form-login_error,
 .form-register_error {
@@ -60,6 +27,23 @@
 .form-register_sucess {
   @apply text-green-500;
 }
+.form-register_container-box_inputs {
+  @apply grid
+        grid-cols-2
+        gap-2;
+}
+.form-register_container-box_inputs-prestador,
+.form-register_container-box_inputs-clientes {
+  @apply grid
+        grid-cols-3
+        gap-2;
+}
+.form-register_container-box_inputs-prestador-1 {
+  @apply grid
+        grid-cols-4
+        gap-2
+        mb-2;
+}
 .form-register_container_inputs {
   @apply flex 
       flex-col 
@@ -68,8 +52,9 @@
 .form-login_label,
 .form-register_label {
   @apply block 
-        text-sm 
-        font-medium 
+        text-lg
+        uppercase 
+        font-light 
         text-gray-700;
 }
 .form-login_input,
@@ -93,13 +78,26 @@
         resize-none 
         h-32;
 }
+.form-register_checkbox {
+  @apply mr-1;
+}
+.form-terms {
+  @apply ml-1 
+        italic
+        text-blue-700
+        font-medium
+        hover:text-blue-500;
+}
 .form-login_button,
 .form-register_button {
   @apply mt-2 
         p-2.5 
         mb-1
         text-white 
-        bg-blue-500 
+        bg-blue-500
+        disabled:bg-blue-300
+        disabled:cursor-not-allowed
+        disabled:hover:bg-blue-300
         hover:bg-blue-400 
         cursor-pointer 
         rounded 

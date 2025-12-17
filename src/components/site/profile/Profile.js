@@ -131,7 +131,7 @@ export default function Profile() {
 
               <p className="text-center text-sm mt-1">Não tem Conta?</p>
               <Link
-                href="/register"
+                href="/cadastro/cliente"
                 onClick={closeDropDown}
                 className="bg-orange-400 hover:bg-orange-500 p-2 text-white text-sm rounded flex items-center gap-2"
               >

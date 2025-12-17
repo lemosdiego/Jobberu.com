@@ -20,7 +20,7 @@
         items-center
         gap-4
         mb-8
-        border-b-2
+        border-b
         border-slate-400
         pb-2
         
@@ -40,7 +40,7 @@
   @apply grid 
         grid-cols-3
         w-[1200px]
-        gap-4
+        gap-5
         
         max-sm:grid-cols-1
 
@@ -54,7 +54,8 @@
 .section-benefits_card {
   @apply flex
         flex-col 
-        p-4 
+        p-8
+        text-center 
         items-center 
         justify-center 
         gap-3

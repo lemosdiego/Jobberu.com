@@ -12,22 +12,24 @@
         p-14
         bg-white
         shadow-2xl
+        rounded
         flex
         flex-col
-        gap-4
+        gap-8
         w-[1200px];
 }
 .section-termsOfUse_title {
   @apply text-4xl;
 }
 .section-termsOfUse_subtitle {
-  @apply font-light
-        underline
+  @apply italic
+        font-medium
         text-2xl;
 }
 .section-termsOfUse_description {
   @apply text-lg
-        w-[90%];
+        font-light
+        w-full;
 }
 .section-termsOfUse_list {
   @apply flex
@@ -35,5 +37,6 @@
         gap-2
         text-lg
         list-disc
+        font-light
         ml-5;
 }
