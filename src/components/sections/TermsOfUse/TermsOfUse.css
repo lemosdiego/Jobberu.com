@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+.section-termsOfUse {
+  @apply flex
+        items-center
+        justify-center
+        bg-gray-100;
+}
+.section-termsOfUse_container {
+  @apply mt-8
+        mb-8
+        p-14
+        bg-white
+        shadow-2xl
+        flex
+        flex-col
+        gap-4
+        w-[1200px];
+}
+.section-termsOfUse_title {
+  @apply text-4xl;
+}
+.section-termsOfUse_subtitle {
+  @apply font-light
+        underline
+        text-2xl;
+}
+.section-termsOfUse_description {
+  @apply text-lg
+        w-[90%];
+}
+.section-termsOfUse_list {
+  @apply flex
+        flex-col
+        gap-2
+        text-lg
+        list-disc
+        ml-5;
+}
