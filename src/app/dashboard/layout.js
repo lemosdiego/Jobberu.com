@@ -37,7 +37,7 @@ export default function DashboardLayout({ children }) {
   const getLinkClassName = (path) => {
     return pathname === path
       ? "block px-4 py-2 text-white bg-blue-600 rounded"
-      : "block px-4 py-2 text-gray-700 rounded hover:bg-gray-200";
+      : "block px-4 py-2 text-gray-700 rounded bg-gray-100 hover:bg-gray-200";
   };
 
   return (

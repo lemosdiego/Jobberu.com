@@ -18,7 +18,10 @@
         text-blue-700;
 }
 .layout-dashboard_sidebar-nav {
-  @apply text-lg;
+  @apply text-lg 
+        flex
+        flex-col
+        gap-2;
 }
 .layout-dashboard_content {
   @apply flex-1 
@@ -46,7 +49,7 @@
         cursor-pointer;
 }
 .layout-dashboard_content-main {
-  @apply bg-gray-100
+  @apply bg-gray-100 
         shadow;
 }
 /* ESTILOS DA PÁGINA DE DASHBOARD */
