@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+.section-responsibilities {
+  @apply flex
+        items-center
+        justify-center;
+}
+.section-responsibilities_container {
+  @apply mt-8
+        mb-8
+        w-[1200px];
+}
+.section-responsibilities_container-title {
+  @apply border-b
+        border-gray-400
+        p-3
+        pl-0
+        mb-8;
+}
+.section-responsibilities_title {
+  @apply uppercase
+        font-bold
+        text-3xl;
+}
+.section-responsibilities_container-cards {
+  @apply grid 
+        grid-cols-3
+        gap-4;
+}
+.section-responsibilities_card {
+  @apply p-8
+        border
+        border-gray-300
+        flex
+        flex-col;
+}
+.section-responsibilities_card-title {
+  @apply text-3xl
+        mb-2;
+}
+.section-responsibilities_card-description {
+  @apply italic
+        text-lg
+        font-light;
+}
+.link-termos {
+  @apply text-blue-700
+        font-medium
+        underline
+        hover:text-blue-500;
+}
