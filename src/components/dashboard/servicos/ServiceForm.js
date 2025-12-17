@@ -64,17 +64,37 @@ export default function ServiceForm({ service, onSave, onCancel }) {
   };
 
   const handleFileChange = (e) => {
-    setFormData((prev) => ({ ...prev, imagens: e.target.files }));
     const files = e.target.files;
-    setFormData((prev) => ({ ...prev, imagens: files }));
+    const maxSize = 5 * 1024 * 1024; // 5 MB
+    const validFiles = [];
+    let hasError = false;
+
+    Array.from(files).forEach((file) => {
+      if (file.size > maxSize) {
+        setError(
+          `O arquivo "${file.name}" é muito grande. O tamanho máximo é 5MB.`
+        );
+        hasError = true;
+      } else {
+        validFiles.push(file);
+      }
+    });
+
+    if (hasError) {
+      e.target.value = ""; // Limpa o input se houver erro
+      setFormData((prev) => ({ ...prev, imagens: [] }));
+      setNewImagePreviews([]);
+      return;
+    }
+
+    setError(null); // Limpa erros anteriores se os arquivos forem válidos
+    setFormData((prev) => ({ ...prev, imagens: validFiles }));
 
     // Limpa previews antigos
     newImagePreviews.forEach((url) => URL.revokeObjectURL(url));
 
-    // Cria novas URLs de pré-visualização
-    const previewUrls = Array.from(files).map((file) =>
-      URL.createObjectURL(file)
-    );
+    // Cria novas URLs de pré-visualização apenas para os arquivos válidos
+    const previewUrls = validFiles.map((file) => URL.createObjectURL(file));
     setNewImagePreviews(previewUrls);
   };
 
@@ -293,7 +313,7 @@ export default function ServiceForm({ service, onSave, onCancel }) {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="-service_form-footer-button-save"
+            className="form-service_form-footer-button-save"
           >
             {isSubmitting
               ? "Salvando..."

@@ -91,19 +91,23 @@ export default function ServicosPage() {
       // Adiciona os arquivos de imagem, se existirem
       if (formData.imagens && formData.imagens.length > 0) {
         Array.from(formData.imagens).forEach((file) => {
-          data.append("imagens", file);
-        });
-      }
-
-      // Adiciona a lista de imagens a serem removidas, se houver
-      if (formData.imagens_a_remover && formData.imagens_a_remover.length > 0) {
-        formData.imagens_a_remover.forEach((url) => {
-          data.append("imagens_a_remover", url);
+          data.append("imagens_servico", file);
         });
       }
 
       if (currentService) {
         // Atualização (PATCH) - Sempre usando FormData
+
+        // Adiciona a lista de imagens a serem removidas, APENAS na atualização
+        if (
+          formData.imagens_a_remover &&
+          formData.imagens_a_remover.length > 0
+        ) {
+          formData.imagens_a_remover.forEach((url) => {
+            data.append("imagens_a_remover", url);
+          });
+        }
+
         await api.patch(`/servico/atualizar/${currentService.id}`, data, {
           headers: { "Content-Type": "multipart/form-data" },
         });
