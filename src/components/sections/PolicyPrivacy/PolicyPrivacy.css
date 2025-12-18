@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+.section-privacyPolicy {
+  @apply flex
+        items-center
+        justify-center
+        bg-gray-100;
+}
+
+.section-privacyPolicy_container {
+  @apply mt-8
+        mb-8
+        p-14
+        bg-white
+        shadow-2xl
+        rounded
+        flex
+        flex-col
+        gap-8
+        w-[1200px];
+}
+.section-privacyPolicy_title {
+  @apply text-4xl;
+}
+.section-privacyPolicy_subtitle {
+  @apply italic
+        font-medium
+        text-2xl;
+}
+.section-privacyPolicy_description {
+  @apply text-lg
+        font-light
+        w-full;
+}
+
+.section-privacyPolicy_list {
+  @apply flex
+        flex-col
+        gap-2
+        text-lg
+        list-disc
+        font-light
+        ml-5;
+}
+
+.section-privacyPolicy_list li {
+  @apply mb-1;
+}

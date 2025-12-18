@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+.layout-footer {
+  @apply w-full 
+        flex
+        items-center
+        justify-center
+        bg-blue-700 
+        text-white
+        p-20; /* Adicionado padding vertical */
+}
+.layout-footer_container {
+  @apply w-[1200px]
+        flex
+        flex-wrap /* Permite que os itens quebrem para a próxima linha */
+        justify-between
+        items-start /* Alinha as colunas no topo */
+        gap-8 /* Espaçamento entre as colunas */; /* Padding horizontal para telas menores */
+}
+
+.footer-column {
+  @apply flex
+        flex-col
+        gap-3;
+}
+
+.footer-column-right {
+  @apply items-center /* Centraliza itens na coluna da direita em telas pequenas */
+        md:items-end; /* Alinha à direita em telas maiores */
+}
+
+.footer-column-title {
+  @apply text-lg
+        font-bold
+        text-white
+        mb-1;
+}
+
+.footer-links {
+  @apply flex
+        flex-col
+        gap-2
+        text-sm;
+}
+
+.footer-link {
+  @apply text-gray-300
+        hover:text-blue-200
+        transition-colors;
+}
+
+.footer-slogan {
+  @apply text-base
+        italic
+        text-blue-200
+        text-center
+        md:text-right;
+}
+
+.footer-social {
+  @apply flex
+        gap-4
+        mt-2;
+}
+
+.footer-social-icon {
+  @apply text-white
+        hover:text-blue-200
+        transition-colors;
+}
+
+.footer-copyright {
+  @apply text-xs
+        text-gray-400
+        mt-4;
+}
