@@ -40,3 +40,6 @@
         font-light
         ml-5;
 }
+.section-termsOfUse_list li {
+  @apply mb-1;
+}

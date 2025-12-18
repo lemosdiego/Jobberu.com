@@ -93,12 +93,12 @@
 .section-professional_container-card {
   @apply mt-4 
         grid 
-        grid-cols-1
-        gap-6 
+        grid-cols-3
+        gap-4 
         
-        md:grid-cols-2 
+        max-sm:grid-cols-1
         
-        lg:grid-cols-3;
+        max-lg:grid-cols-2;
 }
 .section-professional_default {
   @apply mt-4 

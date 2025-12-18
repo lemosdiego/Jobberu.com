@@ -161,6 +161,8 @@ export default function TermsOfUse() {
         </p>
 
         <p className="section-termsOfUse_description">
+          {" "}
+          {/* Esta data deve ser atualizada manualmente quando os termos forem revisados */}
           Última atualização: 2025
         </p>
       </div>

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .professional-card {
-  @apply rounded-lg 
+  @apply rounded-lg   
         overflow-hidden 
         shadow-lg 
         flex 
@@ -19,7 +19,7 @@
         flex-col
         gap-1
         
-        bg-gray-100;
+        bg-gray-50;
 }
 .professional-card_content-header {
   @apply flex 
@@ -27,19 +27,18 @@
 }
 .professional-card_content-header-image {
   @apply relative 
-        h-14 
-        w-14 
+        h-11 
+        w-11 
         rounded-full 
         overflow-hidden 
         mr-3;
 }
 .professional-card_content-header-name {
   @apply font-bold 
-        text-2xl;
+        text-xl;
 }
 .professional-card_content-header-title {
-  @apply text-lg
-        italic
+  @apply italic
         text-gray-600;
 }
 .professional-card_content-rating {
@@ -48,13 +47,13 @@
   @apply text-gray-500;
 }
 .professional-card_content-bio {
-  @apply text-lg 
-        text-gray-700 
+  @apply text-gray-700 
         flex-grow 
         line-clamp-2;
 }
 .professional-card_content-footer-price-text {
-  @apply text-gray-800 
+  @apply text-sm 
+        text-gray-800 
         font-semibold
         uppercase
         underline;
@@ -62,8 +61,7 @@
 .professional-card_content-footer-button {
   @apply bg-blue-500 
         text-white 
-        px-4 
-        py-2 
+        p-1
         rounded 
         hover:bg-blue-600 
         disabled:bg-gray-400
