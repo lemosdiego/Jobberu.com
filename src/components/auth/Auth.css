@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
-.form-login,
+.form-login {
+  @apply w-[550px]
+        
+        max-md:w-11/12;
+}
 .form-register {
   @apply flex 
         flex-col 
@@ -90,9 +94,10 @@
 }
 .form-login_button,
 .form-register_button {
-  @apply mt-2 
+  @apply mt-4 
         p-2.5 
         mb-1
+        w-full
         text-white 
         bg-blue-500
         disabled:bg-blue-300
@@ -107,9 +112,11 @@
 }
 .form-login_register {
   @apply flex 
-        flex-col 
-        items-start 
-        gap-0.5;
+        flex-col
+        justify-center
+        items-center 
+        gap-1
+        mt-4;
 }
 .form-login_register_text {
   @apply text-lg;

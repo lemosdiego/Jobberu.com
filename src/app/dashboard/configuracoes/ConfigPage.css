@@ -6,12 +6,18 @@
 }
 .page-dashboard-config_header {
   @apply flex
-        mb-3;
+        mb-3
+        
+        max-md:mb-1;
 }
 .page-dashboard-config_header-image {
   @apply relative 
         w-32 
-        h-32;
+        h-32
+        rounded-full
+        
+        max-md:w-24
+        max-md:h-24;
 }
 .page-dashboard-config_header-info {
   @apply p-5;
@@ -19,7 +25,10 @@
 .page-dashboard-config_header-title {
   @apply text-4xl
         mb-2
-        font-bold;
+        font-bold
+        
+        max-md:text-2xl
+        max-md:mb-0.5;
 }
 .page-dashboard-config_header-subtitle {
   @apply text-xl 

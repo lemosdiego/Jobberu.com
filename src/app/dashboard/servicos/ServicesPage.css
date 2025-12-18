@@ -11,11 +11,21 @@
         mb-4
         p-4
         rounded
-        shadow;
+        shadow
+        
+        max-md:mb-2
+        max-md:p-2
+        
+        max-lg:mb-3
+        max-lg:p-3;
 }
 .page-dashboard-services_title {
   @apply text-4xl 
-        font-bold;
+        font-bold
+        
+        max-md:text-2xl
+        
+        max-lg:text-3xl;
 }
 .page-dashboard-services_header {
   @apply bg-white 
@@ -25,12 +35,22 @@
         mb-6
         p-4
         rounded
-        shadow;
+        shadow
+        
+        max-md:mb-2
+        max-md:p-2
+        
+        max-lg:mb-3
+        max-lg:p-3;
 }
 .page-dashboard-services_subtitle {
   @apply text-3xl 
         font-bold 
-        text-gray-800;
+        text-gray-800
+        
+        max-md:text-xl
+        
+        max-lg:text-2xl;
 }
 .page-dashboard-services_header-button {
   @apply bg-blue-600 

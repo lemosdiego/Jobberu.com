@@ -25,7 +25,9 @@
 .service-list_card {
   @apply rounded
         grid
-        [grid-template-columns:1fr_3fr];
+        [grid-template-columns:1fr_3fr]
+        
+        max-lg:[grid-template-columns:2fr_3fr];
 }
 .service-list_card-image {
   @apply relative 
@@ -34,21 +36,32 @@
 .service-list_card-actions {
   @apply bg-white
         shadow
-        p-5;
+        p-5
+        
+        max-sm:p-3;
 }
 .service-list_card-content-title {
   @apply text-3xl
         font-bold
-        mb-2;
+        mb-2
+        
+        max-md:text-2xl
+        max-md:mb-1;
 }
 .service-list_card-content-subtitle {
   @apply text-xl
-        mb-2;
+        mb-2
+        
+        max-md:text-lg
+        max-md:mb-1;
 }
 .service-list_card-content-description {
   @apply text-lg
         font-light
-        mb-2;
+        mb-2
+        
+        max-md:text-base
+        max-md:mb-1;
 }
 .service-list_card-content-price {
   @apply text-lg 
@@ -80,8 +93,12 @@
 .form-service_container {
 }
 .form-service_header {
-  @apply p-4
-        pl-0;
+  @apply pl-0
+        mb-4
+
+        max-md:mb-2
+        
+        max-lg:mb-3;
 }
 .form-service_header-button {
   @apply flex 
@@ -96,7 +113,9 @@
 .form-service_header-title {
   @apply text-4xl 
         font-bold 
-        text-gray-800;
+        text-gray-800
+        
+        max-lg:text-3xl;
 }
 .form-service_form {
   @apply bg-white
@@ -120,7 +139,8 @@
 .form-service_form-box_inputs-label {
   @apply block 
         text-lg
-        mb-2
+        mt-2
+        mb-1
         font-medium 
         text-gray-700;
 }
@@ -150,7 +170,9 @@
   @apply flex 
         justify-end 
         gap-3 
-        border-gray-200;
+        border-gray-200
+        
+        mt-2;
 }
 .form-service_form-footer-button-cancel {
   @apply bg-gray-200 
