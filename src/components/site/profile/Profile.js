@@ -54,12 +54,15 @@ export default function Profile() {
   }, []);
 
   return (
-    <div className="relative" ref={dropDownRef}>
+    <div
+      className="relative shadow-2xl bg-blue-500 rounded-full"
+      ref={dropDownRef}
+    >
       <button
         onClick={openDropDown}
         className="flex items-center gap-2 cursor-pointer"
       >
-        <div className="relative w-8 h-8 flex items-center justify-center">
+        <div className="relative w-10 h-10 flex items-center justify-center">
           {isAuthenticated && user?.foto_perfil_url ? (
             <Image
               src={user.foto_perfil_url}
@@ -73,13 +76,6 @@ export default function Profile() {
             <FaUser className="text-2xl" />
           )}
         </div>
-        <span className="text-xl">
-          {isAuthenticated
-            ? user?.is_prestador
-              ? "Profissional"
-              : user?.nome?.split(" ")[0] || "Meu Perfil"
-            : "Entrar"}
-        </span>
       </button>
 
       {dropDown && (

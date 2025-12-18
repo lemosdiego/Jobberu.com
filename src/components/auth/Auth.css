@@ -58,8 +58,10 @@
   @apply block 
         text-lg
         uppercase 
-        font-light 
-        text-gray-700;
+        font-medium 
+        text-gray-700
+        mt-2
+        mb-1;
 }
 .form-login_input,
 .form-register_input {

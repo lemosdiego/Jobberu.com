@@ -79,7 +79,9 @@ export default function FormLogin() {
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="senha">Senha</label>
+        <label htmlFor="senha" className="form-login_label">
+          Senha
+        </label>
         <input
           type="password"
           id="senha"

@@ -61,7 +61,7 @@
         cursor-pointer;
 }
 .layout-dashboard_content-main {
-  @apply bg-gray-100 
+  @apply bg-gray-50 
         shadow;
 }
 /* ESTILOS DA PÁGINA DE DASHBOARD */
@@ -84,7 +84,7 @@
   @apply grid 
       grid-cols-3
       gap-5 
-      mb-4 border
+      mb-4
 
       max-sm:grid-cols-1
       
@@ -126,7 +126,7 @@
 .page-dashboard_info-container-description {
   @apply bg-white
         p-5
-        shadow-2xl
+        shadow
         rounded;
 }
 .page-dashboard_info-description {
