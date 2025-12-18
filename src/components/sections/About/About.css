@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+.section-about {
+  @apply flex
+        items-center
+        justify-center;
+}
+.section-about_container {
+  @apply grid
+        /* [grid-template-columns:2fr_2.5fr] */
+        grid-cols-2
+        gap-8
+        mt-8
+        mb-8
+      
+        p-20
+        rounded
+        shadow
+        border-2
+        border-gray-100
+        w-[1200px]
+
+        max-sm:p-7
+        max-sm:grid-cols-1
+        
+        max-md:p-8
+
+        max-lg:p-10
+        max-lg:w-full
+        max-lg:m-0
+        
+        max-xl:w-[900px];
+}
+.section-about_content-title {
+  @apply text-3xl
+        mb-2;
+}
+.section-about_content-description {
+  @apply mt-2;
+}
+.section-about_container-image {
+  @apply relative
+        h-auto;
+}

@@ -17,9 +17,7 @@
         flex-grow 
         flex 
         flex-col
-        gap-1
-        
-        bg-gray-50;
+        gap-1;
 }
 .professional-card_content-header {
   @apply flex 
