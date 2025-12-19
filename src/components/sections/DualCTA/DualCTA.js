@@ -9,6 +9,7 @@ export default function DualCTA() {
           <h2 className="section-dual-cta_title">
             Pronto para simplificar sua vida ou expandir seus negócios?
           </h2>
+
           <div className="section-dual-cta_buttons">
             <Link href="/servicos" className="section-dual-cta_button primary">
               Quero Contratar

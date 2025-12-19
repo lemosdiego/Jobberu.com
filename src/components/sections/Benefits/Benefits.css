@@ -6,6 +6,7 @@
         flex-col 
         items-center 
         p-14
+        bg-gray-100
         
         max-sm:p-7 
         
@@ -18,6 +19,7 @@
   @apply w-[1200px] 
         flex 
         items-center
+        justify-center
         gap-4
         mb-8
         border-b
@@ -31,9 +33,10 @@
         max-xl:mb-7;
 }
 .section-benefits_title {
-  @apply text-4xl 
-        flex-shrink-0
-        
+  @apply text-4xl
+        text-blue-700
+        text-shadow-2xs
+
         max-sm:text-3xl;
 }
 .section-benefits_container-cards {

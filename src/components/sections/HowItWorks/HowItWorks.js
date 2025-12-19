@@ -26,10 +26,14 @@ export default function HowItWorks() {
   return (
     <section className="section-how-it-works">
       <div className="section-how-it-works_container">
-        <h2 className="section-how-it-works_title">Como a Jobberu Funciona?</h2>
-        <p className="section-how-it-works_subtitle">
-          Conectamos você ao profissional ideal em apenas 3 passos.
-        </p>
+        <div className="section-how-it-works_container-title">
+          <h2 className="section-how-it-works_title">
+            Como a Jobberu Funciona?
+          </h2>
+          <p className="section-how-it-works_subtitle">
+            Conectamos você ao profissional ideal em apenas 3 passos.
+          </p>
+        </div>
         <div className="section-how-it-works_steps-grid">
           {steps.map((step, index) => (
             <div key={index} className="section-how-it-works_step-card">

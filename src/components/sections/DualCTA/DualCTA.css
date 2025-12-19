@@ -1,33 +1,55 @@
 @import "tailwindcss";
 
 .section-dual-cta {
-  @apply bg-blue-700 text-white py-20 px-4;
+  @apply w-full
+        flex
+        items-center
+        justify-center;
 }
 
 .section-dual-cta_container {
-  @apply max-w-4xl mx-auto text-center;
+  @apply w-[1200px] 
+        mt-8
+        mb-8;
 }
 
 .section-dual-cta_content {
-  @apply flex flex-col items-center;
+  @apply flex 
+        flex-col;
 }
 
 .section-dual-cta_title {
-  @apply text-3xl md:text-4xl font-bold mb-8;
+  @apply text-3xl
+        mb-4;
 }
 
 .section-dual-cta_buttons {
-  @apply flex flex-col md:flex-row gap-4;
-}
-
-.section-dual-cta_button {
-  @apply px-8 py-4 rounded-lg font-bold text-lg transition-transform transform hover:scale-105;
+  @apply w-full 
+        grid
+        grid-cols-2
+        gap-4;
 }
 
 .section-dual-cta_button.primary {
-  @apply bg-white text-blue-700 hover:bg-gray-100;
+  @apply p-3
+        text-center
+        shadow-2xl
+        bg-orange-400
+        text-white
+        rounded
+        flex
+        items-center
+        justify-center;
 }
 
 .section-dual-cta_button.secondary {
-  @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700;
+  @apply p-3
+        text-center
+        shadow-2xl
+        bg-purple-500
+        text-white
+        rounded
+        flex
+        items-center
+        justify-center;
 }
