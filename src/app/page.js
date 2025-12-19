@@ -3,6 +3,7 @@
 import Banner from "@/components/sections/Banner/Banner";
 import Benefits from "@/components/sections/Benefits/Benefits";
 import Categories from "@/components/sections/categories/Categories";
+import FAQ from "@/components/sections/Faq/FAQ";
 import SectionProfessional from "@/components/sections/SectionProfessional/SectionProfessional";
 
 // Adicione esta diretiva no topo!
@@ -18,6 +19,7 @@ export default function Home() {
       <SectionProfessional />
       <Categories />
       <Benefits />
+      <FAQ />
     </main>
   );
 }
