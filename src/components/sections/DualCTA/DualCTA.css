@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+.section-dual-cta {
+  @apply bg-blue-700 text-white py-20 px-4;
+}
+
+.section-dual-cta_container {
+  @apply max-w-4xl mx-auto text-center;
+}
+
+.section-dual-cta_content {
+  @apply flex flex-col items-center;
+}
+
+.section-dual-cta_title {
+  @apply text-3xl md:text-4xl font-bold mb-8;
+}
+
+.section-dual-cta_buttons {
+  @apply flex flex-col md:flex-row gap-4;
+}
+
+.section-dual-cta_button {
+  @apply px-8 py-4 rounded-lg font-bold text-lg transition-transform transform hover:scale-105;
+}
+
+.section-dual-cta_button.primary {
+  @apply bg-white text-blue-700 hover:bg-gray-100;
+}
+
+.section-dual-cta_button.secondary {
+  @apply bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700;
+}

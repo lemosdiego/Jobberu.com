@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+.section-featured-categories {
+  @apply w-full
+        flex
+        items-center
+        justify-center;
+}
+
+.section-featured-categories_container {
+  @apply w-[1200px]
+        mt-8;
+}
+.section-featured-categories_container-title {
+  @apply border-b
+        border-gray-400
+        p-1
+        pl-0
+        mb-8;
+}
+.section-featured-categories_title {
+  @apply text-3xl
+        uppercase
+        font-medium;
+}
+
+.section-featured-categories_grid {
+  @apply grid 
+        grid-cols-4
+        gap-4;
+}
+
+.section-featured-categories_card {
+  @apply bg-gray-100 
+        p-5
+        rounded-lg 
+        shadow
+        flex 
+        flex-col 
+        items-center 
+        justify-center 
+        text-center 
+        text-gray-700 
+        hover:shadow-xl 
+        hover:bg-white
+        transition-all duration-300;
+}
+
+.section-featured-categories_icon {
+  @apply text-blue-700 
+        mb-2;
+}
+
+.section-featured-categories_name {
+  @apply font-semibold;
+}
