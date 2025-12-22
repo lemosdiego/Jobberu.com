@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+.confirmation-page {
+  @apply min-h-screen bg-gray-50 flex items-center justify-center p-4;
+}
+
+.confirmation-card {
+  @apply bg-white max-w-md w-full p-8 rounded-xl shadow-lg text-center;
+}
+
+.confirmation-title {
+  @apply text-2xl font-bold text-gray-800 mb-6;
+}
+
+.provider-info {
+  @apply bg-blue-50 p-4 rounded-lg mb-6 flex flex-col items-center gap-3 border border-blue-100;
+}
+
+.provider-avatar {
+  @apply w-16 h-16 rounded-full bg-blue-200 text-blue-600 flex items-center justify-center text-2xl overflow-hidden;
+}
+
+.provider-avatar img {
+  @apply w-full h-full object-cover;
+}
+
+.confirmation-question {
+  @apply text-lg text-gray-700 mb-8;
+}
+
+.confirmation-actions {
+  @apply flex flex-col gap-3;
+}
+
+.btn-confirm {
+  @apply w-full bg-green-600 text-white py-3 rounded-lg font-bold text-lg hover:bg-green-700 transition-colors shadow-sm;
+}
+
+.btn-reject {
+  @apply w-full bg-white text-red-500 border border-red-200 py-3 rounded-lg font-medium hover:bg-red-50 transition-colors;
+}
+
+.btn-confirm:disabled,
+.btn-reject:disabled {
+  @apply opacity-50 cursor-not-allowed;
+}
+
+/* Success State */
+.icon-success {
+  @apply text-6xl text-green-500 mx-auto mb-4;
+}
+
+/* Rejected State */
+.icon-rejected {
+  @apply text-6xl text-red-500 mx-auto mb-4;
+}
+
+.btn-home {
+  @apply mt-6 px-6 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-colors;
+}
+
+.error-msg {
+  @apply text-red-500 mt-4 text-sm;
+}
