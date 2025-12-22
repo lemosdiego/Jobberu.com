@@ -24,6 +24,7 @@ export default function ServiceList({ services, onEdit, onDelete }) {
               alt={`Imagem do serviço ${service.titulo}`}
               layout="fill"
               objectFit="cover"
+              className="service-list_card-image-img"
             />
           </div>
           <div className="service-list_card-actions">

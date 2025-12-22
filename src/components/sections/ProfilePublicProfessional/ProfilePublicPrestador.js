@@ -45,6 +45,7 @@ export default function ProfilePublicPrestador({ profissional }) {
                 alt={`Foto de ${nome}`}
                 layout="fill"
                 objectFit="cover"
+                className="page-profile_header-image-img"
               />
             </div>
             <div className="page-profile_header_content-star">

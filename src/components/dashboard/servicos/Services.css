@@ -24,6 +24,9 @@
 }
 .service-list_card {
   @apply rounded
+        border-b-2
+        border-gray-200
+        shadow
         grid
         [grid-template-columns:1fr_3fr]
         
@@ -31,7 +34,11 @@
 }
 .service-list_card-image {
   @apply relative 
-        h-auto;
+        h-auto
+        rounded;
+}
+.service-list_card-image-img {
+  @apply rounded;
 }
 .service-list_card-actions {
   @apply bg-white

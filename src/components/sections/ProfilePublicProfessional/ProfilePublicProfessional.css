@@ -2,12 +2,13 @@
 
 /* CABEÇALHO DO PERFIL */
 .page-profile_container {
-  @apply w-[1200px] 
+  @apply w-[1200px]
+        rounded 
         mt-8  
         mb-8 
         shadow-2xs
         p-20 
-        bg-gray-100
+        bg-gray-50
 
         max-sm:p-7
         
@@ -42,12 +43,16 @@
 }
 .page-profile_header-image {
   @apply relative 
-        w-48 
-        h-48
+        w-38 
+        h-38
+        rounded-full
         mb-1
         
         max-md:w-44
         max-md:h-44;
+}
+.page-profile_header-image-img {
+  @apply rounded-full;
 }
 .page-profile_header-content {
   @apply flex
@@ -57,12 +62,12 @@
 .page-profile_header_content-title {
   @apply uppercase 
         font-bold 
-        text-3xl;
+        text-2xl;
 }
 .page-profile_header_content-subtitle {
   @apply italic 
         font-medium 
-        text-2xl
+        text-xl
         mb-1;
 }
 .page-profile_header_content-subtitle-info {
@@ -79,7 +84,7 @@
 }
 .page-profile_header_content-subtitle-info-item p {
   @apply italic 
-        text-xl
+        text-lg
         underline;
 }
 .page-profile_header_content-star {
@@ -119,14 +124,14 @@
         max-xl:mb-8;
 }
 .page-profile_bio-title {
-  @apply text-4xl 
+  @apply text-3xl 
         font-semibold
         mb-2;
 }
 .page-profile_bio-text {
   @apply text-gray-700 
         whitespace-pre-wrap
-        text-xl;
+        text-lg;
 }
 /* SERVIÇOS OFERECIDOS */
 .page-profile_services {
@@ -137,7 +142,7 @@
         max-lg:mb-5;
 }
 .page-profile_services-title {
-  @apply text-4xl 
+  @apply text-2xl 
         font-semibold
         mb-4;
 }
@@ -153,7 +158,7 @@
 }
 .page-profile_services-item-image {
   @apply relative 
-        h-72 
+        h-52
         w-full 
         rounded-md 
         overflow-hidden 
@@ -166,20 +171,19 @@
         max-lg:h-96;
 }
 .page-profile_services-item-title {
-  @apply text-3xl 
+  @apply text-2xl 
         italic
         font-medium;
 }
 .page-profile_services-item-category {
-  @apply text-2xl 
+  @apply text-xl 
         capitalize
         italic
         underline 
         mb-2;
 }
 .page-profile_services-item-description {
-  @apply text-lg 
-        mb-2
+  @apply mb-2
         italic;
 }
 .page-profile_services-item-price {
@@ -191,7 +195,7 @@
 .page-profile_reviews {
 }
 .page-profile_reviews-title {
-  @apply text-4xl 
+  @apply text-2xl 
         font-semibold
         mb-4
         
@@ -202,7 +206,7 @@
 .page-profile_reviews-container {
   @apply bg-white
         shadow-2xl
-        p-4
+        p-2
         rounded;
 }
 .page-profile_reviews-item {
@@ -220,7 +224,7 @@
 }
 .page-profile_review-header-content {
   @apply flex
-        flex-col
+        flex-col border
         justify-center;
 }
 .page-profile_review-header-content-name {
