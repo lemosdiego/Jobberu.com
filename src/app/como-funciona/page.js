@@ -1,6 +1,7 @@
 import Banner from "@/components/sections/Banner/Banner";
 import Benefits from "@/components/sections/Benefits/Benefits";
 import Categories from "@/components/sections/categories/Categories";
+import FAQ from "@/components/sections/Faq/FAQ";
 import HowDoesItWork from "@/components/sections/HowDoesItWork/HowDoesItWork";
 
 export default function PageHowDoesItWork() {
@@ -13,6 +14,7 @@ export default function PageHowDoesItWork() {
       <HowDoesItWork />
       <Categories />
       <Benefits />
+      <FAQ />
     </main>
   );
 }

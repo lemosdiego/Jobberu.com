@@ -5,6 +5,7 @@ import Image from "next/image";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import "./Categories.css";
 import categories from "@/data/categories";
+import Title from "@/components/site/Title/Title";
 
 const INTERVAL_MS = 5000; // 5s
 
@@ -67,9 +68,7 @@ export default function Categories() {
       onMouseLeave={() => setIsPaused(false)}
     >
       <div className="section-categories__conteiner ">
-        <div className="section-categories__conteiner-title">
-          <h2 className="section-categories__title ">Categorias</h2>
-        </div>
+        <Title>Categorias</Title>
         <button
           onClick={() => scroll("left")}
           className="section-categories__button-left "

@@ -11,18 +11,6 @@
   @apply w-[1200px]
         mt-8;
 }
-.section-featured-categories_container-title {
-  @apply border-b
-        border-gray-400
-        p-1
-        pl-0
-        mb-8;
-}
-.section-featured-categories_title {
-  @apply text-3xl
-        uppercase
-        font-medium;
-}
 
 .section-featured-categories_grid {
   @apply grid 

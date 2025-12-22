@@ -2,6 +2,7 @@ import Banner from "@/components/sections/Banner/Banner";
 import BeAProfessional from "@/components/sections/BeAProfessional/BeAProfessional";
 import Benefits from "@/components/sections/Benefits/Benefits";
 import Categories from "@/components/sections/categories/Categories";
+import FAQ from "@/components/sections/Faq/FAQ";
 
 export default function BeAProfessionalPage() {
   return (
@@ -14,6 +15,7 @@ export default function BeAProfessionalPage() {
       <BeAProfessional />
       <Categories />
       <Benefits />
+      <FAQ />
     </main>
   );
 }

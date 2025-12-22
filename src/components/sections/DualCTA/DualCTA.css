@@ -3,6 +3,7 @@
 .section-dual-cta {
   @apply w-full
         flex
+        flex-col
         items-center
         justify-center;
 }
@@ -10,46 +11,33 @@
 .section-dual-cta_container {
   @apply w-[1200px] 
         mt-8
-        mb-8;
+        mb-8
+        flex
+        items-center
+        justify-center
+        gap-5;
 }
-
-.section-dual-cta_content {
-  @apply flex 
-        flex-col;
-}
-
 .section-dual-cta_title {
-  @apply text-3xl
-        mb-4;
+  @apply text-2xl;
 }
 
 .section-dual-cta_buttons {
   @apply w-full 
         grid
         grid-cols-2
-        gap-4;
+        items-center
+        gap-10;
 }
 
-.section-dual-cta_button.primary {
-  @apply p-3
-        text-center
-        shadow-2xl
-        bg-orange-400
-        text-white
-        rounded
-        flex
-        items-center
-        justify-center;
+.button-hire {
+  @apply bg-gradient-to-r 
+        from-orange-300 
+        via-orange-400 
+        to-orange-500;
 }
-
-.section-dual-cta_button.secondary {
-  @apply p-3
-        text-center
-        shadow-2xl
-        bg-purple-500
-        text-white
-        rounded
-        flex
-        items-center
-        justify-center;
+.button-job {
+  @apply bg-gradient-to-r 
+        from-purple-400 
+        via-purple-500 
+        to-purple-600;
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import "./FAQ.css";
+import Title from "@/components/site/Title/Title";
 
 const faqData = [
   {
@@ -42,9 +43,7 @@ export default function FAQ() {
   return (
     <section className="section-faq">
       <div className="section-faq_container">
-        <div className="section-fac_container-title">
-          <h2 className="section-faq_title">Perguntas Frequentes</h2>
-        </div>
+        <Title>Perguntas Frequentes</Title>
         <div className="section-faq_list">
           {faqData.map((item, index) => (
             <div

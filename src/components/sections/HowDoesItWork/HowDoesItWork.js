@@ -2,6 +2,7 @@ import professionalSteps from "@/data/professionals";
 import "./HowDoesItWork.css";
 import clientSteps from "@/data/clients";
 import Link from "next/link";
+import Title from "@/components/site/Title/Title";
 
 export default function HowDoesItWork() {
   return (
@@ -9,9 +10,7 @@ export default function HowDoesItWork() {
       <div className="section-howDoesItWork_container">
         {/* PROFISSIONAIS */}
         <div className="section-howDoesItWork_professionals">
-          <div className="section-howDoesItWork_container-title">
-            <h2 className="section-howDoesItWork_title">Para Profissionais</h2>
-          </div>
+          <Title>Para Profissionais</Title>
 
           <div className="section-howDoesItWork_professionals-cards">
             {professionalSteps.map((step, index) => (
@@ -29,9 +28,7 @@ export default function HowDoesItWork() {
 
         {/* CLIENTES */}
         <div className="section-howDoesItWork_clients">
-          <div className="section-howDoesItWork_container-title">
-            <h2 className="section-howDoesItWork_title">Para Clientes</h2>
-          </div>
+          <Title>Para Clientes</Title>
 
           <div className="section-howDoesItWork_clients-cards">
             {clientSteps.map((step, index) => (
@@ -47,9 +44,7 @@ export default function HowDoesItWork() {
           </div>
         </div>
         <div className="section-howDoesItWork_actions">
-          <div className="section-howDoesItWork_container-title">
-            <h2 className="section-howDoesItWork_title">Faça seu cadastro</h2>
-          </div>
+          <Title>Faça seu cadastro?</Title>
           <p className="section-howDoesItWork_footer-text">
             Seja profissional ou cliente e descubra como a Jobberu torna tudo
             mais simples. Profissionais ganham visibilidade, constroem reputação

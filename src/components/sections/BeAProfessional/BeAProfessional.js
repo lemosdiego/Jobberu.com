@@ -5,16 +5,13 @@ import Link from "next/link";
 import "./BeAProfessional.css";
 import { BiSolidCheckboxChecked } from "react-icons/bi";
 import steps from "@/data/steps";
+import Title from "@/components/site/Title/Title";
 
 export default function BeAProfessional() {
   return (
     <section className="section-beAprofessional">
       <div className="section-beAProfessional_container">
-        <div className="section-beAProfessional_container-title">
-          <h2 className="section-beAProfessional-title">
-            Seja um Profissional Jobberu
-          </h2>
-        </div>
+        <Title>Seja um Profissional</Title>
         {/* Grid de Cards com Trilha */}
         <div className="section-beAProfessional_cards-container">
           {steps.map((item, index) => (

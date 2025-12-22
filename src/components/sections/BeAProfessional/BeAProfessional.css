@@ -11,18 +11,6 @@
         mt-8
         mb-8;
 }
-.section-beAProfessional_container-title {
-  @apply mb-8
-        p-3
-        pl-0
-        border-b
-        border-gray-400;
-}
-.section-beAProfessional-title {
-  @apply uppercase
-        font-medium 
-        text-4xl;
-}
 .section-beAProfessional_cards-container {
   @apply grid
         grid-cols-2

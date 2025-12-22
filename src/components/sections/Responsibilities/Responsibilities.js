@@ -1,15 +1,12 @@
 import responsibilities from "@/data/responsibilities";
 import "./Responsibilities.css";
+import Title from "@/components/site/Title/Title";
 
 export default function Responsibilities() {
   return (
     <section className="section-responsibilities">
       <div className="section-responsibilities_container">
-        <div className="section-responsibilities_container-title">
-          <h2 className="section-responsibilities_title">
-            Responsabilidades do Usuário
-          </h2>
-        </div>
+        <Title>Responsabilidades</Title>
         <div className="section-responsibilities_container-cards">
           {responsibilities.map((item, index) => (
             <div key={index} className="section-responsibilities_card">

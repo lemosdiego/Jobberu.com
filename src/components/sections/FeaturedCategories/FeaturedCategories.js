@@ -2,6 +2,7 @@ import Link from "next/link";
 import { FaCar, FaDumbbell, FaLeaf } from "react-icons/fa";
 import { GiNails } from "react-icons/gi";
 import "./FeaturedCategories.css";
+import Title from "@/components/site/Title/Title";
 
 const categories = [
   {
@@ -30,11 +31,7 @@ export default function FeaturedCategories() {
   return (
     <section className="section-featured-categories">
       <div className="section-featured-categories_container">
-        <div className="section-featured-categories_container-title">
-          <h2 className="section-featured-categories_title">
-            Categorias em Destaque
-          </h2>
-        </div>
+        <Title>Categorias em destaque</Title>
         <div className="section-featured-categories_grid">
           {categories.map((category) => (
             <Link
