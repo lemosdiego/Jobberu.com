@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { FaWrench, FaBriefcase, FaUser, FaLightbulb } from "react-icons/fa";
 import "./dashboard.css";
+import ServiceConfirmationRequest from "@/components/sections/ServiceConfirmationRequest/ServiceConfirmationRequest";
 
 // Helper para criar um slug a partir do nome do usuário
 const slugify = (text) => {
@@ -58,6 +59,9 @@ export default function DashboardPage() {
             Bem-vindo(a) ao seu painel de controle.
           </p>
         </header>
+
+        {/* Componente de Aperto de Mão Digital */}
+        <ServiceConfirmationRequest />
 
         {/* Seção de Ações Rápidas */}
         <section className="page-dashboard_actions">

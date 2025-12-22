@@ -34,8 +34,7 @@ export default function FeaturedCategories() {
         <Title>Categorias em destaque</Title>
         <div className="section-featured-categories_grid">
           {categories.map((category) => (
-            <Link
-              href={category.href}
+            <div
               key={category.name}
               className="section-featured-categories_card"
             >
@@ -45,7 +44,7 @@ export default function FeaturedCategories() {
               <span className="section-featured-categories_name">
                 {category.name}
               </span>
-            </Link>
+            </div>
           ))}
         </div>
       </div>

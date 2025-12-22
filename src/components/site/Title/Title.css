@@ -3,7 +3,7 @@
 .container-title {
   @apply border-b
         border-l
-        border-gray-400
+        border-gray-300
         p-3
         mb-8;
 }
