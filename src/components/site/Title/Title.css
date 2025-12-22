@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.container-title {
+  @apply border-b
+        border-l
+        border-gray-400
+        p-3
+        mb-8;
+}
+.title {
+  @apply text-4xl
+
+        max-sm:mb-7
+
+        max-md:text-3xl 
+        max-md:mb-7;
+}
