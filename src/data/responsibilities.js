@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "../components/sections/Responsibilities/Responsibilities.css";
+import "../components/Sections/Responsibilities/Responsibilities.css";
 
 export const responsibilities = [
   {

@@ -1,9 +1,9 @@
-import Banner from "@/components/sections/Banner/Banner";
-import Benefits from "@/components/sections/Benefits/Benefits";
-import Categories from "@/components/sections/categories/Categories";
-import DualCTA from "@/components/sections/DualCTA/DualCTA";
-import FAQ from "@/components/sections/Faq/FAQ";
-import Responsibilities from "@/components/sections/Responsibilities/Responsibilities";
+import Banner from "@/components/Sections/Banner/Banner";
+import Benefits from "@/components/Sections/Benefits/Benefits";
+import Categories from "@/components/Sections/Categories/Categories";
+import ClientOrProfessionalCTA from "@/components/Sections/ClientOrProfessionalCTA/ClientOrProfessionalCTA";
+import FAQ from "@/components/Sections/Faq/FAQ";
+import Responsibilities from "@/components/Sections/Responsibilities/Responsibilities";
 
 export default function PageResponsibilities() {
   return (
@@ -13,7 +13,7 @@ export default function PageResponsibilities() {
         description="Conheça as responsabilidades dos usuários e da plataforma Jobberu. Nosso objetivo é garantir uma experiência segura, clara e justa para toda a comunidade."
       />
       <Responsibilities />
-      <DualCTA />
+      <ClientOrProfessionalCTA />
       <Categories />
       <Benefits />
       <FAQ />

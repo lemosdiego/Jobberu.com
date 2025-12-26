@@ -1,13 +1,13 @@
 "use client";
 
-import Banner from "@/components/sections/Banner/Banner";
-import Benefits from "@/components/sections/Benefits/Benefits";
-import Categories from "@/components/sections/categories/Categories";
-import DualCTA from "@/components/sections/DualCTA/DualCTA";
-import FAQ from "@/components/sections/Faq/FAQ";
-import FeaturedCategories from "@/components/sections/FeaturedCategories/FeaturedCategories";
-import HowItWorks from "@/components/sections/HowItWorks/HowItWorks";
-import SectionProfessional from "@/components/sections/SectionProfessional/SectionProfessional";
+import Banner from "@/components/Sections/Banner/Banner";
+import Benefits from "@/components/Sections/Benefits/Benefits";
+import Categories from "@/components/Sections/Categories/Categories";
+import ClientOrProfessionalCTA from "@/components/Sections/ClientOrProfessionalCTA/ClientOrProfessionalCTA";
+import FAQ from "@/components/Sections/Faq/FAQ";
+import FeaturedCategories from "@/components/Sections/FeaturedCategories/FeaturedCategories";
+import HowItWorks from "@/components/Sections/HowItWorks/HowItWorks";
+import SectionProfessional from "@/components/Sections/SectionProfessional/SectionProfessional";
 
 // Adicione esta diretiva no topo!
 
@@ -22,7 +22,7 @@ export default function Home() {
       <FeaturedCategories />
       <SectionProfessional />
       <HowItWorks />
-      <DualCTA />
+      <ClientOrProfessionalCTA />
       <Categories />
       <Benefits />
       <FAQ />
