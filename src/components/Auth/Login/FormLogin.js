@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import "./Auth.css";
+import "../Auth.css";
 import { useLogin } from "@/hooks/useLogin"; // ajuste o path conforme sua estrutura
 
 export default function FormLogin() {

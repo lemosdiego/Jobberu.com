@@ -1,6 +1,6 @@
 "use client";
 
-import FormRegisterPrestador from "@/components/auth/FormRegisterPrestador";
+import FormRegisterPrestador from "@/components/Auth/RegisterPrestador/FormRegisterPrestador";
 
 export default function RegisterPrestadorPage() {
   return (

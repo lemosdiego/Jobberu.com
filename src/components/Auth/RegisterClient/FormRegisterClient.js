@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import "./Auth.css";
+import "../Auth.css";
 import { useRegisterClient } from "@/hooks/useRegisterClient"; // ajuste o path
 
 export default function FormRegisterClient() {

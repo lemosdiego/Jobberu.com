@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import "./Auth.css";
+import "../Auth.css";
 import { useRegisterPrestador } from "@/hooks/useRegisterPrestador"; // ajuste o path
 
 const profissoes = [

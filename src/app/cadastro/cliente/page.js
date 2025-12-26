@@ -1,5 +1,5 @@
 "use client";
-import FormRegisterClient from "@/components/auth/FormRegisterClient";
+import FormRegisterClient from "@/components/Auth/RegisterClient/FormRegisterClient";
 
 export default function RegisterPage() {
   return (
