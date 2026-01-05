@@ -6,7 +6,8 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { FaWrench, FaBriefcase, FaUser, FaLightbulb } from "react-icons/fa";
 import "./dashboard.css";
-import ServiceConfirmationRequest from "@/components/sections/ServiceConfirmationRequest/ServiceConfirmationRequest";
+import ServiceConfirmationRequest from "@/components/Sections/ServiceConfirmationRequest/ServiceConfirmationRequest";
+import ProviderLevelBadge from "@/components/Sections/SectionProfessional/ProviderLevelBadge";
 
 // Helper para criar um slug a partir do nome do usuário
 const slugify = (text) => {
@@ -55,6 +56,7 @@ export default function DashboardPage() {
           <h1 className=" page-dashboard_header-title">
             Olá, {user.nome.split(" ")[0]}!
           </h1>
+          <ProviderLevelBadge level={user.nivel_prestador} />
           <p className="text-lg text-gray-600 mt-1">
             Bem-vindo(a) ao seu painel de controle.
           </p>

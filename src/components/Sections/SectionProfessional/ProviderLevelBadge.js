@@ -1,5 +1,4 @@
 import { FaMedal, FaTrophy, FaGem, FaUser } from "react-icons/fa";
-
 export default function ProviderLevelBadge({
   level,
   className = "",
@@ -52,7 +51,7 @@ export default function ProviderLevelBadge({
 
   return (
     <div
-      className={`flex items-center w-fit rounded-full text-xs font-bold ${style} ${className} ${
+      className={`flex items-center w-fit rounded text-xs font-bold ${style} ${className} ${
         showLabel ? "gap-1.5 px-2 py-0.5" : "p-1"
       }`}
     >
