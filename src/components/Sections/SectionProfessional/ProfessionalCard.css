@@ -35,6 +35,11 @@
   @apply font-bold 
         text-xl;
 }
+.professional-card_content-container-header-name {
+  @apply flex
+        items-center
+        gap-2;
+}
 .professional-card_content-header-title {
   @apply italic
         text-gray-600;

@@ -1,6 +1,10 @@
 import { FaMedal, FaTrophy, FaGem, FaUser } from "react-icons/fa";
 
-export default function ProviderLevelBadge({ level, className = "" }) {
+export default function ProviderLevelBadge({
+  level,
+  className = "",
+  showLabel = true,
+}) {
   const getBadgeInfo = (nivel) => {
     const nivelNormalizado = nivel ? nivel.toLowerCase() : "iniciante";
 
@@ -48,10 +52,12 @@ export default function ProviderLevelBadge({ level, className = "" }) {
 
   return (
     <div
-      className={`flex items-center gap-1.5 w-fit px-2 py-0.5 rounded-full text-xs font-bold ${style} ${className}`}
+      className={`flex items-center w-fit rounded-full text-xs font-bold ${style} ${className} ${
+        showLabel ? "gap-1.5 px-2 py-0.5" : "p-1"
+      }`}
     >
       <Icon />
-      <span>{label}</span>
+      {showLabel && <span>{label}</span>}
     </div>
   );
 }

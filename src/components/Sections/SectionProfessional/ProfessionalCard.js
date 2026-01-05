@@ -80,8 +80,13 @@ const ProfessionalCard = ({ profissional }) => {
             />
           </div>
           <div>
-            <h3 className="professional-card_content-header-name">{nome}</h3>
-            <ProviderLevelBadge level={profissional.nivel_prestador} />
+            <div className="professional-card_content-container-header-name">
+              <h3 className="professional-card_content-header-name">{nome}</h3>
+              <ProviderLevelBadge
+                level={profissional.nivel_prestador}
+                showLabel={false}
+              />
+            </div>
             <p className="professional-card_content-header-title">
               {titulo_profissional}
             </p>
