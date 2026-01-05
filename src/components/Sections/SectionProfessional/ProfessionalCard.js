@@ -1,8 +1,10 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
+
 import StarRating from "./StarRating";
 import "./ProfessionalCard.css";
+import ProviderLevelBadge from "./ProviderLevelBadge";
 
 const slugify = (text) => {
   return text
@@ -47,7 +49,7 @@ const ProfessionalCard = ({ profissional }) => {
     }
 
     const slug = slugify(profissional.nome);
-    const profileUrl = `/perfil/${slug}-${profissional.id}`;
+    const profileUrl = `/profile-public-provider/${slug}-${profissional.id}`;
 
     if (isAuthenticated) {
       router.push(profileUrl);
@@ -58,8 +60,8 @@ const ProfessionalCard = ({ profissional }) => {
   };
 
   return (
-    <div className="professional-card">
-      <div className="professional-card_image-container">
+    <div className="professional-card ">
+      <div className="professional-card_image-container ">
         <Image
           src={imagemServico}
           alt={`Serviço de ${primeiro_servico?.categoria || "profissional"}`}
@@ -79,6 +81,7 @@ const ProfessionalCard = ({ profissional }) => {
           </div>
           <div>
             <h3 className="professional-card_content-header-name">{nome}</h3>
+            <ProviderLevelBadge level={profissional.nivel_prestador} />
             <p className="professional-card_content-header-title">
               {titulo_profissional}
             </p>

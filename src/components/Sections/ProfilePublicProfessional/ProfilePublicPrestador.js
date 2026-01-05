@@ -6,6 +6,7 @@ import { FaLink } from "react-icons/fa6";
 import StarRating from "@/components/Sections/SectionProfessional/StarRating"; // Importa o componente StarRating compartilhado
 import "./ProfilePublicProfessional.css";
 import Link from "next/link";
+import ProviderLevelBadge from "../SectionProfessional/ProviderLevelBadge";
 
 export default function ProfilePublicPrestador({ profissional }) {
   const {
@@ -20,7 +21,6 @@ export default function ProfilePublicPrestador({ profissional }) {
     links_redes_sociais,
     servicos_oferecidos,
     avaliacoes_recebidas,
-    nome_cliente, // Supondo que o nome do cliente virá aqui no futuro
   } = profissional;
 
   const fotoPerfil = foto_perfil_url || "/default-avatar.png";
@@ -56,6 +56,7 @@ export default function ProfilePublicPrestador({ profissional }) {
           </div>
           <div className="page-profile_header-content">
             <h1 className="page-profile_header_content-title">{nome}</h1>
+            <ProviderLevelBadge level={profissional.nivel_prestador} />
             <h2 className=" page-profile_header_content-subtitle">
               {titulo_profissional}
             </h2>
