@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import api from "@/services/api";
 
 export function useProfessionalSearch() {
@@ -36,36 +36,44 @@ export function useProfessionalSearch() {
   ];
 
   // Busca prestadores pela API
-  const buscarPrestadores = async (cidadeParam, categoriaParam) => {
-    if (!cidadeParam.trim()) return;
+  const buscarPrestadores = useCallback(
+    async (cidadeParam, categoriaParam, options = {}) => {
+      const { isRevalidation = false } = options;
+      if (!cidadeParam.trim()) return;
 
-    try {
-      setLoading(true);
-      setErro(null);
-      setJaBuscou(true);
-
-      const response = await api.get(
-        `/usuario/prestadores/cidade/${cidadeParam}`,
-        {
-          params: {
-            categoria: categoriaParam || undefined,
-          },
+      try {
+        // Apenas mostra o loading principal para novas buscas iniciadas pelo usuário
+        if (!isRevalidation) {
+          setLoading(true);
+          setPrestadores([]); // Limpa resultados antigos para uma nova busca
         }
-      );
+        setErro(null);
+        setJaBuscou(true);
 
-      setPrestadores(response.data.prestadores || []);
-    } catch (error) {
-      console.error(error);
-      setErro("Erro ao buscar prestadores.");
-    } finally {
-      setLoading(false);
-    }
-  };
+        const response = await api.get(
+          `/usuario/prestadores/cidade/${cidadeParam}`,
+          {
+            params: {
+              categoria: categoriaParam || undefined,
+            },
+          }
+        );
+
+        setPrestadores(response.data.prestadores || []);
+      } catch (error) {
+        console.error(error);
+        setErro("Erro ao buscar prestadores.");
+      } finally {
+        setLoading(false);
+      }
+    },
+    []
+  );
 
   const handleBuscarCidade = () => {
     if (!cidade.trim()) return;
     setCidadeBuscada(cidade);
-    buscarPrestadores(cidade, categoriaSelecionada);
+    buscarPrestadores(cidade, categoriaSelecionada); // Nova busca
     setCidade("");
   };
 
@@ -74,7 +82,7 @@ export function useProfessionalSearch() {
     setCategoriaSelecionada(novaCategoria);
 
     if (cidadeBuscada.trim()) {
-      buscarPrestadores(cidadeBuscada, novaCategoria);
+      buscarPrestadores(cidadeBuscada, novaCategoria); // Nova busca
     }
   };
 
@@ -97,13 +105,22 @@ export function useProfessionalSearch() {
           setCategoriaSelecionada(savedCategoria || "");
           setPrestadores(savedPrestadores);
           setJaBuscou(savedJaBuscou || false);
+
+          // Se já existia uma busca, revalida os dados em segundo plano
+          // para garantir que estejam sempre atualizados ao carregar a página.
+          if (savedJaBuscou && savedCidade) {
+            buscarPrestadores(savedCidade, savedCategoria || "", {
+              isRevalidation: true,
+            });
+          }
         }
       } catch (error) {
         console.error("Falha ao carregar estado do localStorage:", error);
         localStorage.removeItem("professionalSearchState");
       }
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [buscarPrestadores]);
 
   // Salva estado no localStorage
   useEffect(() => {
@@ -120,6 +137,32 @@ export function useProfessionalSearch() {
       );
     }
   }, [cidadeBuscada, categoriaSelecionada, prestadores, jaBuscou, isClient]);
+
+  // Revalida os dados quando a aba do navegador se torna ativa
+  useEffect(() => {
+    if (!isClient) return;
+
+    const handleVisibilityChange = () => {
+      // Apenas re-busca se uma busca já foi feita e a página ficou visível
+      if (document.visibilityState === "visible" && jaBuscou && cidadeBuscada) {
+        buscarPrestadores(cidadeBuscada, categoriaSelecionada, {
+          isRevalidation: true,
+        });
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [
+    isClient,
+    jaBuscou,
+    cidadeBuscada,
+    categoriaSelecionada,
+    buscarPrestadores,
+  ]);
 
   // Click outside para fechar dropdown
   useEffect(() => {

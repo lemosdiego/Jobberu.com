@@ -8,7 +8,7 @@ export default function ProviderLevelBadge({ level, className = "" }) {
       case "diamante":
         return {
           icon: FaGem,
-          style: "bg-blue-100 text-blue-700 border border-blue-200",
+          style: "bg-purple-100 text-purple-700 border border-purple-200",
           label: "Diamante",
         };
       case "platina":
