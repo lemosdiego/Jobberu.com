@@ -13,7 +13,7 @@
 }
 .section-beAProfessional_cards-container {
   @apply grid
-        grid-cols-2
+        grid-cols-3
         gap-8 
         mb-8;
 }
@@ -24,7 +24,7 @@
         flex-col
         border
         border-green-400
-        rounded-3xl
+        rounded
         shadow-lg
         mt-2
         bg-green-100
@@ -49,7 +49,13 @@
         flex-col
         items-center
         justify-center
-        gap-4;
+        gap-4
+        border
+        bg-white
+        shadow-lg
+        rounded
+        p-5
+        border-gray-100;
 }
 .section-beAProfessional_cta-title {
   @apply text-4xl
@@ -70,7 +76,7 @@
         text-white;
 }
 .section-beAProfessional_info {
-  @apply flex
+  @apply flex 
         items-center
         justify-center
         gap-2;

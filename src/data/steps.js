@@ -9,7 +9,7 @@ import {
 const steps = [
   {
     icon: (
-      <PiNumberOneThin className="mb-2  p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberOneThin className="mb-2  p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Cadastre-se como Profissional",
     description:
@@ -17,7 +17,7 @@ const steps = [
   },
   {
     icon: (
-      <PiNumberTwoThin className="mb-2 p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberTwoThin className="mb-2 p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Crie seu Serviço",
     description:
@@ -25,7 +25,7 @@ const steps = [
   },
   {
     icon: (
-      <PiNumberThreeThin className="mb-2  p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberThreeThin className="mb-2  p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Conexão Direta com o Cliente",
     description:
@@ -33,7 +33,7 @@ const steps = [
   },
   {
     icon: (
-      <PiNumberFourThin className="mb-2  p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberFourThin className="mb-2  p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Feche Negócio com Confiança",
     description:
@@ -41,7 +41,7 @@ const steps = [
   },
   {
     icon: (
-      <PiNumberFiveThin className="mb-2  p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberFiveThin className="mb-2  p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Construa sua Reputação",
     description:
@@ -49,7 +49,7 @@ const steps = [
   },
   {
     icon: (
-      <PiNumberSixThin className="mb-2  p-2 rounded-full absolute -top-7 left-1/2 transform -translate-x-1/2 bg-green-500 text-6xl" />
+      <PiNumberSixThin className="mb-2  p-5 rounded-full absolute -top-7 left-5 transform -translate-x-1/2 bg-green-500 text-7xl" />
     ),
     title: "Cresça com Jobberu",
     description:
