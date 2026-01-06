@@ -16,10 +16,10 @@ export default function Footer() {
         <div className="footer-column">
           <h4 className="footer-column-title">Jobberu</h4>
           <div className="footer-links">
-            <Link href={"/sobre-nos"} className="footer-link">
+            <Link href={"/about"} className="footer-link">
               Sobre Nós
             </Link>
-            <Link href={"/como-funciona"} className="footer-link">
+            <Link href={"/how-it-works"} className="footer-link">
               Como Funciona
             </Link>
             <Link href={"/responsabilities"} className="footer-link">
