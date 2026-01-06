@@ -79,7 +79,7 @@ const ProfessionalCard = ({ profissional }) => {
               objectFit="cover"
             />
           </div>
-          <div>
+          <div className="professional-card_content-header-container-content-user">
             <div className="professional-card_content-container-header-name">
               <h3 className="professional-card_content-header-name">{nome}</h3>
               <ProviderLevelBadge
@@ -99,16 +99,18 @@ const ProfessionalCard = ({ profissional }) => {
           {cidade} - {estado}
         </p>
         <p className="professional-card_content-bio">{biografia}</p>
-        <p className="professional-card_content-footer-price-text">
-          {precoFormatado}
-        </p>
-        <button
-          onClick={handleViewProfile}
-          disabled={isLoadingAuth}
-          className="professional-card_content-footer-button"
-        >
-          Ver detalhes
-        </button>
+        <div className="professional-card_footer">
+          <p className="professional-card_content-footer-price-text">
+            {precoFormatado}
+          </p>
+          <button
+            onClick={handleViewProfile}
+            disabled={isLoadingAuth}
+            className="professional-card_content-footer-button"
+          >
+            Ver detalhes
+          </button>
+        </div>
       </div>
     </div>
   );
