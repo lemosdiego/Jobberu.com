@@ -10,10 +10,10 @@ export default function ClientOrProfessionalCTA() {
           Pronto para simplificar sua vida ou expandir seus negócios?
         </h2>
         <div className="section-dual-cta_buttons">
-          <Link href="cadastro/cliente">
+          <Link href="register/customer">
             <Button className="button-hire">Quero Contratar</Button>
           </Link>
-          <Link href="/cadastro/prestador">
+          <Link href="/register/provider">
             <Button className="button-job">Quero Trabalhar</Button>
           </Link>
         </div>

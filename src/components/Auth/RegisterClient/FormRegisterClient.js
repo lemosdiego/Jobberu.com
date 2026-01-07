@@ -3,6 +3,7 @@
 import Link from "next/link";
 import "../Auth.css";
 import { useRegisterClient } from "@/hooks/useRegisterClient"; // ajuste o path
+import Title from "@/components/Site/Title/Title";
 
 export default function FormRegisterClient() {
   const {
@@ -21,9 +22,7 @@ export default function FormRegisterClient() {
 
   return (
     <form onSubmit={handleSubmit} className="form-register">
-      <div className="form-register_container-title">
-        <h2 className="form-register_title">Cadastro de Cliente</h2>
-      </div>
+      <Title>Cadastro de Cliente</Title>
       {error && <p className="form-register_error">{error}</p>}
       {success && <p className="form-register_sucess">{success}</p>}
 
@@ -186,7 +185,6 @@ export default function FormRegisterClient() {
             name="numero"
             value={formData.numero}
             onChange={handleChange}
-            required
             className="form-register_input"
           />
         </div>

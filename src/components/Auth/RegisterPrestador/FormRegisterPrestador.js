@@ -3,6 +3,7 @@
 import Link from "next/link";
 import "../Auth.css";
 import { useRegisterPrestador } from "@/hooks/useRegisterPrestador"; // ajuste o path
+import Title from "@/components/Site/Title/Title";
 
 const profissoes = [
   "Jardineiro(a)",
@@ -41,11 +42,7 @@ export default function FormRegisterPrestador() {
 
   return (
     <form onSubmit={handleSubmit} className="form-register">
-      <div className="form-register_container-title">
-        <h2 className="form-register_title">
-          Cadastro de Prestador de Serviço
-        </h2>
-      </div>
+      <Title>Cadastro de Prestador de Serviço</Title>
       {error && <p className="form-register_error">{error}</p>}
       {success && <p className="form-register_sucess">{success}</p>}
 
