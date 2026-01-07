@@ -12,7 +12,11 @@ export default function NavigationDesktop() {
         {/* Condição para "Seja um Profissional" (apenas para não logados) */}
         {!isAuthenticated && (
           <li>
-            <Link href="/be-a-professional" className="underline font-bold">
+            <Link
+              href="/be-a-professional"
+              className="underline font-bold"
+              prefetch={true}
+            >
               Seja um Profissional
             </Link>
           </li>
@@ -20,18 +24,30 @@ export default function NavigationDesktop() {
         {/* Condição para "Atualize seu perfil para profissional" (apenas para clientes logados) */}
         {isAuthenticated && !user?.is_prestador && (
           <li>
-            <Link href={`/cliente/${user.id}`} className="underline font-bold ">
+            <Link
+              href={`/customer/${user.id}`}
+              className="underline font-bold "
+              prefetch={true}
+            >
               Atualize seu perfil para profissional
             </Link>
           </li>
         )}
         <li>
-          <Link href="/how-it-works" className="text-lg underline">
+          <Link
+            href="/how-it-works"
+            className="text-lg underline"
+            prefetch={true}
+          >
             Como funciona?
           </Link>
         </li>
         <li>
-          <Link href="responsibilities" className="text-lg underline">
+          <Link
+            href="/responsibilities"
+            className="text-lg underline"
+            prefetch={true}
+          >
             Responsabilidades
           </Link>
         </li>

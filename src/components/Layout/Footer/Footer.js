@@ -16,13 +16,21 @@ export default function Footer() {
         <div className="footer-column">
           <h4 className="footer-column-title">Jobberu</h4>
           <div className="footer-links">
-            <Link href={"/about"} className="footer-link">
+            <Link href={"/about"} className="footer-link" prefetch={true}>
               Sobre Nós
             </Link>
-            <Link href={"/how-it-works"} className="footer-link">
+            <Link
+              href={"/how-it-works"}
+              className="footer-link"
+              prefetch={true}
+            >
               Como Funciona
             </Link>
-            <Link href={"/responsabilities"} className="footer-link">
+            <Link
+              href={"/responsibilities"}
+              className="footer-link"
+              prefetch={true}
+            >
               Responsabilidades
             </Link>
           </div>
@@ -34,11 +42,15 @@ export default function Footer() {
           <div className="footer-links">
             {/* Só mostra se o usuário não estiver logado, ou se estiver logado e NÃO for prestador */}
             {(!isAuthenticated || (isAuthenticated && !user?.is_prestador)) && (
-              <Link href={"/be-a-professional"} className="footer-link">
+              <Link
+                href={"/be-a-professional"}
+                className="footer-link"
+                prefetch={true}
+              >
                 Seja um Profissional
               </Link>
             )}
-            <Link href={"/contato"} className="footer-link">
+            <Link href={"/contato"} className="footer-link" prefetch={true}>
               Ajude a plataforma
             </Link>
           </div>
@@ -48,10 +60,18 @@ export default function Footer() {
         <div className="footer-column">
           <h4 className="footer-column-title">Suporte</h4>
           <div className="footer-links">
-            <Link href={"/politica-de-privacidade"} className="footer-link">
+            <Link
+              href={"/politica-de-privacidade"}
+              className="footer-link"
+              prefetch={true}
+            >
               Política de Privacidade
             </Link>
-            <Link href={"/terms-of-use"} className="footer-link">
+            <Link
+              href={"/terms-of-use"}
+              className="footer-link"
+              prefetch={true}
+            >
               Termos de Uso
             </Link>
           </div>

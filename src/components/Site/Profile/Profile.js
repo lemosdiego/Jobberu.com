@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import {
   FaUser,
@@ -68,6 +68,8 @@ export default function Profile() {
               src={user.foto_perfil_url}
               alt={user.nome}
               fill
+              sizes="40px"
+              priority
               className="rounded-full object-cover"
             />
           ) : isAuthenticated && !user?.foto_perfil_url ? (
@@ -86,6 +88,7 @@ export default function Profile() {
                 // Se for PRESTADOR, mostra apenas o Dashboard Profissional
                 <Link
                   href={`/dashboard`}
+                  prefetch={true}
                   onClick={closeDropDown}
                   className="bg-green-500 hover:bg-green-600 p-2 text-white text-sm rounded flex items-center gap-2"
                 >
@@ -95,7 +98,8 @@ export default function Profile() {
               ) : (
                 // Se for CLIENTE, mostra apenas Configurações
                 <Link
-                  href={`/cliente/${user.id}`} // Rota para configurações do cliente
+                  href={`/customer/${user.id}`} // Rota para configurações do cliente
+                  prefetch={true}
                   onClick={closeDropDown}
                   className="bg-blue-500 hover:bg-blue-600 p-2 text-white text-sm rounded flex items-center gap-2"
                 >
@@ -118,6 +122,7 @@ export default function Profile() {
               {/* Login e registro aparecem apenas se não estiver logado */}
               <Link
                 href="/login"
+                prefetch={true}
                 onClick={closeDropDown}
                 className="bg-blue-500 hover:bg-blue-600 p-2 text-white text-sm rounded flex items-center gap-2"
               >
@@ -127,7 +132,8 @@ export default function Profile() {
 
               <p className="text-center text-sm mt-1">Não tem Conta?</p>
               <Link
-                href="/cadastro/cliente"
+                href="/register/customer"
+                prefetch={true}
                 onClick={closeDropDown}
                 className="bg-orange-400 hover:bg-orange-500 p-2 text-white text-sm rounded flex items-center gap-2"
               >
@@ -135,7 +141,8 @@ export default function Profile() {
                 <span>Seja um Cliente</span>
               </Link>
               <Link
-                href="/cadastro/prestador"
+                href="/register/provider"
+                prefetch={true}
                 onClick={closeDropDown}
                 className="bg-purple-500 hover:bg-purple-600 p-2 text-white text-sm rounded flex items-center gap-2"
               >

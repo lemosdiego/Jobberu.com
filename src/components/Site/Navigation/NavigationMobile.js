@@ -47,6 +47,7 @@ export default function NavigationMobile() {
           <li>
             <Link
               href="/be-a-professional"
+              prefetch={true}
               onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
               className="underline  text-xl font-bold "
             >
@@ -58,7 +59,8 @@ export default function NavigationMobile() {
         {isAuthenticated && !user?.is_prestador && (
           <li>
             <Link
-              href={`/cliente/${user.id}`}
+              href={`/customer/${user.id}`}
+              prefetch={true}
               onClick={() => setIsOpen(false)} // Fecha o menu ao clicar
               className="underline text-blue-800 text-xl font-bold hover:text-blue-500"
             >
@@ -69,6 +71,7 @@ export default function NavigationMobile() {
         <li>
           <Link
             href="/how-it-works"
+            prefetch={true}
             onClick={() => setIsOpen(false)}
             className="text-xl underline"
           >
@@ -78,6 +81,7 @@ export default function NavigationMobile() {
         <li>
           <Link
             href="/responsibilities"
+            prefetch={true}
             onClick={() => setIsOpen(false)}
             className="text-xl underline"
           >
