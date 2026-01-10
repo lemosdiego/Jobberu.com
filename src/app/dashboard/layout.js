@@ -50,7 +50,7 @@ export default function DashboardLayout({ children }) {
             Início
           </Link>
           <Link
-            href="/dashboard/configuracoes"
+            href="/dashboard/settings"
             className={getLinkClassName("/dashboard/configuracoes")}
           >
             Configurações
@@ -59,7 +59,7 @@ export default function DashboardLayout({ children }) {
           {/* Link condicional para Prestadores */}
           {user.is_prestador && (
             <Link
-              href="/dashboard/servicos"
+              href="/dashboard/services"
               className={getLinkClassName("/dashboard/servicos")}
             >
               Meus Serviços

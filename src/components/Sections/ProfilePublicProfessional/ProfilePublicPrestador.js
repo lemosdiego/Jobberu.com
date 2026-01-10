@@ -1,12 +1,20 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
-import { FaMapMarkerAlt, FaBriefcase, FaWhatsapp } from "react-icons/fa";
+import {
+  FaMapMarkerAlt,
+  FaBriefcase,
+  FaWhatsapp,
+  FaStar,
+} from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
 import StarRating from "@/components/Sections/SectionProfessional/StarRating"; // Importa o componente StarRating compartilhado
 import "./ProfilePublicProfessional.css";
 import Link from "next/link";
 import ProviderLevelBadge from "../SectionProfessional/ProviderLevelBadge";
+import useAssessment from "@/hooks/userAssessment";
+import api from "@/services/api";
 
 export default function ProfilePublicPrestador({ profissional }) {
   const {
@@ -27,6 +35,43 @@ export default function ProfilePublicPrestador({ profissional }) {
   const whatsappLink = telefone
     ? `https://wa.me/55${telefone.replace(/\D/g, "")}`
     : null;
+
+  // Hook para verificar se o usuário logado pode avaliar este prestador
+  const { podeAvaliar, registroId, carregando } = useAssessment(
+    profissional.id
+  );
+
+  // Estados do Modal de Avaliação
+  const [showModal, setShowModal] = useState(false);
+  const [notaAvaliacao, setNotaAvaliacao] = useState(0);
+  const [comentarioAvaliacao, setComentarioAvaliacao] = useState("");
+  const [enviando, setEnviando] = useState(false);
+
+  const handleEnviarAvaliacao = async (e) => {
+    e.preventDefault();
+    if (notaAvaliacao === 0) return alert("Por favor, selecione uma nota.");
+
+    setEnviando(true);
+    try {
+      await api.post("/avaliacao/create", {
+        registroId: registroId, // Vincula a avaliação ao "Aperto de Mão Digital"
+        nota: notaAvaliacao,
+        comentario: comentarioAvaliacao,
+      });
+      alert("Avaliação enviada com sucesso!");
+      setShowModal(false);
+      window.location.reload(); // Recarrega para mostrar a nova avaliação
+    } catch (error) {
+      console.error("Erro ao enviar avaliação:", error);
+      // Usa a mensagem de erro da API se disponível, senão uma mensagem padrão.
+      const errorMessage =
+        error.response?.data?.error ||
+        "Erro ao enviar avaliação. Tente novamente.";
+      alert(errorMessage);
+    } finally {
+      setEnviando(false);
+    }
+  };
 
   // Calcula a média das avaliações
   const totalAvaliacoes = avaliacoes_recebidas.length;
@@ -160,6 +205,19 @@ export default function ProfilePublicPrestador({ profissional }) {
         {/* Avaliações */}
         <section className="page-profile_reviews" id="avaliacoes">
           <h3 className="page-profile_reviews-title">Comentários</h3>
+
+          {/* Botão de Avaliar (Só aparece se for elegível) */}
+          {!carregando && podeAvaliar && (
+            <div className="mb-6">
+              <button
+                onClick={() => setShowModal(true)}
+                className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
+              >
+                Avaliar Serviço Realizado
+              </button>
+            </div>
+          )}
+
           {avaliacoes_recebidas.length > 0 ? (
             <div className="page-profile_reviews-container">
               {avaliacoes_recebidas.map((avaliacao) => (
@@ -200,6 +258,63 @@ export default function ProfilePublicPrestador({ profissional }) {
           )}
         </section>
       </div>
+
+      {/* Modal de Avaliação */}
+      {showModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            <h3 className="text-xl font-bold mb-4">Avaliar Serviço</h3>
+            <form onSubmit={handleEnviarAvaliacao}>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2">Sua Nota:</label>
+                <div className="flex space-x-2">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <button
+                      key={star}
+                      type="button"
+                      onClick={() => setNotaAvaliacao(star)}
+                      className={`text-2xl ${
+                        star <= notaAvaliacao
+                          ? "text-yellow-400"
+                          : "text-gray-300"
+                      }`}
+                    >
+                      <FaStar />
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <div className="mb-4">
+                <label className="block text-gray-700 mb-2">Comentário:</label>
+                <textarea
+                  className="w-full border rounded p-2"
+                  rows="4"
+                  value={comentarioAvaliacao}
+                  onChange={(e) => setComentarioAvaliacao(e.target.value)}
+                  placeholder="Conte como foi sua experiência..."
+                  required
+                ></textarea>
+              </div>
+              <div className="flex justify-end space-x-2">
+                <button
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                  className="px-4 py-2 text-gray-600 hover:text-gray-800"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  disabled={enviando}
+                  className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50"
+                >
+                  {enviando ? "Enviando..." : "Enviar Avaliação"}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </main>
   );
 }

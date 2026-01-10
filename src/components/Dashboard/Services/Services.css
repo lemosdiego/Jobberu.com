@@ -20,7 +20,8 @@
 }
 /* SERVIÇOS  */
 .service-list-container {
-  @apply grid;
+  @apply grid 
+        gap-8;
 }
 .service-list_card {
   @apply rounded
@@ -28,6 +29,7 @@
         border-gray-200
         shadow
         grid
+        min-h-52
         [grid-template-columns:1fr_3fr]
         
         max-lg:[grid-template-columns:2fr_3fr];

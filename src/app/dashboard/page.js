@@ -67,7 +67,7 @@ export default function DashboardPage() {
 
         {/* Seção de Ações Rápidas */}
         <section className="page-dashboard_actions">
-          <Link href="/dashboard/servicos" className="dashboard-card">
+          <Link href="/dashboard/services" className="dashboard-card">
             <FaBriefcase className="text-blue-500  page-dashboard_actions-icon" />
             <h2 className=" page-dashboard_actions-title">Meus Serviços</h2>
             <p className=" page-dashboard_actions-description">
@@ -75,7 +75,7 @@ export default function DashboardPage() {
             </p>
           </Link>
 
-          <Link href="/dashboard/configuracoes" className="dashboard-card">
+          <Link href="/dashboard/settings" className="dashboard-card">
             <FaWrench className="text-green-500 page-dashboard_actions-icon" />
             <h2 className="page-dashboard_actions-title">Configurações</h2>
             <p className="page-dashboard_actions-description">

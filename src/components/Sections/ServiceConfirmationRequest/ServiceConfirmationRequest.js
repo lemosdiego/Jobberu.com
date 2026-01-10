@@ -62,6 +62,7 @@ export default function ServiceConfirmationRequest() {
     if (!client) return;
 
     setRequesting(true);
+    setSearchError("");
     try {
       const response = await api.post("/registro-servico/solicitar", {
         clienteId: client.id,
@@ -69,7 +70,10 @@ export default function ServiceConfirmationRequest() {
       setServiceRecord(response.data);
     } catch (error) {
       console.error("Erro ao solicitar confirmação:", error);
-      alert("Erro ao criar solicitação. Tente novamente.");
+      const errorMessage =
+        error.response?.data?.error ||
+        "Erro ao criar solicitação. Tente novamente.";
+      setSearchError(errorMessage);
     } finally {
       setRequesting(false);
     }
@@ -79,7 +83,10 @@ export default function ServiceConfirmationRequest() {
     if (!serviceRecord || !client) return;
 
     const baseUrl = window.location.origin;
-    const confirmationLink = `${baseUrl}/confirmar-servico/${serviceRecord.id}`;
+    const confirmationPath = `/confirmar-servico/${serviceRecord.id}`;
+    const confirmationLink = `${baseUrl}/login?redirect=${encodeURIComponent(
+      confirmationPath
+    )}`;
 
     const message = `Olá ${
       client.nome.split(" ")[0]
