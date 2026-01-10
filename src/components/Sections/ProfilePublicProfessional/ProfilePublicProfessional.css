@@ -204,9 +204,7 @@
         max-lg:mb-3;
 }
 .page-profile_reviews-container {
-  @apply bg-white
-        shadow-2xl
-        p-2
+  @apply p-2
         rounded;
 }
 .page-profile_reviews-item {
@@ -224,7 +222,7 @@
 }
 .page-profile_review-header-content {
   @apply flex
-        flex-col border
+        flex-col 
         justify-center;
 }
 .page-profile_review-header-content-name {

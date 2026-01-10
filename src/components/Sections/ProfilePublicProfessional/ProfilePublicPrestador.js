@@ -58,9 +58,10 @@ export default function ProfilePublicPrestador({ profissional }) {
         nota: notaAvaliacao,
         comentario: comentarioAvaliacao,
       });
-      alert("Avaliação enviada com sucesso!");
+      alert(
+        "Avaliação enviada com sucesso! Seu comentário será publicado após aprovação."
+      );
       setShowModal(false);
-      window.location.reload(); // Recarrega para mostrar a nova avaliação
     } catch (error) {
       console.error("Erro ao enviar avaliação:", error);
       // Usa a mensagem de erro da API se disponível, senão uma mensagem padrão.

@@ -2,7 +2,7 @@
 
 .section-banner {
   @apply w-full 
-        bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1764378183/banner_w3jrr9.png')]
+        bg-[url('https://res.cloudinary.com/dkrpmbjml/image/upload/v1768052801/banner_fwnh9t.jpg')]
         bg-cover
         bg-center
         bg-fixed
@@ -18,16 +18,18 @@
         items-start
         text-left
         
+        
         max-md:w-full
                 
         max-xl:w-[900px];
 }
 .section-banner__overlay {
   @apply p-32
-        bg-black/30 
+        bg-black/40 
         flex 
         items-center 
         justify-center
+        min-h-[550px]
 
         max-sm:p-7
         
