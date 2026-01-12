@@ -2,31 +2,16 @@ import { useState, useEffect } from "react";
 import { IoArrowBack } from "react-icons/io5";
 import Image from "next/image";
 
-const categories = [
-  "Jardinagem",
-  "Manicure e Pedicure",
-  "Barbeiro",
-  "Limpeza Residencial",
-  "Eletricista",
-  "Encanador",
-  "Pintor",
-  "Montagem de Móveis",
-  "Personal Trainer",
-  "Manutenção de Piscinas",
-  "Aulas Particulares",
-  "Motorista",
-  "Frete",
-  "Obras",
-  "Cabeleireira",
-  "Dedetização",
-  "Chaveiro",
-];
-
-export default function ServiceForm({ service, onSave, onCancel }) {
+export default function ServiceForm({
+  service,
+  onSave,
+  onCancel,
+  currentUser,
+}) {
   const [formData, setFormData] = useState({
     titulo: "",
     descricao: "",
-    categoria: "",
+    categoria: currentUser?.titulo_profissional || "",
     preco: "",
     imagens: [],
     imagens_a_remover: [], // Novo campo para rastrear exclusões
@@ -43,20 +28,27 @@ export default function ServiceForm({ service, onSave, onCancel }) {
       setFormData({
         titulo: service.titulo || "",
         descricao: service.descricao || "",
-        categoria: service.categoria || "",
+        categoria: service.categoria || currentUser?.titulo_profissional || "",
         preco: service.preco || "",
         imagens: [], // O usuário pode adicionar novas imagens
         imagens_a_remover: [],
       });
       // Armazena as imagens atuais para exibição
       setCurrentImages(service.imagens || []);
+    } else {
+      // Se for um novo serviço, garante que a categoria seja a profissão do usuário
+      setFormData((prev) => ({
+        ...prev,
+        categoria: currentUser?.titulo_profissional || "",
+      }));
+      setCurrentImages([]);
     }
 
     // Cleanup para revogar as URLs de objeto e evitar memory leaks
     return () => {
       newImagePreviews.forEach((url) => URL.revokeObjectURL(url));
     };
-  }, [service]);
+  }, [service, currentUser]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -160,23 +152,14 @@ export default function ServiceForm({ service, onSave, onCancel }) {
             >
               Categoria
             </label>
-            <select
+            <input
+              type="text"
               name="categoria"
               id="categoria"
               value={formData.categoria}
-              onChange={handleInputChange}
-              required
-              className=" form-service_form-box_inputs-input"
-            >
-              <option value="" disabled>
-                Selecione uma categoria
-              </option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>
-                  {cat}
-                </option>
-              ))}
-            </select>
+              readOnly
+              className="form-service_form-box_inputs-input bg-gray-100 cursor-not-allowed text-gray-600"
+            />
           </div>
         </div>
 

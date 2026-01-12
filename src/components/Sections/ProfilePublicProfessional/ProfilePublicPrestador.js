@@ -31,6 +31,11 @@ export default function ProfilePublicPrestador({ profissional }) {
     avaliacoes_recebidas,
   } = profissional;
 
+  // Filtra para mostrar apenas avaliações que foram aprovadas
+  const avaliacoesAprovadas = avaliacoes_recebidas.filter(
+    (avaliacao) => avaliacao.aprovada
+  );
+
   const fotoPerfil = foto_perfil_url || "/default-avatar.png";
   const whatsappLink = telefone
     ? `https://wa.me/55${telefone.replace(/\D/g, "")}`
@@ -74,9 +79,9 @@ export default function ProfilePublicPrestador({ profissional }) {
     }
   };
 
-  // Calcula a média das avaliações
-  const totalAvaliacoes = avaliacoes_recebidas.length;
-  const somaNotas = avaliacoes_recebidas.reduce((acc, av) => acc + av.nota, 0);
+  // Calcula a média das avaliações com base nas aprovadas
+  const totalAvaliacoes = avaliacoesAprovadas.length;
+  const somaNotas = avaliacoesAprovadas.reduce((acc, av) => acc + av.nota, 0);
   // O componente StarRating espera 'soma' e 'total', não 'media'
 
   return (
@@ -219,9 +224,9 @@ export default function ProfilePublicPrestador({ profissional }) {
             </div>
           )}
 
-          {avaliacoes_recebidas.length > 0 ? (
+          {avaliacoesAprovadas.length > 0 ? (
             <div className="page-profile_reviews-container">
-              {avaliacoes_recebidas.map((avaliacao) => (
+              {avaliacoesAprovadas.map((avaliacao) => (
                 <div key={avaliacao.id} className="page-profile_reviews-item">
                   <div className="page-profile_reviews-item-header">
                     <div className="page-profile_review-item-header-image">

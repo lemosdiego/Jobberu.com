@@ -175,6 +175,7 @@ export default function ServicosPage() {
     return (
       <ServiceForm
         service={currentService}
+        currentUser={user}
         onSave={handleSaveService}
         onCancel={handleBackToList}
       />

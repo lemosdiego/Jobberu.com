@@ -83,7 +83,7 @@ export default function ServiceConfirmationRequest() {
     if (!serviceRecord || !client) return;
 
     const baseUrl = window.location.origin;
-    const confirmationPath = `/confirmar-servico/${serviceRecord.id}`;
+    const confirmationPath = `/confirm-service/${serviceRecord.id}`;
     const confirmationLink = `${baseUrl}/login?redirect=${encodeURIComponent(
       confirmationPath
     )}`;
