@@ -36,7 +36,7 @@ export function useLogin() {
     setLoading(true);
 
     try {
-      const response = await api.post("/usuario/login", formData);
+      const response = await api.post("/auth/login", formData);
       const { token, usuario } = response.data;
 
       // Usa a função do nosso AuthContext para gerenciar o estado
