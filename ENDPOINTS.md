@@ -36,7 +36,7 @@ Endpoints marcados com `🔒` requerem um Token de Autenticação.
 
 ---
 
-#### `POST /usuario/login`
+#### `POST /auth/login`
 
 - **Cenário de Uso:** Quando um usuário retorna à plataforma e precisa acessar sua conta para ver seu dashboard ou interagir com outros usuários.
 - **Corpo (JSON):** `{ "email": "seu-email@email.com", "senha": "sua-senha" }`

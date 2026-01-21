@@ -23,6 +23,7 @@ const profissoes = [
   "Cabeleireiro(a)",
   "Dedetizador(a)",
   "Chaveiro(a)",
+  "Programador(a) Web",
 ];
 
 export default function FormRegisterPrestador() {

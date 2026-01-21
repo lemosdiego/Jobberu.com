@@ -33,6 +33,7 @@ export function useProfessionalSearch() {
     "Cabeleireiro(a)",
     "Dedetizador(a)",
     "Chaveiro(a)",
+    "Programador(a) Web",
   ];
 
   // Busca prestadores pela API
@@ -56,7 +57,7 @@ export function useProfessionalSearch() {
             params: {
               categoria: categoriaParam || undefined,
             },
-          }
+          },
         );
 
         setPrestadores(response.data.prestadores || []);
@@ -67,7 +68,7 @@ export function useProfessionalSearch() {
         setLoading(false);
       }
     },
-    []
+    [],
   );
 
   const handleBuscarCidade = () => {
@@ -133,7 +134,7 @@ export function useProfessionalSearch() {
     if (isClient) {
       localStorage.setItem(
         "professionalSearchState",
-        JSON.stringify(stateToSave)
+        JSON.stringify(stateToSave),
       );
     }
   }, [cidadeBuscada, categoriaSelecionada, prestadores, jaBuscou, isClient]);
