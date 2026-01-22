@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+.searchBox_container {
+  @apply grid
+        gap-4
+        mt-8
+        w-[900px]
+
+        max-md:w-[90%]
+        
+        max-lg:w-[500px]
+        
+        max-xl:w-[700px];
+}
+
+.searchBox_dropdown-category {
+  @apply relative;
+}
+
+.searchBox_dropdown-category-button {
+  @apply border
+        border-gray-400
+        w-full
+        p-3
+        flex
+        justify-between
+        rounded
+        shadow
+        text-sm
+        text-white
+        font-medium
+        cursor-pointer;
+}
+
+.searchBox_dropdown-category-list {
+  @apply absolute
+        bg-white 
+        w-full
+        p-4
+        grid
+        gap-4
+        z-40
+        h-96
+        overflow-y-auto
+        shadow-2xl;
+}
+
+.searchBox_city-container {
+  @apply relative;
+}
+.searchBox_city-input {
+  @apply border
+        border-gray-400
+        w-full
+        p-3
+        outline-none
+        rounded
+        shadow
+        text-sm
+        text-white
+        font-medium;
+}
+.searchBox_city-button {
+  @apply absolute
+        right-2
+        bottom-1/2
+        translate-y-1/2
+        text-blue-700
+        cursor-pointer;
+}
+.searchBox_filters-container {
+  @apply grid
+        grid-cols-5
+        gap-2
+        
+        max-sm:grid-cols-3
+        
+        max-md:grid-cols-4
+        
+        max-lg:grid-cols-4;
+}
+.searchBox_filters-button {
+  @apply p-2
+        rounded
+        shadow
+        text-sm
+        cursor-pointer;
+}

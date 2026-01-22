@@ -1,0 +1,33 @@
+@import "tailwindcss";
+.section_hero {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop");
+  @apply bg-cover
+        bg-center
+        bg-no-repeat 
+        w-full
+        p-32
+        pl-64        
+        max-sm:p-8
+
+        max-md:p-10
+        
+        max-lg:p-20
+        max-lg:pl-32
+        
+        max-xl:p-24
+        max-xl:pl-44;
+}
+.section_hero h1 span {
+  font-family: "Stack Sans Notch", sans-serif;
+  @apply text-blue-400;
+}
+.section_hero h1 {
+  @apply text-7xl
+
+        max-md:text-5xl
+
+        max-lg:text-6xl
+        text-white;
+}
