@@ -13,7 +13,7 @@ export default function BuscarPrestadoresPorCidade({
   mensagemNenhumResultado,
 }) {
   return (
-    <section className="section-professional border-none shadow-none mt-0">
+    <section className="section-professional">
       {erro && <p className="text-red-500 text-center mt-4">{erro}</p>}
 
       {/* Mensagens de nenhum resultado */}
@@ -49,9 +49,11 @@ export default function BuscarPrestadoresPorCidade({
               key={index}
               className={`section-professional_default-item ${item.bg}`}
             >
-              <item.icon
-                className={`section-professional_default-icon ${item.iconColor}`}
-              />
+              <div className="section-professional_default-icon-container">
+                <item.icon
+                  className={`section-professional_default-icon ${item.iconColor}`}
+                />
+              </div>
               <h3 className="section-professional_default-title">
                 {item.title}
               </h3>

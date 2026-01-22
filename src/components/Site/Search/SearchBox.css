@@ -23,13 +23,18 @@
         w-full
         p-3
         flex
+        items-center
         justify-between
+        outline-none
         rounded
         shadow
         text-sm
         text-white
         font-medium
-        cursor-pointer;
+        cursor-pointer
+        text-left
+
+        max-sm:min-h-16;
 }
 
 .searchBox_dropdown-category-list {
@@ -58,7 +63,9 @@
         shadow
         text-sm
         text-white
-        font-medium;
+        font-medium
+        
+        max-sm:min-h-16;
 }
 .searchBox_city-button {
   @apply absolute
@@ -84,5 +91,8 @@
         rounded
         shadow
         text-sm
-        cursor-pointer;
+        cursor-pointer
+        
+        max-sm:text-[10px]
+        max-sm:min-h-11;
 }
