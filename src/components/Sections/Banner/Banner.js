@@ -1,7 +1,6 @@
-import Image from "next/image";
 import "./Banner.css";
 
-export default function Banner({ title, description }) {
+export default function Banner({ title, description, searchState }) {
   return (
     <section className="section-banner">
       <div className="section-banner__overlay">
