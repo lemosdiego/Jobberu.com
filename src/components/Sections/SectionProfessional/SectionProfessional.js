@@ -3,6 +3,7 @@
 import ProfessionalCard from "@/components/Site/ProfessionalCard/ProfessionalCard";
 import "./SectionProfessional.css";
 import instruction from "@/data/instruction";
+import Title from "@/components/Site/Title/Title";
 
 export default function BuscarPrestadoresPorCidade({
   prestadores,
@@ -14,7 +15,7 @@ export default function BuscarPrestadoresPorCidade({
 }) {
   return (
     <section className="section-professional">
-      {erro && <p className="text-red-500 text-center mt-4">{erro}</p>}
+      {erro && <p className=" section-professional-error">{erro}</p>}
 
       {/* Mensagens de nenhum resultado */}
       {isClient && mensagemNenhumResultado && mensagemNenhumResultado() && (
@@ -31,13 +32,16 @@ export default function BuscarPrestadoresPorCidade({
 
       {/* Lista de profissionais */}
       {isClient && prestadores && prestadores.length > 0 && (
-        <div className="section-professional_container-card">
-          {prestadores.map((profissional) => (
-            <ProfessionalCard
-              key={profissional.id}
-              profissional={profissional}
-            />
-          ))}
+        <div className="section-professional_container-list">
+          <Title>Os melhores profissionais perto de você</Title>
+          <div className="section-professional-container-card">
+            {prestadores.map((profissional) => (
+              <ProfessionalCard
+                key={profissional.id}
+                profissional={profissional}
+              />
+            ))}
+          </div>
         </div>
       )}
 

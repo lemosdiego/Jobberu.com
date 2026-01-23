@@ -9,12 +9,12 @@ import {
   FaStar,
 } from "react-icons/fa";
 import { FaLink } from "react-icons/fa6";
-import StarRating from "@/components/Sections/SectionProfessional/StarRating"; // Importa o componente StarRating compartilhado
 import "./ProfilePublicProfessional.css";
 import Link from "next/link";
-import ProviderLevelBadge from "../SectionProfessional/ProviderLevelBadge";
 import useAssessment from "@/hooks/userAssessment";
 import api from "@/services/api";
+import StarRating from "@/components/Site/StarRating/StarRating";
+import ProviderLevelBadge from "@/components/Site/ProviderLevelBadge/ProviderLevelBadge";
 
 export default function ProfilePublicPrestador({ profissional }) {
   const {
@@ -33,7 +33,7 @@ export default function ProfilePublicPrestador({ profissional }) {
 
   // Filtra para mostrar apenas avaliações que foram aprovadas
   const avaliacoesAprovadas = avaliacoes_recebidas.filter(
-    (avaliacao) => avaliacao.aprovada
+    (avaliacao) => avaliacao.aprovada,
   );
 
   const fotoPerfil = foto_perfil_url || "/default-avatar.png";
@@ -43,7 +43,7 @@ export default function ProfilePublicPrestador({ profissional }) {
 
   // Hook para verificar se o usuário logado pode avaliar este prestador
   const { podeAvaliar, registroId, carregando } = useAssessment(
-    profissional.id
+    profissional.id,
   );
 
   // Estados do Modal de Avaliação
@@ -64,7 +64,7 @@ export default function ProfilePublicPrestador({ profissional }) {
         comentario: comentarioAvaliacao,
       });
       alert(
-        "Avaliação enviada com sucesso! Seu comentário será publicado após aprovação."
+        "Avaliação enviada com sucesso! Seu comentário será publicado após aprovação.",
       );
       setShowModal(false);
     } catch (error) {

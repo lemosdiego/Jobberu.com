@@ -53,11 +53,7 @@ export default function SearchBox({ searchState }) {
           className="searchBox_dropdown-category-button"
           onClick={() => setDropdownOpen((prev) => !prev)}
         >
-          <span
-            className={
-              !categoriaSelecionada ? "text-gray-500" : "text-gray-800"
-            }
-          >
+          <span className={!categoriaSelecionada ? "text-white" : "text-white"}>
             {categoriaSelecionada || "Selecione uma categoria (opcional)"}
           </span>
           <IoIosArrowDown size={25} />

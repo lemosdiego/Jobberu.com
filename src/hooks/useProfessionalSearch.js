@@ -193,8 +193,9 @@ export function useProfessionalSearch() {
     if (cidadeBuscada && categoriaSelecionada) {
       return (
         <>
-          Desculpe, não achamos profissionais de {categoriaSelecionada}
-          na sua cidade &quot;<span>{cidadeBuscada}</span>&quot;.
+          Desculpe, não achamos profissionais de &quot;
+          <span>{categoriaSelecionada}</span>&quot; na cidade de &quot;
+          <span>{cidadeBuscada}</span>&quot;.
         </>
       );
     }

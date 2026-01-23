@@ -1,8 +1,7 @@
 @import "tailwindcss";
 
 .professional-card {
-  @apply bg-white border-2
-        rounded-2xl 
+  @apply bg-white 
         shadow-sm 
         overflow-hidden 
         flex 
@@ -10,12 +9,12 @@
         transition-all 
         duration-300 
         hover:shadow-xl 
-        hover:-translate-y-1 
+        rounded
         h-full;
 }
 .professional-card_image-container {
   @apply relative 
-        h-40 
+        h-52
         w-full 
         bg-gray-100;
 }
@@ -31,13 +30,13 @@
         items-center 
         gap-3 
         mb-2 
-        -mt-12 
+        -mt-10 
         pointer-events-none;
 }
 .professional-card_content-header-image {
   @apply relative 
-        h-24 
-        w-24 
+        h-20 
+        w-20 
         rounded-full 
         border-4 
         border-white 
@@ -52,19 +51,18 @@
 }
 .professional-card_content-header-name {
   @apply font-bold 
-        text-lg 
+        text-xl
         text-gray-900 
         leading-tight;
 }
 .professional-card_content-container-header-name {
-  @apply flex 
+  @apply flex
         items-center 
         gap-1 
         pointer-events-auto;
 }
 .professional-card_content-header-title {
-  @apply text-xs 
-        text-gray-500 
+  @apply text-gray-500 
         font-medium 
         line-clamp-1 
         pointer-events-auto;
@@ -75,19 +73,21 @@
         mb-1;
 }
 .professional-card_content-location {
-  @apply text-xs 
-        text-gray-400 
+  @apply text-gray-400 
         mb-3 
         flex 
         items-center 
         gap-1;
 }
 .professional-card_content-bio {
-  @apply text-sm 
-        text-gray-600 
+  @apply text-gray-600 
         mb-6 
         line-clamp-3 
-        flex-grow;
+        flex-grow
+        
+        hover:text-gray-300 
+        transition-colors 
+        duration-200;
 }
 .professional-card_footer {
   @apply mt-auto 
@@ -100,19 +100,17 @@
         gap-2;
 }
 .professional-card_content-footer-price-text {
-  @apply text-sm 
-        font-bold 
-        text-gray-900;
+  @apply font-black
+        text-blue-800;
 }
 .professional-card_content-footer-button {
-  @apply bg-green-600 
+  @apply bg-green-500 
         text-white 
         text-xs 
-        font-bold 
-        py-2 
-        px-4 
-        rounded-lg 
-        hover:bg-green-700 
+        font-bold
+        p-2 
+        rounded
+        hover:bg-green-300 
         transition-colors 
         duration-200 
         disabled:bg-gray-300 disabled:cursor-not-allowed 

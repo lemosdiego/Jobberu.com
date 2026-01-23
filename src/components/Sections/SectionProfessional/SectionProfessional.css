@@ -13,7 +13,12 @@
         
         max-xl:p-9;
 }
-/* TELA DEFAULT, VISTA INICIALMENTE PELO USUARIO */
+.section-professional-error {
+  @apply text-red-500 
+        text-center 
+        mt-4;
+}
+/* TELA INICIAL */
 .section-professional_default {
   @apply grid
         grid-cols-3
@@ -69,7 +74,7 @@
 
         max-md:text-2xl;
 }
-/* TELA DE ERRO AO BUSCAR USUARIO */
+/* MENSAGEM DE NENHUM RESULTADO */
 .section-professional-message {
   @apply w-[65vw]
         grid
@@ -87,7 +92,8 @@
         max-lg:text-2xl;
 }
 .section-professional-message-title span {
-  @apply italic
+  @apply uppercase 
+        italic
         font-bold
         text-green-600;
 }
@@ -98,4 +104,27 @@
         text-2xl
         
         max-lg:text-xl;
+}
+/* LISTA DE PROFISSIONAIS */
+.section-professional_container-list {
+  @apply w-[75vw]
+        
+        
+        
+
+        max-md:w-full
+        
+        max-lg:w-[95vw]
+       
+        
+        max-xl:w-[90vw];
+}
+.section-professional-container-card {
+  @apply grid
+        grid-cols-3
+        gap-3
+
+        max-sm:grid-cols-1
+
+         max-lg:grid-cols-2;
 }

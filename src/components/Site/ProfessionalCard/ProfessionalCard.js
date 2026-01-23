@@ -2,8 +2,8 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
 import "./ProfessionalCard.css";
-import StarRating from "../StarRating/StarRating";
 import ProviderLevelBadge from "../ProviderLevelBadge/ProviderLevelBadge";
+import StarRating from "../StarRating/StarRating";
 
 const slugify = (text) => {
   return text
@@ -97,7 +97,13 @@ const ProfessionalCard = ({ profissional }) => {
         <p className=" professional-card_content-location">
           {cidade} - {estado}
         </p>
-        <p className="professional-card_content-bio">{biografia}</p>
+        <p
+          className="professional-card_content-bio"
+          onClick={handleViewProfile}
+          style={{ cursor: "pointer" }}
+        >
+          {biografia}
+        </p>
         <div className="professional-card_footer">
           <p className="professional-card_content-footer-price-text">
             {precoFormatado}
