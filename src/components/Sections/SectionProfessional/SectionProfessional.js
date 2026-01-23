@@ -1,6 +1,6 @@
 "use client";
 
-import ProfessionalCard from "./ProfessionalCard";
+import ProfessionalCard from "@/components/Site/ProfessionalCard/ProfessionalCard";
 import "./SectionProfessional.css";
 import instruction from "@/data/instruction";
 

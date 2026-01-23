@@ -1,10 +1,9 @@
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useAuth } from "@/context/AuthContext";
-
-import StarRating from "./StarRating";
 import "./ProfessionalCard.css";
-import ProviderLevelBadge from "./ProviderLevelBadge";
+import StarRating from "../StarRating/StarRating";
+import ProviderLevelBadge from "../ProviderLevelBadge/ProviderLevelBadge";
 
 const slugify = (text) => {
   return text
