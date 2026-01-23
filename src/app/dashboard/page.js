@@ -7,7 +7,7 @@ import { useEffect } from "react";
 import { FaWrench, FaBriefcase, FaUser, FaLightbulb } from "react-icons/fa";
 import "./dashboard.css";
 import ServiceConfirmationRequest from "@/components/Sections/ServiceConfirmationRequest/ServiceConfirmationRequest";
-import ProviderLevelBadge from "@/components/Sections/SectionProfessional/ProviderLevelBadge";
+import ProviderLevelBadge from "@/components/Site/ProviderLevelBadge/ProviderLevelBadge";
 
 // Helper para criar um slug a partir do nome do usuário
 const slugify = (text) => {

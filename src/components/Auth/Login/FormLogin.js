@@ -50,6 +50,9 @@ export default function FormLogin() {
       </button>
 
       <div className="form-login_register">
+        <Link href="/forgot-my-password" className="form-login_register_link">
+          Esqueci minha senha?
+        </Link>
         <p className="form-login_register_text">
           Não tem uma conta? Cadastre-se como
         </p>
