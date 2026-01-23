@@ -1,4 +1,6 @@
 @import "tailwindcss";
+
+/* ESTILOS GERAIS DA SEÇÃO */
 .section-professional {
   @apply w-full
         grid
@@ -66,4 +68,34 @@
         text-3xl
 
         max-md:text-2xl;
+}
+/* TELA DE ERRO AO BUSCAR USUARIO */
+.section-professional-message {
+  @apply w-[65vw]
+        grid
+        gap-3
+        
+        max-md:w-full
+        
+        max-lg:w-[85vw]
+        
+        max-xl:w-[80vw];
+}
+.section-professional-message-title {
+  @apply text-3xl
+  
+        max-lg:text-2xl;
+}
+.section-professional-message-title span {
+  @apply italic
+        font-bold
+        text-green-600;
+}
+.section-professional-message-text {
+  @apply italic
+        font-bold
+        text-blue-700
+        text-2xl
+        
+        max-lg:text-xl;
 }

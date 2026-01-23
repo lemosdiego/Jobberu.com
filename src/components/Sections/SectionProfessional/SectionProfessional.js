@@ -18,7 +18,7 @@ export default function BuscarPrestadoresPorCidade({
 
       {/* Mensagens de nenhum resultado */}
       {isClient && mensagemNenhumResultado && mensagemNenhumResultado() && (
-        <div className="section-professional-message text-center">
+        <div className="section-professional-message">
           <h3 className="section-professional-message-title">
             {mensagemNenhumResultado()}
           </h3>

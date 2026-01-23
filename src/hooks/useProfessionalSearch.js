@@ -182,11 +182,21 @@ export function useProfessionalSearch() {
     if (prestadores.length > 0) return null;
 
     if (cidadeBuscada && !categoriaSelecionada) {
-      return `Desculpe, não encontramos profissionais disponíveis na cidade ${cidadeBuscada}.`;
+      return (
+        <>
+          Desculpe, não encontramos profissionais disponíveis na cidade &quot;
+          <span>{cidadeBuscada}</span>&quot;.
+        </>
+      );
     }
 
     if (cidadeBuscada && categoriaSelecionada) {
-      return `Desculpe, não achamos profissionais de ${categoriaSelecionada} na sua cidade ${cidadeBuscada}.`;
+      return (
+        <>
+          Desculpe, não achamos profissionais de {categoriaSelecionada}
+          na sua cidade &quot;<span>{cidadeBuscada}</span>&quot;.
+        </>
+      );
     }
 
     return null;
