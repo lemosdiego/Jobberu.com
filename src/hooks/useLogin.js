@@ -36,7 +36,12 @@ export function useLogin() {
     setLoading(true);
 
     try {
-      const response = await api.post("/auth/login", formData);
+      // Filtra campos vazios para não enviar dados desnecessários (ex: telefone vazio ao logar com email)
+      const payload = Object.fromEntries(
+        Object.entries(formData).filter(([_, value]) => value !== ""),
+      );
+
+      const response = await api.post("/auth/login", payload);
       const { token, usuario } = response.data;
 
       // Usa a função do nosso AuthContext para gerenciar o estado
@@ -53,7 +58,7 @@ export function useLogin() {
     } catch (err) {
       console.error("Erro no login", err);
       setError(
-        err.response?.data?.message || "Ocorreu um erro durante o login."
+        err.response?.data?.message || "Ocorreu um erro durante o login.",
       );
     } finally {
       setLoading(false);

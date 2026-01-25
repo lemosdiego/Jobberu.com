@@ -52,7 +52,7 @@ export function useProfessionalSearch() {
         setJaBuscou(true);
 
         const response = await api.get(
-          `/usuario/prestadores/cidade/${cidadeParam}`,
+          `/usuario/prestadores/cidade/${encodeURIComponent(cidadeParam)}`,
           {
             params: {
               categoria: categoriaParam || undefined,
@@ -63,7 +63,11 @@ export function useProfessionalSearch() {
         setPrestadores(response.data.prestadores || []);
       } catch (error) {
         console.error(error);
-        setErro("Erro ao buscar prestadores.");
+        setErro(
+          error.response?.data?.message ||
+            error.message ||
+            "Erro ao buscar prestadores.",
+        );
       } finally {
         setLoading(false);
       }
